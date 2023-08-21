@@ -25,7 +25,7 @@ public class Utility_RR {
 	}
 	
 	public String DataRunScript(int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
-		FileInputStream run_script = new FileInputStream("target/Run_Script.xlsx");	
+		FileInputStream run_script = new FileInputStream("excel/Run_Script.xlsx");	
 		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet("Sheet1");	
 		String value = Mysheet.getRow(rowIndex).getCell(columnIndex).getStringCellValue();
 		return value;
