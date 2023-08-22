@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pack1.NewTest1">
+      <class name="appriciate_flow.appriatiate_flow">
         <methods>
-          <include name="f"/>
+          <include name="AppriateFlowSingle"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- pack1.NewTest1 -->
+      </class> <!-- appriciate_flow.appriatiate_flow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
