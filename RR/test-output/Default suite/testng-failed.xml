@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="appriciate_flow.appriatiate_flow">
+      <class name="genericFlow.SocialFeedDelete">
         <methods>
-          <include name="AppriateFlowSingle"/>
-          <include name="beforeClass"/>
+          <include name="feedDelete"/>
         </methods>
-      </class> <!-- appriciate_flow.appriatiate_flow -->
+      </class> <!-- genericFlow.SocialFeedDelete -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
