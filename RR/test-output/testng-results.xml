@@ -1,69 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[3363766 : NewsFeed Deleted]]>
+    </line>
   </reporter-output>
-  <suite started-at="2023-08-22T17:24:37 IST" name="Suite" finished-at="2023-08-22T17:25:42 IST" duration-ms="64532">
+  <suite started-at="2023-08-28T16:43:22 IST" name="Suite" finished-at="2023-08-28T16:43:54 IST" duration-ms="31948">
     <groups>
     </groups>
-    <test started-at="2023-08-22T17:24:37 IST" name="Appriciate_Test" finished-at="2023-08-22T17:25:11 IST" duration-ms="33357">
-      <class name="appriciate_flow.appriatiate_flow">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:appriciate_flow.appriatiate_flow@7b9a4292]" started-at="2023-08-22T17:24:37 IST" name="beforeClass" finished-at="2023-08-22T17:24:56 IST" duration-ms="18735" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2023-08-28T16:43:22 IST" name="FeedDelete" finished-at="2023-08-28T16:43:54 IST" duration-ms="31948">
+      <class name="genericFlow.SocialFeedDelete">
+        <test-method is-config="true" signature="FeedDelete_before_class()[pri:0, instance:genericFlow.SocialFeedDelete@294425a7]" started-at="2023-08-28T16:43:22 IST" name="FeedDelete_before_class" finished-at="2023-08-28T16:43:45 IST" duration-ms="22989" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method signature="AppriateFlowSingle(java.lang.String)[pri:1, instance:appriciate_flow.appriatiate_flow@7b9a4292]" started-at="2023-08-22T17:24:56 IST" name="AppriateFlowSingle" finished-at="2023-08-22T17:25:10 IST" duration-ms="14424" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- FeedDelete_before_class -->
+        <test-method signature="feedDelete()[pri:0, instance:genericFlow.SocialFeedDelete@294425a7]" started-at="2023-08-28T16:43:45 IST" name="feedDelete" finished-at="2023-08-28T16:43:54 IST" duration-ms="8709" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[3363766 : NewsFeed Deleted]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- feedDelete -->
+        <test-method is-config="true" signature="FeedDelete_after_class()[pri:0, instance:genericFlow.SocialFeedDelete@294425a7]" started-at="2023-08-28T16:43:54 IST" name="FeedDelete_after_class" finished-at="2023-08-28T16:43:54 IST" duration-ms="216" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AppriateFlowSingle -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:appriciate_flow.appriatiate_flow@7b9a4292]" started-at="2023-08-22T17:25:10 IST" name="afterClass" finished-at="2023-08-22T17:25:11 IST" duration-ms="166" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- appriciate_flow.appriatiate_flow -->
-    </test> <!-- Appriciate_Test -->
-    <test started-at="2023-08-22T17:25:11 IST" name="Appriciate_Test1" finished-at="2023-08-22T17:25:42 IST" duration-ms="31133">
-      <class name="appriciate_flow.appriatiate_flow">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:appriciate_flow.appriatiate_flow@1b7cc17c]" started-at="2023-08-22T17:25:11 IST" name="beforeClass" finished-at="2023-08-22T17:25:28 IST" duration-ms="17008" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C1227]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method signature="AppriateFlowSingle(java.lang.String)[pri:1, instance:appriciate_flow.appriatiate_flow@1b7cc17c]" started-at="2023-08-22T17:25:28 IST" name="AppriateFlowSingle" finished-at="2023-08-22T17:25:42 IST" duration-ms="13983" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C1227]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AppriateFlowSingle -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:appriciate_flow.appriatiate_flow@1b7cc17c]" started-at="2023-08-22T17:25:42 IST" name="afterClass" finished-at="2023-08-22T17:25:42 IST" duration-ms="142" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- appriciate_flow.appriatiate_flow -->
-    </test> <!-- Appriciate_Test1 -->
+        </test-method> <!-- FeedDelete_after_class -->
+      </class> <!-- genericFlow.SocialFeedDelete -->
+    </test> <!-- FeedDelete -->
   </suite> <!-- Suite -->
 </testng-results>
