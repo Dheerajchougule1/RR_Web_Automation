@@ -41,18 +41,19 @@ public class appriatiate_flow_team extends Utility_RR {
 	private String app_award_name_any;
 	private Double countTeam;
 	private int emp_name_column;
+	private String upperClick;
 
 	
   @Parameters("corpID")
   @BeforeClass
-  public void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
+  private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 	 
-	  startBrowser(DataRunScript(2, 1));
-	  login(DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
+	  startBrowser(DataRunScript(2, 1));	
+	  login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
   }
   
   @BeforeMethod
-  public void afterMethod_Appriciate() throws EncryptedDocumentException, IOException {
+  private void before_Method_Appriciate() throws EncryptedDocumentException, IOException {
 		  importWait();
 		   //driver.findElement(By.xpath("//li[@class='floatRight'][1]")).click();
 		  driver.get(DataRunScript(2, 1));
@@ -61,10 +62,17 @@ public class appriatiate_flow_team extends Utility_RR {
 		
   @Parameters("corpID")
   @Test (priority=1,enabled = true)
-  public void AppriateFlowTeam(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+  private void AppriateFlowTeam(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  Thread.sleep(3000);
-	  driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
-	  Thread.sleep(3000);
+	  
+	  if(corpID.contains("C1151")) {
+	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
+	  	 }
+	  	 else {
+	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	 }
+	  
+	  Thread.sleep(4000);
 	  countTeam = DataAppriciateFlowNum(corpID, 7, 2);
 	  emp_name_column = 2;
 	  
@@ -120,13 +128,13 @@ public class appriatiate_flow_team extends Utility_RR {
   
   @Parameters("corpID")
   @Test (priority=2, dependsOnMethods = "AppriateFlowTeam", enabled = true)
-  public void SocialFeedIDGet_team(String corpID) throws InterruptedException, IOException {
+  private void SocialFeedIDGet_team(String corpID) throws InterruptedException, IOException {
 	  		Double i;
 	  
 	  		Thread.sleep(4000);
 	  		
-	  		driver.findElement(By.xpath("//input[@value='Team Buzz']")).click();
-	  		Thread.sleep(3000);
+//	  		driver.findElement(By.xpath("//input[@value='Team Buzz']")).click();
+//	  		Thread.sleep(3000);
 	  		
 	  		int feedCount = 1;
 	  		for(i = countTeam; i>0;i--) {
@@ -198,8 +206,8 @@ public class appriatiate_flow_team extends Utility_RR {
   
   @Parameters("corpID")
   @Test (priority=3,enabled = true)
-  public void LikePositive_team(String corpID) throws InterruptedException, IOException {
-	  		
+  private void LikePositive_team(String corpID) throws InterruptedException, IOException {
+	  		if(DataAppriciateFlow(corpID, 37, 1).contains("YES")) {
 	  		ScrollIntoView(newsFeedId);
 	  		//driver.findElement(By.xpath(corpID))
 	  		driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//span[text()='Like']")).click();
@@ -207,13 +215,20 @@ public class appriatiate_flow_team extends Utility_RR {
 	  		sa= new SoftAssert();
 	  		
 	  		sa.assertEquals(likeCount,"1 Like", "Like Count is not equal to 1 like");
-	  		sa.assertAll();	  
+	  		sa.assertAll();	
+	  		upperClick = "//div[@class='item active']";
+	  		ScrollIntoView_by_webelement(upperClick);
+	  		}
+	  		
+	  		else {
+	  			Reporter.log("Like functionality is not available");
+	  		}
   }
   
   @Parameters("corpID")
   @Test (priority=4,enabled = true)
-  public void CommentPositiveNegative_team(String corpID) throws InterruptedException, IOException {
-	  	
+  private void CommentPositiveNegative_team(String corpID) throws InterruptedException, IOException {
+	  		if(DataAppriciateFlow(corpID, 42, 1).contains("YES")) {
 		  	ScrollIntoView(newsFeedId);
 			driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//span[text()='Comment']")).click();
 			
@@ -224,9 +239,9 @@ public class appriatiate_flow_team extends Utility_RR {
 			//Verify Like
 			
 	  		sa= new SoftAssert();
-	  		
+	  		if(DataAppriciateFlow(corpID, 37, 1).contains("YES")) {
 	  		sa.assertEquals(likeCount,"1 Like", "Like Count is not equal to 1 like");
-			
+	  		}
 	  		act = new Actions(driver);
 			act.sendKeys(Keys.chord(Keys.PAGE_UP)).build().perform();
 			act.sendKeys(Keys.chord(Keys.PAGE_UP)).build().perform();
@@ -239,34 +254,43 @@ public class appriatiate_flow_team extends Utility_RR {
 			String CommentCount = driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//span[text()='1 Comment']")).getText();
 			
 			sa.assertEquals(CommentCount,"1 Comment", "Comment Count is not equal to 1 Comment");
-			sa.assertAll();	  
+			sa.assertAll();	
+			ScrollIntoView_by_webelement(upperClick);
+	  		}
+	  		else {
+	  			Reporter.log("Comment functionality is not available");
+	  		}
 	  
   }
   @Parameters("corpID")
   @Test (priority=5, enabled = true)
-  public void Appriate_emp_mail_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+  private void Appriate_emp_mail_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	sa= new SoftAssert();
+	  	if(DataAppriciateFlow(corpID, 48, 1).contains("YES")) {
 	  
-	  try {
 	  	Thread.sleep(5000);
-		driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
-		Thread.sleep(3000);
+	  	if(corpID.contains("C1151")) {
+	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
+	  	 }
+	  	 else {
+	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	 }
+		Thread.sleep(4000);
 		
 		//without mail submit 1
+	
 		driver.findElement(By.xpath("//input[@value='Submit']")).click();
+		Thread.sleep(2000);
 		String empMailError = driver.findElement(By.xpath("//div[@class='unableToSubmitCustomMessageContainer']")).getText();
 		
 		
 		sa.assertEquals(empMailError, DataAppriciateFlow(corpID,52, 1), "Validation failed for without mail and submit");
 		System.out.println("Without mail verified");
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+		
 		//with wrong mail and submit
 		
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(DataAppriciateFlow(corpID, 51, 2));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		//driver.findElement(By.xpath("//input[@value='Submit']")).click();
 		String empMailError1 = driver.findElement(By.xpath("//div[@id='userSearchErrorMessage']")).getText();
 		sa.assertEquals(empMailError1, DataAppriciateFlow(corpID, 51, 1),"Validation failed for wrong mail and submit");
@@ -284,17 +308,26 @@ public class appriatiate_flow_team extends Utility_RR {
 		sa.assertEquals(empMailError2, DataAppriciateFlow(corpID, 53, 1),"Validation failed for 2 same mail");
 		System.out.println("2 same verified");
 		sa.assertAll();  
+	  	}
+		  else {
+			Reporter.log("No need to test negative case");
+		 }
 		
 
 }
   
   @Parameters("corpID")
   @Test (priority=6, enabled = true)
-  public void Appriate_award_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+  private void Appriate_award_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	 sa= new SoftAssert();
-	  	
+	  	 if(DataAppriciateFlow(corpID, 48, 1).contains("YES")) {
 	  	 Thread.sleep(3000);
-		 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	 if(corpID.contains("C1151")) {
+	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
+	  	 }
+	  	 else {
+	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	 }
 		 Thread.sleep(3000);
 		 appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
 		 driver.findElement(By.xpath("//input[@value='Submit']")).click();
@@ -311,16 +344,25 @@ public class appriatiate_flow_team extends Utility_RR {
 			 
 		 } 
 		 sa.assertAll();
+		  }
+		  else {
+			Reporter.log("No need to test negative case");
+		  }
 	  	
   }
   
   @Parameters("corpID")
   @Test (priority=7, enabled = true)
-  public void Appriate_Custom_msg_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+  private void Appriate_Custom_msg_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	 sa= new SoftAssert();
-	  	 
+	 	if(DataAppriciateFlow(corpID, 48, 1).contains("YES")) {
 	  	 Thread.sleep(3000);
-		 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	if(corpID.contains("C1151")) {
+	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
+	  	 }
+	  	 else {
+	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	 }
 		 Thread.sleep(3000);
 	   
 		 appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
@@ -349,27 +391,44 @@ public class appriatiate_flow_team extends Utility_RR {
 		  }
 		 
 		 //message
-		  if(DataAppriciateFlow(corpID,25,1).contains("YES") && DataAppriciateFlow(corpID, 25, 2).contains("Mandetory")) {
+		  if(DataAppriciateFlow(corpID,25,1).contains("YES") && DataAppriciateFlow(corpID, 25, 2).contains("YES")) {
 			 
 			  driver.findElement(By.xpath("//input[@value='Submit']")).click();
+			  Thread.sleep(1000);
+			  if(DataAppriciateFlow(corpID, 25,4).contains("YES")) {
+				  String customMessageError1 = driver.findElement(By.xpath("//h2[@class='experienceTitle']")).getText();
+				  sa.assertEquals(customMessageError1, DataAppriciateFlow(corpID,65, 1), "validation failed for Custom Message");
+				  driver.findElement(By.xpath("//span[text()='OK']")).click();
+			  }
+			  else {
 			  String customMessageError = driver.findElement(By.xpath("//div[@class='unableToSubmitCustomMessageContainer']")).getText();
 			  sa.assertEquals(customMessageError, DataAppriciateFlow(corpID,65, 1), "validation failed for Custom Message");
+			  }
 		  }
 		  
-		  	  sa.assertAll();  	 
+		  	  sa.assertAll(); 
+	 	 }
+		  else {
+			Reporter.log("No need to test negative case");
+		  }
   }
   
   
   @Parameters("corpID")
   @Test (priority=8, enabled = true)
-  public void Appriated_List_Test_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+  private void Appriated_List_Test_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	
 	    Double i;
 	  	Thread.sleep(5000);
-		driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	if(corpID.contains("C1151")) {
+	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
+	  	 }
+	  	 else {
+	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
+	  	 }
 		Thread.sleep(3000);
 		
-		driver.findElement(By.xpath("//div[text()='Appreciated List']")).click();
+		driver.findElement(By.xpath("//div[contains(text(),'List')]")).click();
 		
 		int app_list_row = countTeam.intValue();
 		int app_given_to_emp_colomn = countTeam.intValue()+1;
@@ -433,7 +492,7 @@ public class appriatiate_flow_team extends Utility_RR {
   
   
    @AfterMethod
-   public void afterMethod_Appriciate1() {
+   private void afterMethod_Appriciate1() {
 //	   driver.findElement(By.xpath("//a[@class='navbar-brand advantageClubImage']")).click();
 	   importWait();
    }
@@ -441,7 +500,7 @@ public class appriatiate_flow_team extends Utility_RR {
  
 
   @AfterClass
-  public void afterClass() {
+  private void afterClass() {
 	 driver.close();
 	 
   }

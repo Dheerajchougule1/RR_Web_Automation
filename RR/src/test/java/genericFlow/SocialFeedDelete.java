@@ -17,6 +17,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.Reporter;
 
@@ -25,9 +26,9 @@ import utility_RR.Utility_RR;
 public class SocialFeedDelete extends Utility_RR {
 	
 	
-
+  @Parameters("corpID")
   @BeforeClass
-  public void FeedDelete_before_class() throws InterruptedException, EncryptedDocumentException, AWTException, IOException {
+  public void FeedDelete_before_class(String corpID) throws InterruptedException, EncryptedDocumentException, AWTException, IOException {
 	  System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
 	  driver = new EdgeDriver();
 		
@@ -37,7 +38,7 @@ public class SocialFeedDelete extends Utility_RR {
 	  Thread.sleep(2000);
 	  
 	  //login
-	  login(DataRunScript(10, 1), DataRunScript(11, 1));
+	  login(corpID,DataRunScript(10, 1), DataRunScript(11, 1));
 	  importWait();
 	  
   }
