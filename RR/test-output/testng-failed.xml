@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Appriciate_Test C1227(failed)">
-    <parameter name="corpID" value="C1227"/>
-    <classes>
-      <class name="appriciate_flow.appriatiate_flow_team">
-        <methods>
-          <include name="afterClass"/>
-          <include name="Appriate_Custom_msg_Negative_team" invocation-numbers="0"/>
-          <include name="Appriated_List_Test_team" invocation-numbers="0"/>
-          <include name="CommentPositiveNegative_team" invocation-numbers="0"/>
-          <include name="afterMethod_Appriciate"/>
-          <include name="beforeClass"/>
-          <include name="Appriate_award_Negative_team" invocation-numbers="0"/>
-          <include name="afterMethod_Appriciate1"/>
-          <include name="Appriate_emp_mail_Negative_team" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- appriciate_flow.appriatiate_flow_team -->
-    </classes>
-  </test> <!-- Appriciate_Test C1227(failed) -->
-  <test thread-count="5" name="DeleteFeed(failed)">
+  <test thread-count="5" name="FeedDelete1(failed)">
+    <parameter name="corpID" value="C900"/>
     <classes>
       <class name="genericFlow.SocialFeedDelete">
         <methods>
@@ -29,5 +12,5 @@
         </methods>
       </class> <!-- genericFlow.SocialFeedDelete -->
     </classes>
-  </test> <!-- DeleteFeed(failed) -->
+  </test> <!-- FeedDelete1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

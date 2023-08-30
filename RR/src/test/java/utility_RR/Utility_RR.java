@@ -44,10 +44,10 @@ public class Utility_RR {
 	public void startBrowser(String instanceName) throws InterruptedException {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
-		System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-		//WebDriverManager.edgedriver().setup();
+		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+		WebDriverManager.edgedriver().setup();
 		driver = new EdgeDriver();
-		
+		//WebDriverManager.chromedriver().setup();
 		//driver = new ChromeDriver();
 		driver.get(instanceName);
 		driver.manage().window().maximize();
@@ -86,7 +86,7 @@ public class Utility_RR {
 		
 	}
 	
-	public void login(String username, String password) throws InterruptedException, AWTException {
+	public void login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
 		driver.findElement(By.xpath("//div[@class='login-section']")).click();
 		importWait();
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
@@ -102,18 +102,21 @@ public class Utility_RR {
 			}
 		  Thread.sleep(2000);
 		Thread.sleep(10000);
-		driver.findElement(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']//li[4]")).click();
+		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
+			driver.findElement(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']//li[4]")).click();
+		}
+		
 	}
 	
 	public void appriciateEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(empName);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]//li[1]")).click();
 	}
 	
 	public void appriciateCCEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[2]")).sendKeys(empName);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[2]//li[1]")).click();
 	}
 	
@@ -162,7 +165,8 @@ public class Utility_RR {
 		Set<String> windowHandles = driver.getWindowHandles();
 		
 		
-		for(Double q=DataAppriciateFlowNum(corpID1, 7, 2); q>0; q--) {
+		
+		for(Double q = DataAppriciateFlowNum(corpID1, 7, 2); q>0; q--) {
 			
 		// Switch to the new tab (assuming it's the last tab opened)
 		newTabHandle = windowHandles.toArray()[windowHandles.size() - q.intValue()].toString();
@@ -171,7 +175,7 @@ public class Utility_RR {
 		// Navigate to a URL in the new tab
 		driver.get("https://yopmail.com/en/");
 		importWait();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		// close
 		boolean yopmail_clear_button = driver.findElement(By.xpath("//i[@class='material-icons-outlined f24 ycptbutgray']")).isDisplayed();
 		if(yopmail_clear_button ==true) {
@@ -231,6 +235,13 @@ public class Utility_RR {
 	
 	public void ScrollIntoView(String NewsFeedID1) throws InterruptedException {
 		WebElement element1 = driver.findElement(By.id(NewsFeedID1));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
+		Thread.sleep(2000);
+		
+	}
+	
+	public void ScrollIntoView_by_webelement(String ScrollByElement) throws InterruptedException {
+		WebElement element1 = driver.findElement(By.xpath(ScrollByElement));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
 		Thread.sleep(2000);
 		

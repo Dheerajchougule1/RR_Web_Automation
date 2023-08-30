@@ -2,26 +2,45 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[3363766 : NewsFeed Deleted]]>
+      <![CDATA[3380493 : NewsFeed Deleted]]>
+    </line>
+    <line>
+      <![CDATA[3380494 : NewsFeed Deleted]]>
+    </line>
+    <line>
+      <![CDATA[3380495 : NewsFeed Deleted]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-08-28T16:43:22 IST" name="Suite" finished-at="2023-08-28T16:43:54 IST" duration-ms="31948">
+  <suite started-at="2023-08-30T17:53:09 IST" name="Suite" finished-at="2023-08-30T17:53:58 IST" duration-ms="48864">
     <groups>
     </groups>
-    <test started-at="2023-08-28T16:43:22 IST" name="FeedDelete" finished-at="2023-08-28T16:43:54 IST" duration-ms="31948">
+    <test started-at="2023-08-30T17:53:09 IST" name="FeedDelete" finished-at="2023-08-30T17:53:58 IST" duration-ms="48864">
       <class name="genericFlow.SocialFeedDelete">
-        <test-method is-config="true" signature="FeedDelete_before_class()[pri:0, instance:genericFlow.SocialFeedDelete@294425a7]" started-at="2023-08-28T16:43:22 IST" name="FeedDelete_before_class" finished-at="2023-08-28T16:43:45 IST" duration-ms="22989" status="PASS">
+        <test-method is-config="true" signature="FeedDelete_before_class(java.lang.String)[pri:0, instance:genericFlow.SocialFeedDelete@5b239d7d]" started-at="2023-08-30T17:53:09 IST" name="FeedDelete_before_class" finished-at="2023-08-30T17:53:34 IST" duration-ms="24446" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C900]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FeedDelete_before_class -->
-        <test-method signature="feedDelete()[pri:0, instance:genericFlow.SocialFeedDelete@294425a7]" started-at="2023-08-28T16:43:45 IST" name="feedDelete" finished-at="2023-08-28T16:43:54 IST" duration-ms="8709" status="PASS">
+        <test-method signature="feedDelete()[pri:0, instance:genericFlow.SocialFeedDelete@5b239d7d]" started-at="2023-08-30T17:53:34 IST" name="feedDelete" finished-at="2023-08-30T17:53:58 IST" duration-ms="24168" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[3363766 : NewsFeed Deleted]]>
+              <![CDATA[3380493 : NewsFeed Deleted]]>
+            </line>
+            <line>
+              <![CDATA[3380494 : NewsFeed Deleted]]>
+            </line>
+            <line>
+              <![CDATA[3380495 : NewsFeed Deleted]]>
             </line>
           </reporter-output>
         </test-method> <!-- feedDelete -->
-        <test-method is-config="true" signature="FeedDelete_after_class()[pri:0, instance:genericFlow.SocialFeedDelete@294425a7]" started-at="2023-08-28T16:43:54 IST" name="FeedDelete_after_class" finished-at="2023-08-28T16:43:54 IST" duration-ms="216" status="PASS">
+        <test-method is-config="true" signature="FeedDelete_after_class()[pri:0, instance:genericFlow.SocialFeedDelete@5b239d7d]" started-at="2023-08-30T17:53:58 IST" name="FeedDelete_after_class" finished-at="2023-08-30T17:53:58 IST" duration-ms="209" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FeedDelete_after_class -->
