@@ -62,8 +62,8 @@ public class appriatiate_flow_team extends Utility_RR {
 		
   @Parameters("corpID")
   @Test (priority=1,enabled = true)
-  private void AppriateFlowTeam(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
-	  Thread.sleep(3000);
+  protected void AppriateFlowTeam(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+	  //Thread.sleep(3000);
 	  
 	  if(corpID.contains("C1151")) {
 	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
@@ -71,13 +71,14 @@ public class appriatiate_flow_team extends Utility_RR {
 	  	 else {
 	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
 	  	 }
-	  
-	  Thread.sleep(4000);
+	  importWait();
+	  //Thread.sleep(4000);
 	  countTeam = DataAppriciateFlowNum(corpID, 7, 2);
 	  emp_name_column = 2;
 	  
 	  for(Double i=countTeam; i>0;i--) {
 	  appriciateEmpSearch(DataAppriciateFlow(corpID, 10, emp_name_column));
+	  Thread.sleep(2000);
 	  emp_name_column ++;
 	  }
 	  //Award 
@@ -91,6 +92,7 @@ public class appriatiate_flow_team extends Utility_RR {
 	  	  
 	  }
 	  Thread.sleep(2000);
+	 
 
 	  //Card
 
@@ -103,7 +105,8 @@ public class appriatiate_flow_team extends Utility_RR {
 	  	  driver.findElement(By.xpath("//ul[@class='slides']//li[1]")).click();
 	  	  
 	  }
-	  Thread.sleep(2000);
+	  //Thread.sleep(2000);
+	  importWait();
 	  }
 
 	  //message
@@ -118,9 +121,10 @@ public class appriatiate_flow_team extends Utility_RR {
 	  }
 	  driver.findElement(By.xpath("//input[@value='Submit']")).click();
 	  driver.findElement(By.xpath("//span[text()='OK']")).click();
-	  Thread.sleep(2000);
+	  //Thread.sleep(2000);
+	   importWait();
 	   
-	  mailCheck_multiple(corpID, "appriciateSingleFlow", 10, 2);
+	  mailCheck_multiple_Appreciate(corpID, "appriciateSingleFlow", 10, 2);
 
 		  
 	  
@@ -131,7 +135,7 @@ public class appriatiate_flow_team extends Utility_RR {
   private void SocialFeedIDGet_team(String corpID) throws InterruptedException, IOException {
 	  		Double i;
 	  
-	  		Thread.sleep(4000);
+	  		//Thread.sleep(4000);
 	  		
 //	  		driver.findElement(By.xpath("//input[@value='Team Buzz']")).click();
 //	  		Thread.sleep(3000);
@@ -205,7 +209,7 @@ public class appriatiate_flow_team extends Utility_RR {
   } 
   
   @Parameters("corpID")
-  @Test (priority=3,enabled = true)
+  @Test (priority=3,dependsOnMethods = "AppriateFlowTeam",enabled = true)
   private void LikePositive_team(String corpID) throws InterruptedException, IOException {
 	  		if(DataAppriciateFlow(corpID, 37, 1).contains("YES")) {
 	  		ScrollIntoView(newsFeedId);
@@ -226,7 +230,7 @@ public class appriatiate_flow_team extends Utility_RR {
   }
   
   @Parameters("corpID")
-  @Test (priority=4,enabled = true)
+  @Test ( priority=4, dependsOnMethods = "AppriateFlowTeam",enabled = true)
   private void CommentPositiveNegative_team(String corpID) throws InterruptedException, IOException {
 	  		if(DataAppriciateFlow(corpID, 42, 1).contains("YES")) {
 		  	ScrollIntoView(newsFeedId);
@@ -246,15 +250,16 @@ public class appriatiate_flow_team extends Utility_RR {
 			act.sendKeys(Keys.chord(Keys.PAGE_UP)).build().perform();
 			act.sendKeys(Keys.chord(Keys.PAGE_UP)).build().perform();
 			
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//img[@class='closeCommentBox']")).click();
 			
 			///Verify Comment
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			String CommentCount = driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//span[text()='1 Comment']")).getText();
 			
 			sa.assertEquals(CommentCount,"1 Comment", "Comment Count is not equal to 1 Comment");
 			sa.assertAll();	
+			Thread.sleep(2000);
 			ScrollIntoView_by_webelement(upperClick);
 	  		}
 	  		else {
@@ -268,19 +273,20 @@ public class appriatiate_flow_team extends Utility_RR {
 	  	sa= new SoftAssert();
 	  	if(DataAppriciateFlow(corpID, 48, 1).contains("YES")) {
 	  
-	  	Thread.sleep(5000);
+	  	//Thread.sleep(5000);
 	  	if(corpID.contains("C1151")) {
 	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
 	  	 }
 	  	 else {
 	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
 	  	 }
-		Thread.sleep(4000);
-		
+		//Thread.sleep(4000);
+		importWait();
 		//without mail submit 1
 	
 		driver.findElement(By.xpath("//input[@value='Submit']")).click();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		importWait();
 		String empMailError = driver.findElement(By.xpath("//div[@class='unableToSubmitCustomMessageContainer']")).getText();
 		
 		
@@ -290,7 +296,8 @@ public class appriatiate_flow_team extends Utility_RR {
 		//with wrong mail and submit
 		
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(DataAppriciateFlow(corpID, 51, 2));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		
 		//driver.findElement(By.xpath("//input[@value='Submit']")).click();
 		String empMailError1 = driver.findElement(By.xpath("//div[@id='userSearchErrorMessage']")).getText();
 		sa.assertEquals(empMailError1, DataAppriciateFlow(corpID, 51, 1),"Validation failed for wrong mail and submit");
@@ -321,14 +328,15 @@ public class appriatiate_flow_team extends Utility_RR {
   private void Appriate_award_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	 sa= new SoftAssert();
 	  	 if(DataAppriciateFlow(corpID, 48, 1).contains("YES")) {
-	  	 Thread.sleep(3000);
+	  	 //Thread.sleep(3000);
 	  	 if(corpID.contains("C1151")) {
 	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
 	  	 }
 	  	 else {
 	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
 	  	 }
-		 Thread.sleep(3000);
+		 //Thread.sleep(3000);
+	  	 importWait();
 		 appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
 		 driver.findElement(By.xpath("//input[@value='Submit']")).click();
 		 
@@ -356,15 +364,15 @@ public class appriatiate_flow_team extends Utility_RR {
   private void Appriate_Custom_msg_Negative_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	 sa= new SoftAssert();
 	 	if(DataAppriciateFlow(corpID, 48, 1).contains("YES")) {
-	  	 Thread.sleep(3000);
+	  	 //Thread.sleep(3000);
 	  	if(corpID.contains("C1151")) {
 	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
 	  	 }
 	  	 else {
 	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
 	  	 }
-		 Thread.sleep(3000);
-	   
+		 //Thread.sleep(3000);
+	  	 importWait();
 		 appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
 		 if(DataAppriciateFlow(corpID,19,1).contains("YES")) {
 			  awardSelect(DataAppriciateFlowNum(corpID, 20, 1));
@@ -373,7 +381,8 @@ public class appriatiate_flow_team extends Utility_RR {
 			  driver.findElement(By.xpath("//ul[@class='slides slides-select-award']//li[1]")).click();
 			  
 		 }
-		 Thread.sleep(2000);
+		 //Thread.sleep(2000);
+		 importWait();
 		 
 		//Card
 		  
@@ -387,7 +396,8 @@ public class appriatiate_flow_team extends Utility_RR {
 			  driver.findElement(By.xpath("//ul[@class='slides']//li[1]")).click();
 			  
 		  }
-		  Thread.sleep(2000);
+		  //Thread.sleep(2000);
+		  importWait();
 		  }
 		 
 		 //message
@@ -415,19 +425,19 @@ public class appriatiate_flow_team extends Utility_RR {
   
   
   @Parameters("corpID")
-  @Test (priority=8, enabled = true)
+  @Test (priority=8,dependsOnMethods = "AppriateFlowTeam", enabled = true)
   private void Appriated_List_Test_team(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	
 	    Double i;
-	  	Thread.sleep(5000);
+	  	//Thread.sleep(5000);
 	  	if(corpID.contains("C1151")) {
 	  		 driver.get(DataRunScript(1, 1)+"/in/nonmonetary_award_users/new");
 	  	 }
 	  	 else {
 	  	 driver.findElement(By.xpath("//a[@href='/in/nonmonetary_award_users/new']")).click();
 	  	 }
-		Thread.sleep(3000);
-		
+		//Thread.sleep(3000);
+		importWait();
 		driver.findElement(By.xpath("//div[contains(text(),'List')]")).click();
 		
 		int app_list_row = countTeam.intValue();
@@ -460,7 +470,8 @@ public class appriatiate_flow_team extends Utility_RR {
   		
 		
   		//appreciated given by verify
-  		Thread.sleep(2000);
+  		//Thread.sleep(2000);
+  		importWait();
   		String app_givenBy_actual = driver.findElement(By.xpath("//table[@class='col-md-12']//tbody//tr["+app_list_row+"]//td[3]")).getText();
   		
   		String[] spiltedString = app_givenBy_actual.split("\\R");

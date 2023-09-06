@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" >
-  <test name="Appriciate_Test_C1167">
-  <parameter name="corpID" value="C1167"/>
+ 
+
+  <test name="Appriciate_Test_C1270">
+  <parameter name="corpID" value="C1270"/>
+    <classes>	
+      <class name="appriciate_flow.appriatiate_flow"/>    
+    </classes>   
+  </test> 
+ 
+ <test name="Appriciate_Test_team_C1270">
+  <parameter name="corpID" value="C1270"/>
     <classes>	
       <class name="appriciate_flow.appriatiate_flow_team"/>    
     </classes>   
   </test>
- 
-  <test thread-count="5" name="FeedDelete1">
+  
+  <test thread-count="5" name="FeedDelete">
   <parameter name="corpID" value="C900"/>
     <classes>
       <class name="genericFlow.SocialFeedDelete"/>
     </classes>
   </test>
+  
+  
 </suite> <!-- Suite -->	
