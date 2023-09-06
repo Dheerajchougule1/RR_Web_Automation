@@ -35,7 +35,8 @@ public class SocialFeedDelete extends Utility_RR {
 	  //driver = new ChromeDriver();
 	  driver.get("https://secure.workadvantage.in/delete_newsfeeds");
 	  driver.manage().window().maximize();
-	  Thread.sleep(2000);
+	  //Thread.sleep(2000);
+	  importWait();
 	  
 	  //login
 	  login(corpID,DataRunScript(10, 1), DataRunScript(11, 1));
@@ -65,14 +66,15 @@ public class SocialFeedDelete extends Utility_RR {
 			Cell valueCell = row.getCell(j) ; 
 			Cell statusCell = row.getCell(i);  
               
-              if (statusCell.getStringCellValue().equalsIgnoreCase("Pending")) {
+              if (statusCell.getStringCellValue().equalsIgnoreCase("Pending") || statusCell.getStringCellValue().equalsIgnoreCase("Pending-award")) {
                   String value = valueCell.getStringCellValue();	
                   String statusValue = statusCell.getStringCellValue();	
                   act = new Actions(driver);
             	  
             	  driver.findElement(By.xpath("//input[@name='newsfeed_id']")).sendKeys(value);
             	  act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
-            	  Thread.sleep(3000);
+            	  //Thread.sleep(3000);
+            	  importWait();
             	  
             	  driver.get("https://secure.workadvantage.in/delete_newsfeeds");
             	  Reporter.log(value +" : NewsFeed Deleted", true);

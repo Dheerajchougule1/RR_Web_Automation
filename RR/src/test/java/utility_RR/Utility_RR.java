@@ -24,8 +24,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -39,14 +41,20 @@ public class Utility_RR {
 	protected String newTabHandle;
 	protected JavascriptExecutor js;
 	protected String App_award_name;
+	protected String give_award_budget_point;
+	
 	
 	
 	public void startBrowser(String instanceName) throws InterruptedException {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
-		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-		WebDriverManager.edgedriver().setup();
-		driver = new EdgeDriver();
+		System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+		//WebDriverManager.edgedriver().setup();
+		
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("inprivate");
+		driver = new EdgeDriver(options);
+		//driver = new EdgeDriver();
 		//WebDriverManager.chromedriver().setup();
 		//driver = new ChromeDriver();
 		driver.get(instanceName);
@@ -70,6 +78,14 @@ public class Utility_RR {
 		
 	}
 	
+	public String DataGiveAwardFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream giveAwardFlow = new FileInputStream("excel/GiveAwardFlow/GiveAwardFlow.xlsx");	
+		Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);	
+		String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();	
+		return value;
+		
+	}
+	
 	public String DataNewsFeed(int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/GenericFlow/NewsFeedDelete.xlsx");	
 		Sheet Mysheet2 = WorkbookFactory.create(run_script).getSheet("Sheet1");	
@@ -86,6 +102,14 @@ public class Utility_RR {
 		
 	}
 	
+	public Double DataGivaAwardFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream run_script = new FileInputStream("excel/GiveAwardFlow/GiveAwardFlow.xlsx");	
+		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
+		Double value = Mysheet.getRow(rowIndex).getCell(columnIndex).getNumericCellValue();
+		return value;
+		
+	}
+	
 	public void login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
 		driver.findElement(By.xpath("//div[@class='login-section']")).click();
 		importWait();
@@ -94,14 +118,15 @@ public class Utility_RR {
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
 		importWait();
 		 Robot robot = new Robot();
-		  for (int i = 0; i < 3; i++) {
+		  for (int i = 0; i < 5; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_CONTROL);
 			}
 		  Thread.sleep(2000);
-		Thread.sleep(10000);
+		
+		importWait();
 		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
 			driver.findElement(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']//li[4]")).click();
 		}
@@ -110,13 +135,20 @@ public class Utility_RR {
 	
 	public void appriciateEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(empName);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]//li[1]")).click();
+	}
+	
+	
+	public void GiveAwardEmpSearch(String empName) throws InterruptedException {
+		driver.findElement(By.xpath("//input[@id='tokenfield']")).sendKeys(empName);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]//li[1]")).click();
 	}
 	
 	public void appriciateCCEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[2]")).sendKeys(empName);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[2]//li[1]")).click();
 	}
 	
@@ -125,7 +157,7 @@ public class Utility_RR {
 		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 	}
 	
-	public void mailCheck(String corpID1,String screenName, int RowNum, int CellNum) throws EncryptedDocumentException, IOException, InterruptedException {
+	public void mailCheck(String corpID1,String screenName, String EmpName) throws EncryptedDocumentException, IOException, InterruptedException {
 //		act= new Actions(driver);
 //		act.keyDown(Keys.chord(Keys.CONTROL)).sendKeys("t").keyUp(Keys.chord(Keys.CONTROL)).build().perform();
 		((JavascriptExecutor) driver).executeScript("window.open('', '_blank');");
@@ -139,11 +171,11 @@ public class Utility_RR {
 		// Navigate to a URL in the new tab
 		driver.get("https://yopmail.com/en/");
 		importWait();
-		Thread.sleep(4000);
+		Thread.sleep(1500);
 		WebElement mailID = driver.findElement(By.xpath("//div[@class='ycptctn']"));
 		mailID.click();
 		act = new Actions(driver);
-		act.sendKeys(DataAppriciateFlow(corpID1,RowNum,CellNum)).build().perform();
+		act.sendKeys(EmpName).build().perform();
 		act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
 		screenShot(screenName);
 		
@@ -155,7 +187,7 @@ public class Utility_RR {
 			
 	}
 	
-	public void mailCheck_multiple(String corpID1,String screenName, int RowNum, int CellNum) throws EncryptedDocumentException, IOException, InterruptedException {
+	public void mailCheck_multiple_Appreciate(String corpID1,String screenName, int RowNum, int CellNum) throws EncryptedDocumentException, IOException, InterruptedException {
 //		act= new Actions(driver);
 //		act.keyDown(Keys.chord(Keys.CONTROL)).sendKeys("t").keyUp(Keys.chord(Keys.CONTROL)).build().perform();
 		for(Double q = DataAppriciateFlowNum(corpID1, 7, 2); q>0; q--) {
@@ -175,10 +207,10 @@ public class Utility_RR {
 		// Navigate to a URL in the new tab
 		driver.get("https://yopmail.com/en/");
 		importWait();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		// close
 		boolean yopmail_clear_button = driver.findElement(By.xpath("//i[@class='material-icons-outlined f24 ycptbutgray']")).isDisplayed();
-		if(yopmail_clear_button ==true) {
+		if(yopmail_clear_button == true) {
 			driver.findElement(By.xpath("//i[@class='material-icons-outlined f24 ycptbutgray']")).click();
 		}
 		
@@ -192,9 +224,49 @@ public class Utility_RR {
 		}
 		//driver.quit();
 		oldTabHandle = windowHandles.toArray()[windowHandles.size()- windowHandles.size()].toString();
-		driver.switchTo().window(oldTabHandle);
+		driver.switchTo().window(oldTabHandle);		
+			
+	}
+	
+	
+	public void mailCheck_multiple_GiveAward(String corpID1,String screenName, int RowNum, int CellNum) throws EncryptedDocumentException, IOException, InterruptedException {
+//		act= new Actions(driver);
+//		act.keyDown(Keys.chord(Keys.CONTROL)).sendKeys("t").keyUp(Keys.chord(Keys.CONTROL)).build().perform();
+		for(Double q = DataAppriciateFlowNum(corpID1, 7, 2); q>0; q--) {
+		((JavascriptExecutor) driver).executeScript("window.open('', '_blank');");
+		// Get a list of window handles (tabs)
+		}
+		Set<String> windowHandles = driver.getWindowHandles();
 		
 		
+		
+		for(Double q = DataAppriciateFlowNum(corpID1, 7, 2); q>0; q--) {
+			
+		// Switch to the new tab (assuming it's the last tab opened)
+		newTabHandle = windowHandles.toArray()[windowHandles.size() - q.intValue()].toString();
+		driver.switchTo().window(newTabHandle);
+
+		// Navigate to a URL in the new tab
+		driver.get("https://yopmail.com/en/");
+		importWait();
+		Thread.sleep(1000);
+		// close
+		boolean yopmail_clear_button = driver.findElement(By.xpath("//i[@class='material-icons-outlined f24 ycptbutgray']")).isDisplayed();
+		if(yopmail_clear_button == true) {
+			driver.findElement(By.xpath("//i[@class='material-icons-outlined f24 ycptbutgray']")).click();
+		}
+		
+		WebElement mailID = driver.findElement(By.xpath("//div[@class='ycptctn']"));
+		mailID.click();
+		act = new Actions(driver);
+		act.sendKeys(DataGiveAwardFlow(corpID1,RowNum,CellNum)).build().perform();
+		act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
+		screenShot(screenName);
+		CellNum ++;
+		}
+		//driver.quit();
+		oldTabHandle = windowHandles.toArray()[windowHandles.size()- windowHandles.size()].toString();
+		driver.switchTo().window(oldTabHandle);		
 			
 	}
 	
@@ -224,9 +296,28 @@ public class Utility_RR {
 		Thread.sleep(1000);
 	}
 	
+	public void BudgetGiveAwardelect(Double award) throws InterruptedException {
+		String AwardNum1 = award.toString();
+		driver.findElement(By.xpath("//ul[@class='selectBudgetSliderContainer']//li["+AwardNum1+"]")).click();
+		App_award_name = driver.findElement(By.xpath("//ul[@class='selectBudgetSliderContainer']//li["+AwardNum1+"]//div[1]")).getText();
+		Thread.sleep(1000);
+	}
+	
 	public void CardSelect(Double award) throws InterruptedException {
 		String AwardNum = award.toString();
-		driver.findElement(By.xpath("//ul[@class='slides']//li["+AwardNum+"]")).click();
+		WebElement budgetSelect = driver.findElement(By.xpath("//ul[@class='slides']//li["+AwardNum+"]"));
+		budgetSelect.click();
+		give_award_budget_point = budgetSelect.findElement(By.xpath("//span[@class='notranslate'][1]")).getText();
+		System.out.println(give_award_budget_point);
+		Thread.sleep(1000);
+	}
+	
+	
+	public void ValueStatementSingle(Double valueStatement) throws InterruptedException {
+		Double value2 = valueStatement+1.0;
+		String valueNum = value2.toString();
+		driver.findElement(By.xpath("//button[@id='valueStatementButton']")).click();
+		driver.findElement(By.xpath("//ul[@id='value_statements']//li["+valueNum+"]")).click();
 		Thread.sleep(1000);
 	}
 	
@@ -236,14 +327,14 @@ public class Utility_RR {
 	public void ScrollIntoView(String NewsFeedID1) throws InterruptedException {
 		WebElement element1 = driver.findElement(By.id(NewsFeedID1));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 	}
 	
 	public void ScrollIntoView_by_webelement(String ScrollByElement) throws InterruptedException {
 		WebElement element1 = driver.findElement(By.xpath(ScrollByElement));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 	}
 	
@@ -251,7 +342,7 @@ public class Utility_RR {
 			public void verticalScroll() throws InterruptedException {
 				js = (JavascriptExecutor) driver;	
 				js.executeScript("window.scrollBy(0,-500)");
-			    Thread.sleep(2000);
+			    Thread.sleep(1000);
 	
 	}
 
