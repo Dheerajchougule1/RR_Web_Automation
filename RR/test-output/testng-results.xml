@@ -1,206 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[3420182 : NewsFeed Deleted]]>
+      <![CDATA[3544085 : NewsFeed Deleted]]>
+    </line>
+    <line>
+      <![CDATA[3544117 : NewsFeed Deleted]]>
+    </line>
+    <line>
+      <![CDATA[3544118 : NewsFeed Deleted]]>
+    </line>
+    <line>
+      <![CDATA[3544119 : NewsFeed Deleted]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-09-06T10:59:27 IST" name="Suite" finished-at="2023-09-06T11:02:48 IST" duration-ms="200752">
+  <suite started-at="2023-09-26T18:45:12 IST" name="Suite" finished-at="2023-09-26T18:45:43 IST" duration-ms="30250">
     <groups>
     </groups>
-    <test started-at="2023-09-06T10:59:27 IST" name="Test" finished-at="2023-09-06T11:02:32 IST" duration-ms="184968">
-      <class name="giveAward.giveAward_flow">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T10:59:27 IST" name="beforeClass" finished-at="2023-09-06T10:59:45 IST" duration-ms="17362" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T10:59:45 IST" name="beforeMethod" finished-at="2023-09-06T10:59:50 IST" duration-ms="5030" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="GiveAwardFlowSingle(java.lang.String)[pri:51, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T10:59:50 IST" name="GiveAwardFlowSingle" finished-at="2023-09-06T11:00:22 IST" duration-ms="32348" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GiveAwardFlowSingle -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:22 IST" name="afterMethod" finished-at="2023-09-06T11:00:22 IST" duration-ms="5" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:22 IST" name="beforeMethod" finished-at="2023-09-06T11:00:28 IST" duration-ms="6367" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="GiveAward_single_Amount_Deduction_Admin(java.lang.String)[pri:52, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:28 IST" name="GiveAward_single_Amount_Deduction_Admin" finished-at="2023-09-06T11:00:41 IST" duration-ms="12397" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GiveAward_single_Amount_Deduction_Admin -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:41 IST" name="afterMethod" finished-at="2023-09-06T11:00:41 IST" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:41 IST" name="beforeMethod" finished-at="2023-09-06T11:00:46 IST" duration-ms="5451" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="SocialFeedIDGet(java.lang.String)[pri:53, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:46 IST" name="SocialFeedIDGet" finished-at="2023-09-06T11:00:49 IST" depends-on-methods="giveAward.giveAward_flow.GiveAwardFlowSingle" duration-ms="2769" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SocialFeedIDGet -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:49 IST" name="afterMethod" finished-at="2023-09-06T11:00:49 IST" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:49 IST" name="beforeMethod" finished-at="2023-09-06T11:00:55 IST" duration-ms="5391" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="LikePositive(java.lang.String)[pri:54, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:55 IST" name="LikePositive" finished-at="2023-09-06T11:00:57 IST" depends-on-methods="giveAward.giveAward_flow.GiveAwardFlowSingle" duration-ms="2540" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LikePositive -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:57 IST" name="afterMethod" finished-at="2023-09-06T11:00:57 IST" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:00:57 IST" name="beforeMethod" finished-at="2023-09-06T11:01:03 IST" duration-ms="5898" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="CommentPositiveNegative(java.lang.String)[pri:55, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:03 IST" name="CommentPositiveNegative" finished-at="2023-09-06T11:01:14 IST" depends-on-methods="giveAward.giveAward_flow.GiveAwardFlowSingle" duration-ms="11028" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CommentPositiveNegative -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:14 IST" name="afterMethod" finished-at="2023-09-06T11:01:14 IST" duration-ms="7" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:14 IST" name="beforeMethod" finished-at="2023-09-06T11:01:18 IST" duration-ms="4209" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="Appriate_emp_mail_Negative(java.lang.String)[pri:56, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:18 IST" name="Appriate_emp_mail_Negative" finished-at="2023-09-06T11:01:39 IST" duration-ms="20423" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Appriate_emp_mail_Negative -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:39 IST" name="afterMethod" finished-at="2023-09-06T11:01:39 IST" duration-ms="5" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:39 IST" name="beforeMethod" finished-at="2023-09-06T11:01:43 IST" duration-ms="4670" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="Give_award_custom_msg_negative(java.lang.String)[pri:57, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:43 IST" name="Give_award_custom_msg_negative" finished-at="2023-09-06T11:01:59 IST" duration-ms="15642" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Give_award_custom_msg_negative -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:59 IST" name="afterMethod" finished-at="2023-09-06T11:01:59 IST" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:01:59 IST" name="beforeMethod" finished-at="2023-09-06T11:02:04 IST" duration-ms="5249" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="GiveAward_Point_Transfer_negative_Single(java.lang.String)[pri:58, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:02:04 IST" name="GiveAward_Point_Transfer_negative_Single" finished-at="2023-09-06T11:02:21 IST" duration-ms="17265" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GiveAward_Point_Transfer_negative_Single -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:02:21 IST" name="afterMethod" finished-at="2023-09-06T11:02:21 IST" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:02:21 IST" name="beforeMethod" finished-at="2023-09-06T11:02:26 IST" duration-ms="4798" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="Appriated_List_Test(java.lang.String)[pri:59, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:02:26 IST" name="Appriated_List_Test" finished-at="2023-09-06T11:02:32 IST" depends-on-methods="giveAward.giveAward_flow.GiveAwardFlowSingle" duration-ms="6015" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C900]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Appriated_List_Test -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:02:32 IST" name="afterMethod" finished-at="2023-09-06T11:02:32 IST" duration-ms="6" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:giveAward.giveAward_flow@38c6f217]" started-at="2023-09-06T11:02:32 IST" name="afterClass" finished-at="2023-09-06T11:02:32 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- giveAward.giveAward_flow -->
-    </test> <!-- Test -->
-    <test started-at="2023-09-06T11:02:32 IST" name="FeedDelete" finished-at="2023-09-06T11:02:48 IST" duration-ms="15721">
+    <test started-at="2023-09-26T18:45:12 IST" name="FeedDelete" finished-at="2023-09-26T18:45:43 IST" duration-ms="30250">
       <class name="genericFlow.SocialFeedDelete">
-        <test-method is-config="true" signature="FeedDelete_before_class(java.lang.String)[pri:0, instance:genericFlow.SocialFeedDelete@5c6648b0]" started-at="2023-09-06T11:02:32 IST" name="FeedDelete_before_class" finished-at="2023-09-06T11:02:44 IST" duration-ms="11848" status="PASS">
+        <test-method is-config="true" signature="FeedDelete_before_class(java.lang.String)[pri:0, instance:genericFlow.SocialFeedDelete@9597028]" started-at="2023-09-26T18:45:12 IST" name="FeedDelete_before_class" finished-at="2023-09-26T18:45:26 IST" duration-ms="13366" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -211,14 +30,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FeedDelete_before_class -->
-        <test-method signature="feedDelete()[pri:0, instance:genericFlow.SocialFeedDelete@5c6648b0]" started-at="2023-09-06T11:02:44 IST" name="feedDelete" finished-at="2023-09-06T11:02:48 IST" duration-ms="3635" status="PASS">
+        <test-method signature="feedDelete()[pri:0, instance:genericFlow.SocialFeedDelete@9597028]" started-at="2023-09-26T18:45:26 IST" name="feedDelete" finished-at="2023-09-26T18:45:42 IST" duration-ms="16620" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[3420182 : NewsFeed Deleted]]>
+              <![CDATA[3544085 : NewsFeed Deleted]]>
+            </line>
+            <line>
+              <![CDATA[3544117 : NewsFeed Deleted]]>
+            </line>
+            <line>
+              <![CDATA[3544118 : NewsFeed Deleted]]>
+            </line>
+            <line>
+              <![CDATA[3544119 : NewsFeed Deleted]]>
             </line>
           </reporter-output>
         </test-method> <!-- feedDelete -->
-        <test-method is-config="true" signature="FeedDelete_after_class()[pri:0, instance:genericFlow.SocialFeedDelete@5c6648b0]" started-at="2023-09-06T11:02:48 IST" name="FeedDelete_after_class" finished-at="2023-09-06T11:02:48 IST" duration-ms="236" status="PASS">
+        <test-method is-config="true" signature="FeedDelete_after_class()[pri:0, instance:genericFlow.SocialFeedDelete@9597028]" started-at="2023-09-26T18:45:42 IST" name="FeedDelete_after_class" finished-at="2023-09-26T18:45:43 IST" duration-ms="224" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FeedDelete_after_class -->

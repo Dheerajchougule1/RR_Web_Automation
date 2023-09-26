@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -26,6 +28,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
@@ -34,7 +38,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Utility_RR {
 	
-	protected static WebDriver driver;
+	//protected static WebDriver driver;
 	protected Actions act;
 	protected static SoftAssert sa;
 	protected String oldTabHandle;
@@ -43,13 +47,19 @@ public class Utility_RR {
 	protected String App_award_name;
 	protected String give_award_budget_point;
 	
+	String username= "dheerajc"; 
+	String accesskey= "P2WuDglb4q3U0HM03sMH5lgzKaEPiv72qwqIfh44ZK1iETMAz3";
+    protected static RemoteWebDriver driver = null;
+    String gridURL = "@hub.lambdatest.com/wd/hub";
+    boolean status = false;
 	
+
 	
 	public void startBrowser(String instanceName) throws InterruptedException {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
-		System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-		//WebDriverManager.edgedriver().setup();
+		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+		WebDriverManager.edgedriver().setup();
 		
 		EdgeOptions options = new EdgeOptions();
 		options.addArguments("inprivate");
@@ -60,6 +70,29 @@ public class Utility_RR {
 		driver.get(instanceName);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
+        
+//		 DesiredCapabilities capabilities = new DesiredCapabilities();
+//	      capabilities.setCapability("browserName", "chrome");
+//	      capabilities.setCapability("version", "108.0");
+//	      capabilities.setCapability("platform", "win11");
+//	      capabilities.setCapability("resolution", "3840x1080");// If this cap isn't specified, it will just get any available one.
+//	      capabilities.setCapability("build", "Jubilient_Corporate");
+//	      capabilities.setCapability("name", "Jubilient_Corporate");
+//	      //capabilities.setCapability("idleTimeout","20"); 
+//	      try {
+//	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
+//	      } catch (MalformedURLException e) {
+//	          System.out.println("Invalid grid URL");
+//	      } catch (Exception e) {	
+//	          System.out.println(e.getMessage());
+//	      }
+//	      
+//	      	driver.get(instanceName);
+//			driver.manage().window().maximize();
+//			Thread.sleep(2000);
+			
+			
+		
 	}
 	
 	public String DataRunScript(int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
@@ -102,6 +135,23 @@ public class Utility_RR {
 		
 	}
 	
+	public String DataNominationFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream giveAwardFlow = new FileInputStream("excel/NominationFlow/NominationFlow.xlsx");	
+		Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);	
+		String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();	
+		return value;
+		
+	}
+	
+	public Double DataNominationFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream run_script = new FileInputStream("excel/NominationFlow/NominationFlow.xlsx");	
+		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
+		Double value = Mysheet.getRow(rowIndex).getCell(columnIndex).getNumericCellValue();
+		return value;
+		
+	}
+	
+	
 	public Double DataGivaAwardFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/GiveAwardFlow/GiveAwardFlow.xlsx");	
 		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
@@ -118,12 +168,13 @@ public class Utility_RR {
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
 		importWait();
 		 Robot robot = new Robot();
-		  for (int i = 0; i < 5; i++) {
+		  for (int i = 0; i < 4; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_CONTROL);
 			}
+		
 		  Thread.sleep(2000);
 		
 		importWait();
@@ -148,7 +199,7 @@ public class Utility_RR {
 	
 	public void appriciateCCEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[2]")).sendKeys(empName);
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[2]//li[1]")).click();
 	}
 	
@@ -307,7 +358,7 @@ public class Utility_RR {
 		String AwardNum = award.toString();
 		WebElement budgetSelect = driver.findElement(By.xpath("//ul[@class='slides']//li["+AwardNum+"]"));
 		budgetSelect.click();
-		give_award_budget_point = budgetSelect.findElement(By.xpath("//span[@class='notranslate'][1]")).getText();
+		give_award_budget_point = budgetSelect.findElement(By.xpath("(//span[@class='notranslate'])["+AwardNum+"]")).getText();
 		System.out.println(give_award_budget_point);
 		Thread.sleep(1000);
 	}

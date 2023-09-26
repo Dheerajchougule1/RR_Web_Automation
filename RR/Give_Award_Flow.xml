@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
-  <parameter name="corpID" value="C900"/> 		
+  
+  <test thread-count="5" name="Give_award_Single_C1218">
+  <parameter name="corpID" value="C1218"/> 		
     <classes>	
       <class name="giveAward.giveAward_flow"/>    
     </classes>  
   </test> <!-- Test -->
-  
-  <test thread-count="5" name="FeedDelete">
-  <parameter name="corpID" value="C900"/>
-    <classes>
-      <class name="genericFlow.SocialFeedDelete"/>
-    </classes>
-  </test>
+ 
   
 </suite> <!-- Suite -->
