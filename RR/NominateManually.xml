@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
-  <parameter name="corpID" value="C1218"/>
-  <classes>
-      <class name="appriciate_flow.appriatiate_flow_team"/>
-    </classes>
+  <parameter name="corpID" value="C999"/>
+    <classes>	
+      <class name="nominationFlow.Nomination_flow"/>    
+    </classes>   
   </test> <!-- Test -->
 </suite> <!-- Suite -->

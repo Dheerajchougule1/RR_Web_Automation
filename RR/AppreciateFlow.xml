@@ -3,26 +3,14 @@
 <suite name="Suite" >
  
 
-  <test name="Appriciate_Test_C1270">
-  <parameter name="corpID" value="C1270"/>
+  <test name="Appriciate_Test_C1218">
+  <parameter name="corpID" value="C1218"/>
     <classes>	
       <class name="appriciate_flow.appriatiate_flow"/>    
     </classes>   
   </test> 
- 
- <test name="Appriciate_Test_team_C1270">
-  <parameter name="corpID" value="C1270"/>
-    <classes>	
-      <class name="appriciate_flow.appriatiate_flow_team"/>    
-    </classes>   
-  </test>
   
-  <test thread-count="5" name="FeedDelete">
-  <parameter name="corpID" value="C900"/>
-    <classes>
-      <class name="genericFlow.SocialFeedDelete"/>
-    </classes>
-  </test>
+  
   
   
 </suite> <!-- Suite -->	

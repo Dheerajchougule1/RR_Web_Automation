@@ -2,21 +2,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="corpID" value="C900"/>
+    <parameter name="corpID" value="C1218"/>
     <classes>
-      <class name="giveAward.giveAward_flow">
+      <class name="appriciate_flow.appriatiate_flow_team">
         <methods>
-          <include name="beforeClass"/>
-          <include name="SocialFeedIDGet" invocation-numbers="0"/>
-          <include name="CommentPositiveNegative" invocation-numbers="0"/>
-          <include name="beforeMethod"/>
-          <include name="GiveAwardFlowSingle"/>
           <include name="afterClass"/>
-          <include name="LikePositive" invocation-numbers="0"/>
-          <include name="Appriate_emp_mail_Negative" invocation-numbers="0"/>
-          <include name="afterMethod"/>
+          <include name="Appriate_Custom_msg_Negative_team" invocation-numbers="0"/>
+          <include name="beforeClass"/>
+          <include name="before_Method_Appriciate"/>
+          <include name="afterMethod_Appriciate1"/>
         </methods>
-      </class> <!-- giveAward.giveAward_flow -->
+      </class> <!-- appriciate_flow.appriatiate_flow_team -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

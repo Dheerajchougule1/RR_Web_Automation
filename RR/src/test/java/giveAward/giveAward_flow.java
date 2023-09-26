@@ -34,8 +34,9 @@ import org.testng.annotations.AfterClass;
 
 public class giveAward_flow extends Utility_RR{
   
-	private String give_award_Budget_points_any ;
+	private String give_award_Budget_points_any;
 	private String app_award_name_any;
+	private String give_award_budget_point_after;
 	private String newsFeedId;
 	private String likeCount;
 
@@ -70,7 +71,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -89,12 +90,6 @@ public class giveAward_flow extends Utility_RR{
 		   
 		   if(DataGiveAwardFlow(corpID, 33, 1).contains("YES")) {
 			   CardSelect(DataGivaAwardFlowNum(corpID, 34, 1));
-		   }
-		   else {
-			   driver.findElement(By.xpath("//ul[@class='slides']//li[1]")).click();
-			   give_award_Budget_points_any = driver.findElement(By.xpath("//ul[@class='slides']//li[1]//div[1]//span[@class='notranslate'][1]")).getText();
-			   System.out.println(give_award_Budget_points_any);
-			   Thread.sleep(1000);
 		   }
 		   
 		   importWait();
@@ -165,7 +160,7 @@ public class giveAward_flow extends Utility_RR{
   
   
   @Parameters("corpID")
-  @Test (priority=52,enabled = true)
+  @Test (priority=52,dependsOnMethods = "GiveAwardFlowSingle",enabled = true)
   private void GiveAward_single_Amount_Deduction_Admin(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 		  //Thread.sleep(3000);
 		  
@@ -173,7 +168,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -183,7 +178,7 @@ public class giveAward_flow extends Utility_RR{
 			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 11, 2)+"']")).click();
 		  	 }
 		   importWait();
-		   Thread.sleep(2000);
+		   Thread.sleep(2000);	
 		   // Select employee xG
 		   
 		   appriciateEmpSearch(DataGiveAwardFlow(corpID, 22, 2));
@@ -191,7 +186,14 @@ public class giveAward_flow extends Utility_RR{
 		   // select budget
 		   
 		   if(DataGiveAwardFlow(corpID, 33, 1).contains("YES")) {
-			   CardSelect(DataGivaAwardFlowNum(corpID, 34, 1));
+			   
+			   	String budget_Number = DataGivaAwardFlowNum(corpID, 34, 1).toString();
+			   	System.out.println(budget_Number);
+			   	WebElement budgetSelect = driver.findElement(By.xpath("//ul[@class='slides']//li["+budget_Number+"]"));
+				budgetSelect.click();
+				give_award_budget_point_after = budgetSelect.findElement(By.xpath("(//span[@class='notranslate'])["+budget_Number+"]")).getText();
+				System.out.println(give_award_budget_point_after);
+				Thread.sleep(1000);
 		   }
 		   else {
 			   driver.findElement(By.xpath("//ul[@class='slides']//li[1]")).click();
@@ -199,6 +201,37 @@ public class giveAward_flow extends Utility_RR{
 			   Thread.sleep(1000);
 		   }
 		   
+		   Double beforeAwarding = Double.parseDouble(give_award_budget_point) ;
+		   Double AfterAwarding = Double.parseDouble(give_award_budget_point_after);
+		   sa = new SoftAssert();
+		   Double difference = beforeAwarding - AfterAwarding;
+		   
+		   String differnce1 = Double.toString(difference);
+		   System.out.println(differnce1);
+		   
+		   if(DataGiveAwardFlow(corpID, 50, 1).contains("YES")) {
+		   
+		   sa.assertEquals(differnce1,DataGivaAwardFlowNum(corpID, 50, 2).toString());
+		   Reporter.log(""+differnce1+"Point is deducted");
+		   }
+		   
+		   else if(DataGiveAwardFlow(corpID, 49, 1).contains("YES")) {
+			   
+			  sa.assertEquals(differnce1,DataGivaAwardFlowNum(corpID, 49, 2).toString());
+			  Reporter.log(""+differnce1+"Point is deducted");
+		   }
+		   
+		   else if(DataGiveAwardFlow(corpID, 51, 1).contains("YES")) {
+			   
+			   sa.assertEquals(differnce1,DataGivaAwardFlowNum(corpID, 51, 2).toString());
+			   Reporter.log(""+differnce1+"Point is deducted");
+			}
+		   else {
+			   sa.assertEquals(differnce1, "0.0"); 
+			   Reporter.log("No amount is deducted");
+		   }
+		   
+		   sa.assertAll();
 		   importWait();
 		   
   }
@@ -219,7 +252,7 @@ public class giveAward_flow extends Utility_RR{
 	  		String[] feedID = newsFeedId.split("-");
 	  		String newFeedID = Arrays.toString(feedID);
 	  		String newFeedID1 = newFeedID.replaceAll("[^0-9]", "");
-	  		System.out.println(newFeedID1);
+	  		System.out.println(newFeedID1);												
 	  		
 	  		int i = 0;
 	  		int j = 0;
@@ -343,7 +376,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -396,7 +429,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -481,15 +514,15 @@ public class giveAward_flow extends Utility_RR{
   }
 		   
   @Parameters("corpID")
-  @Test (priority=57,enabled = true)
-  private void Give_award_value_Statement(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+  @Test (priority=58,enabled = true)
+  private void Give_award_value_Statement_positive(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 		  //Thread.sleep(3000);
 	  if(DataGiveAwardFlow(corpID, 105, 1).contains("YES")) {	  
 		  if(corpID.contains("C1151")) {
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -546,15 +579,42 @@ public class giveAward_flow extends Utility_RR{
 		   //Select value statement
 		   
 		   if(DataGiveAwardFlow(corpID, 57, 1).contains("YES")) {
-			   ValueStatementSingle(DataGivaAwardFlowNum(corpID, 58, 1));
+			   	driver.findElement(By.xpath("//button[@id='valueStatementButton']")).click();
+			   	int q=1;
+			   	
+			   for(int valueNum= 1; valueNum <=DataGivaAwardFlowNum(corpID, 59, 1).intValue() ; valueNum++) {	
+//			   	Double value2 = DataGivaAwardFlowNum(corpID, 60, q)+1.0;
+				int valueNum1 = valueNum +1;
+				
+				String valuestatementSingle = driver.findElement(By.xpath("//ul[@id='value_statements']//li["+valueNum1+"]")).getText();
+				System.out.println(valuestatementSingle);
+				
+				sa.assertEquals(valuestatementSingle, DataGiveAwardFlow(corpID,60 , q),"Assertion failed for value statement");
+				Thread.sleep(1000);
+				
+				q++;
+			   }
+			 
 		   }  
 		   
 		   else if(DataGiveAwardFlow(corpID, 57, 2).contains("YES")) {
 			   
 			   driver.findElement(By.xpath("//div[@class='valueStatementDropdown']")).click();
 			   
+			   int p = 1;
 			   for(int k= DataGivaAwardFlowNum(corpID, 59, 2).intValue(); k>0 ;k--) {
-				   driver.findElement(By.xpath("//input[@id='"+k+"']")).click();
+				  String valueStatement = driver.findElement(By.xpath("//input[@id='"+k+"']")).getText();
+				  
+				  try {
+					  sa.assertEquals(valueStatement, DataGiveAwardFlow(corpID, 60, p), "value statement assertio is failed");
+				  }
+				  catch(AssertionError ar){
+					  
+					  ar.printStackTrace();
+					  
+					  Reporter.log("statement"+ p +" is failed");
+					  
+				  }
 			   }
 			   
 			   Thread.sleep(1000); 
@@ -573,7 +633,7 @@ public class giveAward_flow extends Utility_RR{
   
   
   @Parameters("corpID")
-  @Test (priority=58,enabled = true)
+  @Test (priority=59,enabled = true)
   private void GiveAward_Point_Transfer_negative_Single(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 		  //Thread.sleep(3000);
 		  
@@ -581,7 +641,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -655,6 +715,8 @@ public class giveAward_flow extends Utility_RR{
 			  String error1 = driver.findElement(By.xpath("//div[@class='unableToSubmitCustomMessageContainer']")).getText();
 			  
 			  sa.assertEquals(error1, DataGiveAwardFlow(corpID, 124, 1));
+			  
+			  driver.findElement(By.xpath("//div[@class='unableToSubmitCustomMessageContainer']")).click();
 			   
 			   
 		   }
@@ -699,6 +761,7 @@ public class giveAward_flow extends Utility_RR{
 			  
 			  // for wrong maximum input 
 			  
+			  pointEnter.clear();
 			  pointEnter.sendKeys(DataGivaAwardFlowNum(corpID, 50, 4).toString());
 			  
 			  //Select value statement
@@ -736,7 +799,7 @@ public class giveAward_flow extends Utility_RR{
   
   
   @Parameters("corpID")
-  @Test (priority=59, dependsOnMethods = "GiveAwardFlowSingle", enabled = true)
+  @Test (priority=60, dependsOnMethods = "GiveAwardFlowSingle", enabled = true)
   private void Appriated_List_Test(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	
 	  
@@ -745,7 +808,7 @@ public class giveAward_flow extends Utility_RR{
 	  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 	  	 }
 	  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-		  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+		  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 		  	 
 	  }
 	  
@@ -806,7 +869,7 @@ public class giveAward_flow extends Utility_RR{
   @AfterClass
   public void afterClass() {
 	  
-	 // driver.close();
+	  driver.close();
 	  
   }
 
