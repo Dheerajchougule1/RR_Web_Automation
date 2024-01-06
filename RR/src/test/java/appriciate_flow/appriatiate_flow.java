@@ -289,6 +289,7 @@ public class appriatiate_flow extends Utility_RR {
 		Thread.sleep(2000);
 		
 		appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
+		
 		driver.findElement(By.xpath("//input[@value='Submit']")).click();
 		
 		String empMailError2 = driver.findElement(By.xpath("//div[@id='userSearchErrorMessage']")).getText();
@@ -297,7 +298,7 @@ public class appriatiate_flow extends Utility_RR {
 		sa.assertAll();  
 	  }
 	  else {
-		Reporter.log("No need to test negative case");
+		Reporter.log("No need to test negative case",true);
 	  }
 
 }
@@ -406,7 +407,7 @@ public class appriatiate_flow extends Utility_RR {
   
   
   @Parameters("corpID")
-  @Test (priority=8, dependsOnMethods = "AppriateFlowSingle", enabled = true)
+  @Test (priority = 8, dependsOnMethods = "AppriateFlowSingle", enabled = true)
   private void Appriated_List_Test(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
 	  	
 	  
@@ -423,7 +424,7 @@ public class appriatiate_flow extends Utility_RR {
 		
 		Date d = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		String strDate= formatter.format(d);
+		String strDate= formatter.format(d);	
 		System.out.println(strDate);
 		
 		String app_date = driver.findElement(By.xpath("//table[@class='col-md-12']//tbody//tr[1]//td[1]")).getText();

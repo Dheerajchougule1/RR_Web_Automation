@@ -19,6 +19,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.testng.Reporter;
 
 import utility_RR.Utility_RR;
@@ -29,7 +32,9 @@ public class SocialFeedDelete extends Utility_RR {
   @Parameters("corpID")
   @BeforeClass
   public void FeedDelete_before_class(String corpID) throws InterruptedException, EncryptedDocumentException, AWTException, IOException {
-	  System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+//	  System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+	  WebDriverManager.edgedriver().setup();
+	  
 	  driver = new EdgeDriver();
 		
 	  //driver = new ChromeDriver();
@@ -82,6 +87,7 @@ public class SocialFeedDelete extends Utility_RR {
             	  
             	  String DoneStatus = statusValue.replace(statusValue,"Done");
             	  statusCell.setCellValue(DoneStatus);
+            	  
             	  FileOutputStream outputStream = new FileOutputStream("excel/GenericFlow/NewsFeedDelete.xlsx");
 	  		      workbook.write(outputStream);
 	  		      outputStream.close();

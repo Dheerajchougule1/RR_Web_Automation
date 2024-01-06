@@ -71,7 +71,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -168,7 +168,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -376,7 +376,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -429,7 +429,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -522,7 +522,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -641,7 +641,7 @@ public class giveAward_flow extends Utility_RR{
 		  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 		  	 }
 		  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-			  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+			  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 			  	 
 		  }
 		  
@@ -808,7 +808,7 @@ public class giveAward_flow extends Utility_RR{
 	  		 driver.get(DataRunScript(1, 1)+"/in/monetary_award_users/new");
 	  	 }
 	  else if (DataGiveAwardFlow(corpID, 9, 1).contains("YES")) {
-		  	 driver.findElement(By.xpath("//span[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
+		  	 driver.findElement(By.xpath("//div[text()='"+DataGiveAwardFlow(corpID, 10, 1)+"']")).click();
 		  	 
 	  }
 	  

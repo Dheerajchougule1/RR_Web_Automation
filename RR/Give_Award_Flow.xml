@@ -3,7 +3,7 @@
 <suite name="Suite">
   
   <test thread-count="5" name="Give_award_Single_C1218">
-  <parameter name="corpID" value="C1218"/> 		
+  <parameter name="corpID" value="C1227"/> 		
     <classes>	
       <class name="giveAward.giveAward_flow"/>    
     </classes>  
