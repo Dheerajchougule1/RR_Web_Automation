@@ -3,14 +3,11 @@
 <suite name="Suite" >
  
 
-  <test name="Appriciate_Test_C1218">
-  <parameter name="corpID" value="C1218"/>
+  <test name="Appriciate_Test_C466">
+  <parameter name="corpID" value="C466"/>
     <classes>	
-      <class name="appriciate_flow.appriatiate_flow"/>    
+      <class name="appriciate_flow.N_appriatiate_flow"/>    
     </classes>   
   </test> 
-  
-  
-  
   
 </suite> <!-- Suite -->	

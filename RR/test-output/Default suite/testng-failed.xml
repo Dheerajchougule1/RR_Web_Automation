@@ -3,22 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="appriciate_flow.appriatiate_flow_team">
+      <class name="report_section.NewUI_recognition_received_report">
         <methods>
-          <include name="afterClass"/>
-          <include name="Appriate_Custom_msg_Negative_team"/>
-          <include name="SocialFeedIDGet_team"/>
-          <include name="Appriated_List_Test_team"/>
-          <include name="LikePositive_team"/>
-          <include name="CommentPositiveNegative_team"/>
           <include name="beforeClass"/>
-          <include name="Appriate_award_Negative_team"/>
-          <include name="before_Method_Appriciate"/>
+          <include name="beforeMethod"/>
+          <include name="FilterVerfication"/>
+          <include name="afterClass"/>
           <include name="afterMethod_Appriciate1"/>
-          <include name="Appriate_emp_mail_Negative_team"/>
-          <include name="AppriateFlowTeam"/>
         </methods>
-      </class> <!-- appriciate_flow.appriatiate_flow_team -->
+      </class> <!-- report_section.NewUI_recognition_received_report -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import utility_RR.Utility_RR;
 
 public class Nomination_flow extends Utility_RR {
@@ -21,8 +22,8 @@ public class Nomination_flow extends Utility_RR {
 	  int k=1;
 	  for(int i=1;i<=DataNominationFlowNum(corpID, 4, 1).intValue(); i++) {	
 		  
-		  	System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-			//WebDriverManager.edgedriver().setup();
+		  	//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
 			
 			EdgeOptions options = new EdgeOptions();
 			options.addArguments("inprivate");
@@ -31,7 +32,7 @@ public class Nomination_flow extends Utility_RR {
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
 			
-			login(corpID,DataNominationFlow(corpID, 6, j) , DataNominationFlow(corpID, 7, k));
+			newui_login(corpID,DataNominationFlow(corpID, 6, j) , DataNominationFlow(corpID, 7, k));
 			
 			j++;
 			k++;

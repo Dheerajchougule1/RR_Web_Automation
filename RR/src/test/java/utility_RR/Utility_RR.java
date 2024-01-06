@@ -10,6 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 
@@ -28,11 +29,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
+
+import com.google.common.collect.ImmutableMap;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -43,7 +47,7 @@ public class Utility_RR {
 	protected static SoftAssert sa;
 	protected String oldTabHandle;
 	protected String newTabHandle;
-	protected JavascriptExecutor js;
+	protected static JavascriptExecutor js;
 	protected String App_award_name;
 	protected String give_award_budget_point;
 	
@@ -55,7 +59,7 @@ public class Utility_RR {
 	
 
 	
-	public void startBrowser(String instanceName) throws InterruptedException {
+	public void startBrowser(String instanceName) throws InterruptedException, MalformedURLException {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
 		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
@@ -93,6 +97,18 @@ public class Utility_RR {
 			
 			
 		
+//		DesiredCapabilities cap = new DesiredCapabilities();
+//		
+//		cap.setCapability(CapabilityType.BROWSER_NAME,"Chrome");
+//		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
+//		
+//		cap.setCapability("apppium:chromeOptions", ImmutableMap.of("w3c", false));
+//		
+//		AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.23:4723/wd/hub"), cap);
+//		Thread.sleep(2000);
+//		
+//		driver.get(instanceName);
+//		Thread.sleep(2000);
 	}
 	
 	public String DataRunScript(int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
@@ -105,6 +121,14 @@ public class Utility_RR {
 	
 	public String DataAppriciateFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/Appriciate_Flow.xlsx");	
+		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
+		String value = Mysheet.getRow(rowIndex).getCell(columnIndex).getStringCellValue();
+		return value;
+		
+	}
+	
+	public String DataReportFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream run_script = new FileInputStream("excel/Report/reports.xlsx");	
 		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
 		String value = Mysheet.getRow(rowIndex).getCell(columnIndex).getStringCellValue();
 		return value;
@@ -184,10 +208,49 @@ public class Utility_RR {
 		
 	}
 	
+	public void newui_login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
+		driver.findElement(By.xpath("//div[@class='login-section']")).click();
+		importWait();
+		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
+		driver.findElement(By.xpath("//input[@id='login-button']")).click();
+		importWait();
+		 Robot robot = new Robot();
+		  for (int i = 0; i < 4; i++) {
+				robot.keyPress(KeyEvent.VK_CONTROL);
+				robot.keyPress(KeyEvent.VK_SUBTRACT);
+				robot.keyRelease(KeyEvent.VK_SUBTRACT);
+				robot.keyRelease(KeyEvent.VK_CONTROL);
+			}
+		
+		Thread.sleep(3000);
+		
+		importWait();
+		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
+			driver.findElement(By.xpath("//input[@id='location-search-bar']")).click();
+			driver.findElement(By.xpath("//input[@id='location-search-bar']")).sendKeys("gur");
+			Thread.sleep(1000);
+			act = new Actions(driver);
+			act.sendKeys(Keys.chord(Keys.ARROW_DOWN)).build().perform();
+			act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
+			
+		}
+		
+	}
+	
 	public void appriciateEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(empName);
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]//li[1]")).click();
+	}
+	
+	public void newui_appriciateEmpSearch(String empName) throws InterruptedException {
+		driver.findElement(By.xpath("//input[@id='recipient_tokenfield']")).sendKeys(empName);
+		Thread.sleep(2000);
+		act = new Actions(driver);
+		act.sendKeys(Keys.chord(Keys.ARROW_DOWN)).build().perform();
+		act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
+		//driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]//li[1]")).click();
 	}
 	
 	
@@ -197,10 +260,20 @@ public class Utility_RR {
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[1]//li[1]")).click();
 	}
 	
+
 	public void appriciateCCEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[2]")).sendKeys(empName);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[2]//li[1]")).click();
+	}
+	
+	public void newui_appriciateCCEmpSearch(String empName) throws InterruptedException {
+		driver.findElement(By.xpath("//input[@id='cc_tokenfield']")).sendKeys(empName);
+		Thread.sleep(3000);
+		act = new Actions(driver);
+		act.sendKeys(Keys.chord(Keys.ARROW_DOWN)).build().perform();
+		act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
+		//driver.findElement(By.xpath("(//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content'])[2]//li[1]")).click();
 	}
 	
 	public void importWait() {
@@ -307,7 +380,7 @@ public class Utility_RR {
 			driver.findElement(By.xpath("//i[@class='material-icons-outlined f24 ycptbutgray']")).click();
 		}
 		
-		WebElement mailID = driver.findElement(By.xpath("//div[@class='ycptctn']"));
+		WebElement mailID = driver.findElement(By.xpath("//div[@class='ycptc	tn']"));
 		mailID.click();
 		act = new Actions(driver);
 		act.sendKeys(DataGiveAwardFlow(corpID1,RowNum,CellNum)).build().perform();
@@ -333,12 +406,20 @@ public class Utility_RR {
 		
 	    String FileName = d.toString().replace(":", "_").replace(" ", "_") + ".png";
 	    File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-
+	    
 	    File dest= new File("C:\\Dheeraj C_Old\\Automation Testing onboarding\\ScreenShot\\"+screenName+FileName+".png");
 	    FileUtils.copyFile(scr, dest);
 	}
 	
 	//awardSelection
+	
+	public void newui_awardSelect(Double award) throws InterruptedException {
+		String AwardNum = award.toString();
+		driver.findElement(By.xpath("//div[@class='slick-slide slick-active']["+AwardNum+"]")).click();
+		Thread.sleep(3000);
+		App_award_name = driver.findElement(By.xpath("(//div[@class='slick-slide slick-active'])["+AwardNum+"]")).getText();
+		Thread.sleep(1000);
+	}
 	
 	public void awardSelect(Double award) throws InterruptedException {
 		String AwardNum = award.toString();
@@ -396,5 +477,23 @@ public class Utility_RR {
 			    Thread.sleep(1000);
 	
 	}
+			
+	public void SelectOptionInNestedNevigation(String MainAndInsideName) throws InterruptedException {
+		
+		 String[] MainAndInsideName1 = MainAndInsideName.split(",");
+		
+		driver.findElement(By.xpath("//span[text()='"+MainAndInsideName1[0]+"']")).click();
+		importWait();
+		driver.findElement(By.xpath("//span[text()='"+MainAndInsideName1[1]+"']")).click();
+		
+		
+	}
+	
+	 public void selectDateUsingJavaScript(WebDriver driver, WebElement element, String date) {
+	      
+		  		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	       
+		      	jsExecutor.executeScript("arguments[0].value='" + date + "';", element);
+	    }
 
 }
