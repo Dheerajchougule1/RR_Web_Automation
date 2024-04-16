@@ -6,15 +6,36 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.Authenticator;
 import java.net.MalformedURLException;
+import java.net.PasswordAuthentication;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.MultiPartEmail;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -25,75 +46,89 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.ITestResult;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
-
-import com.google.common.collect.ImmutableMap;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Utility_RR {
 	
-	//protected static WebDriver driver;
+	//protected static WebDriver driver;s w
 	protected Actions act;
+	protected File actualScreenshot;
 	protected static SoftAssert sa;
 	protected String oldTabHandle;
 	protected String newTabHandle;
 	protected static JavascriptExecutor js;
 	protected String App_award_name;
 	protected String give_award_budget_point;
+	protected String token ;
+	protected WebDriverWait wait ;
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_RED = "\u001B[31m";
 	
-	String username= "dheerajc"; 
-	String accesskey= "P2WuDglb4q3U0HM03sMH5lgzKaEPiv72qwqIfh44ZK1iETMAz3";
-    protected static RemoteWebDriver driver = null;
-    String gridURL = "@hub.lambdatest.com/wd/hub";
+	 protected String username= "dheerajc"; 
+	 protected String accesskey= "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt";
+	 protected static WebDriver driver=null;
+  //  protected static WebDriver driver;
+     String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
+    protected DesiredCapabilities capabilities;
 	
 
+	
 	
 	public void startBrowser(String instanceName) throws InterruptedException, MalformedURLException {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
 		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-		WebDriverManager.edgedriver().setup();
-		
-		EdgeOptions options = new EdgeOptions();
-		options.addArguments("inprivate");
-		driver = new EdgeDriver(options);
-		//driver = new EdgeDriver();
-		//WebDriverManager.chromedriver().setup();
-		//driver = new ChromeDriver();
-		driver.get(instanceName);
-		driver.manage().window().maximize();
-		Thread.sleep(2000);
+//		WebDriverManager.edgedriver().setup();
+//		
+//		EdgeOptions options = new EdgeOptions();
+//		options.addArguments("inprivate");
+//		driver = new EdgeDriver(options);
+//		//driver = new EdgeDriver();
+//		//WebDriverManager.chromedriver().setup();
+//		//driver = new ChromeDriver();
+//		driver.get(instanceName);
+//		driver.manage().window().maximize();
+//		waitForPageLoad();
         
-//		 DesiredCapabilities capabilities = new DesiredCapabilities();
-//	      capabilities.setCapability("browserName", "chrome");
-//	      capabilities.setCapability("version", "108.0");
-//	      capabilities.setCapability("platform", "win11");
-//	      capabilities.setCapability("resolution", "3840x1080");// If this cap isn't specified, it will just get any available one.
-//	      capabilities.setCapability("build", "Jubilient_Corporate");
-//	      capabilities.setCapability("name", "Jubilient_Corporate");
-//	      //capabilities.setCapability("idleTimeout","20"); 
-//	      try {
-//	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
-//	      } catch (MalformedURLException e) {
-//	          System.out.println("Invalid grid URL");
-//	      } catch (Exception e) {	
-//	          System.out.println(e.getMessage());
-//	      }
-//	      
-//	      	driver.get(instanceName);
-//			driver.manage().window().maximize();
-//			Thread.sleep(2000);
+			capabilities = new DesiredCapabilities();
+		  	capabilities.setCapability("browserName", "chrome");
+	        capabilities.setCapability("version", "123.0");
+	        capabilities.setCapability("platform", "win10"); // If this cap isn't specified, it will just get the any available one
+	        capabilities.setCapability("build", "LambdaTestSampleApp");
+	        capabilities.setCapability("name", "LambdaTestJavaSample");
+//	        capabilities.setCapability("network", "true");
+	        capabilities.setCapability("console", "true");
+	        capabilities.setCapability("terminal", "true");
+	        capabilities.setCapability("console", "true");
+
+
+	      try {
+	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
+	      } catch (MalformedURLException e) {
+	          System.out.println("Invalid grid URL");
+	      } catch (Exception e) {	
+	          System.out.println(e.getMessage());
+	      }
+	      
+	      // Set implicit wait time
+	      	Thread.sleep(8000);
+//	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	      
+	      	driver.get(instanceName);
+//	      	driver.get("https://development1.advantageclub.co/in");
+			driver.manage().window().maximize();
+			Thread.sleep(2000);
 			
 			
 		
@@ -110,6 +145,7 @@ public class Utility_RR {
 //		driver.get(instanceName);
 //		Thread.sleep(2000);
 	}
+	
 	
 	public String DataRunScript(int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/Run_Script.xlsx");	
@@ -134,6 +170,8 @@ public class Utility_RR {
 		return value;
 		
 	}
+	
+	
 	
 	public String DataGiveAwardFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream giveAwardFlow = new FileInputStream("excel/GiveAwardFlow/GiveAwardFlow.xlsx");	
@@ -186,22 +224,22 @@ public class Utility_RR {
 	
 	public void login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
 		driver.findElement(By.xpath("//div[@class='login-section']")).click();
-		importWait();
+		waitForPageLoad();
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
-		importWait();
+		Thread.sleep(3000);
 		 Robot robot = new Robot();
-		  for (int i = 0; i < 4; i++) {
+		  for (int i = 0; i < 6; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_CONTROL);
 			}
 		
-		  Thread.sleep(2000);
+		  Thread.sleep(4000);
 		
-		importWait();
+		 importWait();
 		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
 			driver.findElement(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content']//li[4]")).click();
 		}
@@ -210,26 +248,26 @@ public class Utility_RR {
 	
 	public void newui_login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
 		driver.findElement(By.xpath("//div[@class='login-section']")).click();
-		importWait();
+		waitForPageLoad();
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
-		importWait();
+		 Thread.sleep(3000);
 		 Robot robot = new Robot();
-		  for (int i = 0; i < 4; i++) {
+		  for (int i = 0; i < 1; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_CONTROL);
 			}
 		
-		Thread.sleep(3000);
+		  Thread.sleep(2000);
 		
-		importWait();
+		
 		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
 			driver.findElement(By.xpath("//input[@id='location-search-bar']")).click();
 			driver.findElement(By.xpath("//input[@id='location-search-bar']")).sendKeys("gur");
-			Thread.sleep(1000);
+			  Thread.sleep(2000);
 			act = new Actions(driver);
 			act.sendKeys(Keys.chord(Keys.ARROW_DOWN)).build().perform();
 			act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
@@ -280,6 +318,8 @@ public class Utility_RR {
 		//driver.manage().timeouts().implicitlyWait(120,TimeUnit.SECONDS);
 		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 	}
+	
+	
 	
 	public void mailCheck(String corpID1,String screenName, String EmpName) throws EncryptedDocumentException, IOException, InterruptedException {
 //		act= new Actions(driver);
@@ -495,5 +535,81 @@ public class Utility_RR {
 	       
 		      	jsExecutor.executeScript("arguments[0].value='" + date + "';", element);
 	    }
+	 
+	 public String getToken() throws InterruptedException {
+	      
+		 // After login, get cookies
+			Thread.sleep(2000);
+			 String javascriptCode = "return userDetails.authentication_token;";
+		     String token = (String) ((JavascriptExecutor) driver).executeScript(javascriptCode);
+		     System.out.println(token);
+		     
+		     
 
+	    if (token != null) {
+	        System.out.println("Token found: " + token);
+	    } else {
+	        System.out.println("Token not found");
+	    }
+	    
+	    	return token;
+	 	}
+	 
+	 public void sendEmailWithAttachment(String to, String subject, String body, String filePath) {
+	        try {
+	            // Create the attachment
+	            EmailAttachment attachment = new EmailAttachment();
+	            attachment.setPath(filePath);
+	            attachment.setDisposition(EmailAttachment.ATTACHMENT);
+
+	            // Create the email
+	            MultiPartEmail email = new MultiPartEmail();
+	            email.setHostName("smtp.gmail.com"); // Replace with your SMTP host
+	            email.setSmtpPort(587); // Replace with your SMTP port
+	            email.setAuthenticator(new DefaultAuthenticator("dheerajc@advantageclub.in", ""));
+	            email.setStartTLSEnabled(true); // Enable TLS
+	            email.setFrom("dheerajc@advantageclub.in");
+	            email.setSubject(subject);
+	            email.setMsg(body);
+	            email.addTo(to);
+
+	            // Add the attachment
+	            email.attach(attachment);
+
+	            // Send the email
+	            email.send();
+
+	            System.out.println("Email sent successfully with attachment");
+	        } catch (EmailException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	 
+	 public void takeActualScreenshot() {
+			
+		  actualScreenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		
+		
+	}
+	 
+	 public void waitForPageLoad() {
+			
+		 	wait = new WebDriverWait(driver, Duration.ofMillis(10000));
+	 		wait.until((ExpectedCondition<Boolean>) webDriver -> ((JavascriptExecutor) webDriver)
+              .executeScript("return document.readyState").equals("complete"));
+		
+		
+	}
+	 
+	 public class CustomReporterRed {
+
+		    public static void log(String message, String colour) {
+		        String styledMessage = "<font color=\"" + colour + "\">" + message + "</font>";
+		        Reporter.log(styledMessage);
+		    }
+
+	 
+     }
+	 
+	 
 }

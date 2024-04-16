@@ -241,7 +241,7 @@ public class giveAward_flow extends Utility_RR{
   @Parameters("corpID")
   @Test (priority=53, dependsOnMethods = "GiveAwardFlowSingle", enabled = true)
   private void SocialFeedIDGet(String corpID) throws InterruptedException, IOException {
-	  		//Thread.sleep(4000);
+	  		Thread.sleep(4000);
 	  		
 	  		WebElement dev = driver.findElement(By.xpath("(//p[text()='"+DataGiveAwardFlow(corpID, 70, 3)+"'])[1]"));
 	  		//System.out.println(dev.getText());

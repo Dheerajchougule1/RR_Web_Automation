@@ -4,12 +4,29 @@
   <artifactId>RR</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+		
+  
+  	<properties>
+        <!-- Define properties for TestNG XML file -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <suiteFile>lookup.xml</suiteFile>
+    </properties>
+  
   <dependencies>
+	
     <!-- TestNG -->
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
         <version>7.4.0</version>
+    </dependency>
+    
+   
+  <dependency>
+        <groupId>org.im4java</groupId>
+        <artifactId>im4java</artifactId>
+        <version>1.4.0</version>
     </dependency>
 
     <!-- Apache POI (for workbook data extraction) -->
@@ -28,31 +45,91 @@
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
-        <version>4.8.2</version>
-    </dependency>	
+        <version>4.1.0</version>
+    </dependency>
+    
+  	
     
      <dependency>
         <groupId>io.github.bonigarcia</groupId>
         <artifactId>webdrivermanager</artifactId>
         <version>5.1.1</version>
     </dependency>
+  
+  
+ 
 
-   
-     <dependency>
-     	<groupId>MyProject</groupId>
-     	<artifactId>Onboarding</artifactId>
-     	<version>0.0.1-SNAPSHOT</version>
-     </dependency>
-     
-     
-   
+  
+    <dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>4.4.0</version>
+    <scope>test</scope>
+	</dependency>
+	
+	<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.13</version>
+</dependency>
+
+	<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20210307</version> <!-- Replace with the latest version -->
+</dependency>
+
+   <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>javax.mail</artifactId>
+        <version>1.6.2</version> <!-- Replace with the latest version -->
+    </dependency>
+    
+    <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-email</artifactId>
+    <version>1.5</version> <!-- Replace with the latest version -->
+</dependency>
+
+<dependency>
+    <groupId>ru.yandex.qatools.ashot</groupId>
+    <artifactId>ashot</artifactId>
+    <version>1.5.4</version>
+</dependency>
+
+
+
      
 </dependencies>
 
 
 
-
-
-
-
+<build>
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version> <!-- Use the latest version -->
+                <configuration>
+                    <source>17</source> <!-- Adjust according to your Java version -->
+                    <target>17</target> <!-- Adjust according to your Java version -->
+                </configuration>
+            </plugin>
+            
+            <!-- Surefire Plugin Configuration to run TestNG tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version> <!-- Use the latest version -->
+                <configuration>
+                    <!-- Use the property for TestNG XML file -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  
 </project>

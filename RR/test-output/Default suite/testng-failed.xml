@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="report_section.NewUI_recognition_received_report">
+      <class name="vendor_verify.vendor_api_verification">
         <methods>
           <include name="beforeClass"/>
+          <include name="vendor_verify"/>
           <include name="beforeMethod"/>
-          <include name="FilterVerfication"/>
-          <include name="afterClass"/>
-          <include name="afterMethod_Appriciate1"/>
         </methods>
-      </class> <!-- report_section.NewUI_recognition_received_report -->
+      </class> <!-- vendor_verify.vendor_api_verification -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

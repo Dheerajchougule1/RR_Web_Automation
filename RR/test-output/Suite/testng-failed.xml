@@ -4,15 +4,11 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="corpID" value="C466"/>
     <classes>
-      <class name="report_section.NewUI_recognition_received_report">
+      <class name="uiTesting.UiTesting">
         <methods>
-          <include name="beforeClass"/>
-          <include name="beforeMethod"/>
-          <include name="FilterVerfication" invocation-numbers="0"/>
-          <include name="afterClass"/>
-          <include name="afterMethod_Appriciate1"/>
+          <include name="Ui_Testing_actual" invocation-numbers="0"/>
         </methods>
-      </class> <!-- report_section.NewUI_recognition_received_report -->
+      </class> <!-- uiTesting.UiTesting -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

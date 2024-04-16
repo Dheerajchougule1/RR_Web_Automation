@@ -46,7 +46,8 @@ public class Lookup extends Utility_RR {
 	  		 driver.get(DataRunScript(1, 1)+"/in/pages/lookup");
 	  	 }
 	  else {
-	  	 driver.findElement(By.xpath("//a[@href='/in/pages/lookup']")).click();
+		  	 driver.findElement(By.xpath(DataRunScript(1, 1)+"/in/pages/lookup")).click();
+
 	  	 }
 	   importWait();
 	   
@@ -71,7 +72,7 @@ public class Lookup extends Utility_RR {
 	  		 driver.get(DataRunScript(1, 1)+"/in/pages/lookup");
 	  	 }
 	  else {
-	  	 driver.findElement(By.xpath("//a[@href='/in/pages/lookup']")).click();
+	  	 driver.findElement(By.xpath(DataRunScript(1, 1)+"/in/pages/lookup")).click();
 	  	 }
 	   importWait();
 	   

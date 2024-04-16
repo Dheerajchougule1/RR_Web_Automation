@@ -54,7 +54,7 @@ public class appriatiate_flow extends Utility_RR {
   private void before_Method_Appriciate() throws EncryptedDocumentException, IOException {
 		 
 		   //driver.findElement(By.xpath("//li[@class='floatRight'][1]")).click();
-		  driver.get(DataRunScript(2, 1));
+	  	   driver.get(DataRunScript(2, 1));
 		   importWait();
   }
 		
@@ -124,9 +124,11 @@ public class appriatiate_flow extends Utility_RR {
   @Parameters("corpID")
   @Test (priority=2, dependsOnMethods = "AppriateFlowSingle", enabled = true)
   private void SocialFeedIDGet(String corpID) throws InterruptedException, IOException {
-	  		//Thread.sleep(4000);
+	  		Thread.sleep(3000);
 	  		
-	  		WebElement dev = driver.findElement(By.xpath("(//p[text()='"+DataAppriciateFlow(corpID, 25, 3)+"'])[1]"));
+//	  		driver.navigate().to(DataRunScript(2, 1)+"?filter_type=mine");
+//	  		importWait();
+	  		//WebElement dev = driver.findElement(By.xpath("(//p[text()='"+DataAppriciateFlow(corpID, 25, 3)+"'])[1]"));
 	  		//System.out.println(dev.getText());
 	  		WebElement devnew = driver.findElement(By.xpath("(//p[text()='"+DataAppriciateFlow(corpID, 25, 3)+"'])[1]/ancestor::div[5]"));
 	  		
@@ -188,6 +190,9 @@ public class appriatiate_flow extends Utility_RR {
   @Test (priority=3,dependsOnMethods = "AppriateFlowSingle",enabled = true)
   private void LikePositive(String corpID) throws InterruptedException, IOException {
 	  		if(DataAppriciateFlow(corpID, 37, 1).contains("YES")) {
+	  		
+	  		driver.navigate().to(DataRunScript(2, 1)+"?filter_type=mine");
+	  		importWait();
 	  		ScrollIntoView(newsFeedId);
 	  		//driver.findElement(By.xpath(corpID))
 	  		driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//span[text()='Like']")).click();
@@ -208,6 +213,10 @@ public class appriatiate_flow extends Utility_RR {
   @Test (priority=4,dependsOnMethods = "AppriateFlowSingle",enabled = true)
   private void CommentPositiveNegative(String corpID) throws InterruptedException, IOException {
 	  		if(DataAppriciateFlow(corpID, 42, 1).contains("YES")) {
+	  			
+	  			driver.navigate().to(DataRunScript(2, 1)+"?filter_type=mine");
+		  		importWait();
+		  		
 		  	ScrollIntoView(newsFeedId);
 			//driver.findElement(By.xpath(corpID))
 			driver.findElement(By.xpath("//div[@id='"+newsFeedId+"']//span[text()='Comment']")).click();
