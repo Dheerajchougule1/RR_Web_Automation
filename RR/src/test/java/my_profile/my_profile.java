@@ -41,12 +41,14 @@ public class my_profile extends Utility_RR {
   @Parameters("corpID")
   @Test (priority=301,enabled = true)
   public void profile_wallet_verification(String corpID) throws EncryptedDocumentException, IOException {
-	  
-	  if(corpID.contains("C1151")) {
+	
+	  if(DataAppriciateFlow(corpID, 76, 1).contains("YES")) {
+		  
+		  if(corpID.contains("C1151")) {
 	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
 	  	 }
 	  	 else {
-	  	 driver.findElement(By.xpath("//div[text()='My Profile']")).click();
+	  		driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
 	  	 }
 	   importWait();
 	   
@@ -62,6 +64,11 @@ public class my_profile extends Utility_RR {
 		 sa.assertAll();		 
 		   
 	   }
+	  }
+	  else {
+		  
+		  Reporter.log("Wallet Functionality is not available in this corpoarte");
+	  }
 	   
    }
 	   
@@ -73,7 +80,7 @@ public class my_profile extends Utility_RR {
  	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	  	 else {
- 	  	 driver.findElement(By.xpath("//div[text()='My Profile']")).click();
+ 	  		driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	   importWait();
  	   
@@ -104,7 +111,7 @@ public class my_profile extends Utility_RR {
  	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	  	 else {
- 	  	 driver.findElement(By.xpath("//div[text()='My Profile']")).click();
+ 	  		driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	   importWait();
  	   
@@ -130,13 +137,13 @@ public class my_profile extends Utility_RR {
  	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	  	 else {
- 	  	 driver.findElement(By.xpath("//div[text()='My Profile']")).click();
+ 	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	   importWait();
  	   
  	   if(DataAppriciateFlow(corpID, 81, 1).contains("YES")) {
  	   
- 	   driver.findElement(By.xpath("//a[@href='/pages/my_nonmonetary_awards']")).click();
+ 	   driver.findElement(By.xpath("(//a[@href='/in/pages/my_nonmonetary_awards'])[2]")).click();
  	   Thread.sleep(2000);
  	   driver.navigate().back();
 	   
@@ -156,12 +163,12 @@ public class my_profile extends Utility_RR {
  	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	  	 else {
- 	  	 driver.findElement(By.xpath("//div[text()='My Profile']")).click();
+ 	  		driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
  	  	 }
  	   importWait();
- 	   
+ 	   	
  	   if(DataAppriciateFlow(corpID, 82, 1).contains("YES")) {
- 	   driver.findElement(By.xpath("//a[@href='/pages/my_awards']")).click();
+ 	   driver.findElement(By.xpath("(//a[@href='/in/pages/my_awards'])[2]")).click();
  	   Thread.sleep(2000);
  	   driver.navigate().back();
 	   

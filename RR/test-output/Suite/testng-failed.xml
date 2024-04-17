@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test(failed)">
-    <parameter name="corpID" value="C466"/>
+  <test thread-count="5" name="ChromeTest(failed)">
+    <parameter name="corpID" value="C1307"/>
     <classes>
-      <class name="uiTesting.UiTesting">
+      <class name="my_profile.my_profile">
         <methods>
-          <include name="Ui_Testing_actual" invocation-numbers="0"/>
+          <include name="afterMethod"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+          <include name="profile_appreciated_list_Verification" invocation-numbers="0"/>
+          <include name="before_Method_Appriciate"/>
+          <include name="profile_awarded_list_Verification" invocation-numbers="0"/>
         </methods>
-      </class> <!-- uiTesting.UiTesting -->
+      </class> <!-- my_profile.my_profile -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

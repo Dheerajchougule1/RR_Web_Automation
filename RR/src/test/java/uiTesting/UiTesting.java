@@ -72,13 +72,14 @@ import org.openqa.selenium.By;
 		 @Test (priority = 2,enabled=true)
 		  public void Ui_Testing_actual(String corpID) throws EncryptedDocumentException, IOException, InterruptedException, AWTException  {
 			 
-			 startBrowser(DataRunScript(2, 7));
+			 startBrowser(DataRunScript(1, 7));
 			 newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
 			 
 			String gotUrl = driver.getCurrentUrl();
 			System.out.println(gotUrl);
 				
-			String baseUrl = gotUrl.replace("pages/rewards_home", "");
+			String baseUrl1 = gotUrl.replace("pages/rewards_home", "");
+			String baseUrl = DataRunScript(1, 7);
 //			System.out.println(baseUrl);
 			 
 			
@@ -184,7 +185,7 @@ import org.openqa.selenium.By;
 		  }
 		 
 		 @Parameters("corpID")
-		 @Test (priority = 1,enabled=false)
+		 @Test (priority = 1,enabled=true)
 		  public void Ui_Testing_Expected(String corpID) throws EncryptedDocumentException, IOException, InterruptedException, AWTException  {
 			 
 			 
@@ -194,7 +195,8 @@ import org.openqa.selenium.By;
 			String gotUrl = driver.getCurrentUrl();
 			System.out.println(gotUrl);
 				
-			String baseUrl = gotUrl.replace("pages/rewards_home", "");
+			String baseUrl1 = gotUrl.replace("pages/rewards_home", "");
+			String baseUrl = DataRunScript(8, 7);
 			
 			
 //			System.out.println(baseUrl);
