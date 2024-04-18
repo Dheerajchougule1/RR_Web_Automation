@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
@@ -21,7 +22,7 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 
 public class my_profile extends Utility_RR {
-  
+	private List<String> windowRightSide ;
 	
   @Parameters("corpID")
   @BeforeClass
@@ -29,6 +30,14 @@ public class my_profile extends Utility_RR {
 	 
 	  startBrowser(DataRunScript(2, 1));
 	  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
+	  windowRightSide = multipleWindowOpen(1);
+	  driver.switchTo().window(windowRightSide.get(1)); 
+	  Thread.sleep(2000);
+	  driver.get(DataRunScript(5, 7));
+	  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
+	  
+	  driver.switchTo().window(windowRightSide.get(0));
+	  
   }
   
   @BeforeMethod
@@ -45,7 +54,7 @@ public class my_profile extends Utility_RR {
 	  if(DataAppriciateFlow(corpID, 76, 1).contains("YES")) {
 		  
 		  if(corpID.contains("C1151")) {
-	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
+	  	 driver.get(DataRunScript(1, 1)+"in/pages/my_profile");	
 	  	 }
 	  	 else {
 	  		driver.get(DataRunScript(1, 1)+"in/pages/my_profile");
@@ -174,8 +183,7 @@ public class my_profile extends Utility_RR {
 	   
 	   Reporter.log("Award received in my profile is tested",true);
    	   }
-	   else {
-	 		
+	   else {	
 	   Reporter.log("Appreciation received is not available",true);	   
 	   }
  	      	  

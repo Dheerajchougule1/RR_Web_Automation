@@ -11,8 +11,10 @@ import java.net.MalformedURLException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -89,47 +91,47 @@ public class Utility_RR {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
 		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-		WebDriverManager.edgedriver().setup();
-		
-		EdgeOptions options = new EdgeOptions();
-		options.addArguments("inprivate");
-		driver = new EdgeDriver(options);
-		//driver = new EdgeDriver();
-		//WebDriverManager.chromedriver().setup();
-		//driver = new ChromeDriver();
-		driver.get(instanceName);
-		driver.manage().window().maximize();
-		waitForPageLoad();
-		Thread.sleep(2000);
+//		WebDriverManager.edgedriver().setup();
+//		
+//		EdgeOptions options = new EdgeOptions();
+//		options.addArguments("inprivate");
+//		driver = new EdgeDriver(options);
+//		//driver = new EdgeDriver();
+//		//WebDriverManager.chromedriver().setup();
+//		//driver = new ChromeDriver();
+//		driver.get(instanceName);
+//		driver.manage().window().maximize();
+//		waitForPageLoad();
+//		Thread.sleep(2000);
         
-//			capabilities = new DesiredCapabilities();
-//		  	capabilities.setCapability("browserName", "chrome");
-//	        capabilities.setCapability("version", "123.0");
-//	        capabilities.setCapability("platform", "win10"); // If this cap isn't specified, it will just get the any available one
-//	        capabilities.setCapability("build", "LambdaTestSampleApp");
-//	        capabilities.setCapability("name", "LambdaTestJavaSample");
-////	        capabilities.setCapability("network", "true");
-//	        capabilities.setCapability("console", "true");
-//	        capabilities.setCapability("terminal", "true");
-//	        capabilities.setCapability("console", "true");
-//
-//
-//	      try {
-//	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
-//	      } catch (MalformedURLException e) {
-//	          System.out.println("Invalid grid URL");
-//	      } catch (Exception e) {	
-//	          System.out.println(e.getMessage());
-//	      }
-//	      
-//	      // Set implicit wait time
-//	      	Thread.sleep(8000);
-////	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-//	      
-//	      	driver.get(instanceName);
-////	      	driver.get("https://development1.advantageclub.co/in");
-//			driver.manage().window().maximize();
-//			Thread.sleep(2000);
+			capabilities = new DesiredCapabilities();
+		  	capabilities.setCapability("browserName", "chrome");
+	        capabilities.setCapability("version", "123.0");
+	        capabilities.setCapability("platform", "win10"); // If this cap isn't specified, it will just get the any available one
+	        capabilities.setCapability("build", "LambdaTestSampleApp");
+	        capabilities.setCapability("name", "LambdaTestJavaSample");
+//	        capabilities.setCapability("network", "true");
+	        capabilities.setCapability("console", "true");
+	        capabilities.setCapability("terminal", "true");
+	        capabilities.setCapability("console", "true");
+
+
+	      try {
+	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
+	      } catch (MalformedURLException e) {
+	          System.out.println("Invalid grid URL");
+	      } catch (Exception e) {	
+	          System.out.println(e.getMessage());
+	      }
+	      
+	      // Set implicit wait time
+	      	Thread.sleep(8000);
+//	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	      
+	      	driver.get(instanceName);
+//	      	driver.get("https://development1.advantageclub.co/in");
+			driver.manage().window().maximize();
+			Thread.sleep(2000);
 			
 			
 		
@@ -250,12 +252,13 @@ public class Utility_RR {
 	public void newui_login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
 		driver.findElement(By.xpath("//div[@class='login-section']")).click();
 		waitForPageLoad();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
 		 Thread.sleep(3000);
 		 Robot robot = new Robot();
-		  for (int i = 0; i < 5; i++) {
+		  for (int i = 0; i < 1; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_SUBTRACT);
@@ -392,6 +395,23 @@ public class Utility_RR {
 		oldTabHandle = windowHandles.toArray()[windowHandles.size()- windowHandles.size()].toString();
 		driver.switchTo().window(oldTabHandle);		
 			
+	}
+	
+	public List<String> multipleWindowOpen(int WindowCount) throws EncryptedDocumentException, IOException, InterruptedException {
+//		act= new Actions(driver);
+//		act.keyDown(Keys.chord(Keys.CONTROL)).sendKeys("t").keyUp(Keys.chord(Keys.CONTROL)).build().perform();
+		for(int q = 1; q>=WindowCount; q--) {
+		((JavascriptExecutor) driver).executeScript("window.open('', '_blank');");
+		// Get a list of window handles (tabs)
+		}
+		
+		
+		Set<String> windowHandles = driver.getWindowHandles();
+		
+		List<String> windowHandlesList = new ArrayList<>(windowHandles);
+		
+		return windowHandlesList;		
+		
 	}
 	
 	
