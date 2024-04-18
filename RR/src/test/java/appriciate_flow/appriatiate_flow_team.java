@@ -34,7 +34,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
-//automation!!!!!!!!!!!!!!!!!!!!!!!!!1
+
 public class appriatiate_flow_team extends Utility_RR {
 	private String newsFeedId; 
 	private String likeCount;

@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[Wallet Functionality is not available in this corpoarte]]>
-    </line>
-    <line>
-      <![CDATA[Profile picture edited]]>
-    </line>
-    <line>
-      <![CDATA[Information edit tested]]>
-    </line>
-    <line>
-      <![CDATA[Appreciation received in my profile is tested]]>
-    </line>
-    <line>
-      <![CDATA[Award received in my profile is tested]]>
-    </line>
   </reporter-output>
-  <suite started-at="2024-04-17T12:10:45 IST" name="Suite" finished-at="2024-04-17T12:12:08 IST" duration-ms="82862">
+  <suite started-at="2024-04-18T18:11:38 IST" name="Suite" finished-at="2024-04-18T18:12:34 IST" duration-ms="55587">
     <groups>
     </groups>
-    <test started-at="2024-04-17T12:10:45 IST" name="ChromeTest" finished-at="2024-04-17T12:12:08 IST" duration-ms="82862">
-      <class name="my_profile.my_profile">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:10:45 IST" name="beforeClass" finished-at="2024-04-17T12:11:18 IST" duration-ms="33118" status="PASS">
+    <test started-at="2024-04-18T18:11:38 IST" name="Test11" finished-at="2024-04-18T18:12:34 IST" duration-ms="55587">
+      <class name="my_profile.my_wallets2">
+        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:11:39 IST" name="beforeClass" finished-at="2024-04-18T18:11:58 IST" duration-ms="19689" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -33,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method is-config="true" signature="before_Method_Appriciate()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:18 IST" name="before_Method_Appriciate" finished-at="2024-04-17T12:11:40 IST" duration-ms="21755" status="PASS">
+        <test-method is-config="true" signature="beforeMethod1()[pri:0, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:11:58 IST" name="beforeMethod1" finished-at="2024-04-18T18:11:59 IST" duration-ms="307" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- before_Method_Appriciate -->
-        <test-method signature="profile_wallet_verification(java.lang.String)[pri:301, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:40 IST" name="profile_wallet_verification" finished-at="2024-04-17T12:11:40 IST" duration-ms="589" status="PASS">
+        </test-method> <!-- beforeMethod1 -->
+        <test-method signature="wallet_count(java.lang.String)[pri:1, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:11:59 IST" name="wallet_count" finished-at="2024-04-18T18:12:33 IST" duration-ms="34729" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -46,20 +31,17 @@
             </param>
           </params>
           <reporter-output>
-            <line>
-              <![CDATA[Wallet Functionality is not available in this corpoarte]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- profile_wallet_verification -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:40 IST" name="afterMethod" finished-at="2024-04-17T12:11:40 IST" duration-ms="52" status="PASS">
+        </test-method> <!-- wallet_count -->
+        <test-method is-config="true" signature="afterMethod1()[pri:0, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:12:33 IST" name="afterMethod1" finished-at="2024-04-18T18:12:33 IST" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="before_Method_Appriciate()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:40 IST" name="before_Method_Appriciate" finished-at="2024-04-17T12:11:42 IST" duration-ms="1521" status="PASS">
+        </test-method> <!-- afterMethod1 -->
+        <test-method is-config="true" signature="beforeMethod1()[pri:0, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:12:33 IST" name="beforeMethod1" finished-at="2024-04-18T18:12:34 IST" duration-ms="385" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- before_Method_Appriciate -->
-        <test-method signature="profile_pic_Verification(java.lang.String)[pri:302, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:42 IST" name="profile_pic_Verification" finished-at="2024-04-17T12:11:46 IST" duration-ms="4171" status="PASS">
+        </test-method> <!-- beforeMethod1 -->
+        <test-method signature="entires_count(java.lang.String)[pri:2, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:12:34 IST" name="entires_count" finished-at="2024-04-18T18:12:34 IST" duration-ms="168" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -68,86 +50,17 @@
             </param>
           </params>
           <reporter-output>
-            <line>
-              <![CDATA[Profile picture edited]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- profile_pic_Verification -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:46 IST" name="afterMethod" finished-at="2024-04-17T12:11:46 IST" duration-ms="7" status="PASS">
+        </test-method> <!-- entires_count -->
+        <test-method is-config="true" signature="afterMethod1()[pri:0, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:12:34 IST" name="afterMethod1" finished-at="2024-04-18T18:12:34 IST" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="before_Method_Appriciate()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:46 IST" name="before_Method_Appriciate" finished-at="2024-04-17T12:11:48 IST" duration-ms="1667" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- before_Method_Appriciate -->
-        <test-method signature="profile_info_edit_Verification(java.lang.String)[pri:303, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:48 IST" name="profile_info_edit_Verification" finished-at="2024-04-17T12:11:53 IST" duration-ms="5127" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C1307]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Information edit tested]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- profile_info_edit_Verification -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:53 IST" name="afterMethod" finished-at="2024-04-17T12:11:53 IST" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="before_Method_Appriciate()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:53 IST" name="before_Method_Appriciate" finished-at="2024-04-17T12:11:54 IST" duration-ms="974" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- before_Method_Appriciate -->
-        <test-method signature="profile_appreciated_list_Verification(java.lang.String)[pri:304, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:11:54 IST" name="profile_appreciated_list_Verification" finished-at="2024-04-17T12:12:01 IST" duration-ms="7146" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C1307]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Appreciation received in my profile is tested]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- profile_appreciated_list_Verification -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:12:01 IST" name="afterMethod" finished-at="2024-04-17T12:12:01 IST" duration-ms="12" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="before_Method_Appriciate()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:12:01 IST" name="before_Method_Appriciate" finished-at="2024-04-17T12:12:02 IST" duration-ms="1113" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- before_Method_Appriciate -->
-        <test-method signature="profile_awarded_list_Verification(java.lang.String)[pri:305, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:12:02 IST" name="profile_awarded_list_Verification" finished-at="2024-04-17T12:12:08 IST" duration-ms="5305" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[C1307]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Award received in my profile is tested]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- profile_awarded_list_Verification -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:12:08 IST" name="afterMethod" finished-at="2024-04-17T12:12:08 IST" duration-ms="12" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:my_profile.my_profile@2e8c1c9b]" started-at="2024-04-17T12:12:08 IST" name="afterClass" finished-at="2024-04-17T12:12:08 IST" duration-ms="222" status="PASS">
+        </test-method> <!-- afterMethod1 -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:my_profile.my_wallets2@75d3a5e0]" started-at="2024-04-18T18:12:34 IST" name="afterClass" finished-at="2024-04-18T18:12:34 IST" duration-ms="246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- my_profile.my_profile -->
-    </test> <!-- ChromeTest -->
+      </class> <!-- my_profile.my_wallets2 -->
+    </test> <!-- Test11 -->
   </suite> <!-- Suite -->
 </testng-results>
