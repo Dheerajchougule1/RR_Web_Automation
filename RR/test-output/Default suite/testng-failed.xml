@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="vendor_verify.vendor_api_verification">
+      <class name="lookup.Lookup">
         <methods>
+          <include name="afterClass"/>
+          <include name="afterMethod"/>
+          <include name="lookup_Negative"/>
+          <include name="lookup_Positive"/>
           <include name="beforeClass"/>
-          <include name="vendor_verify"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- vendor_verify.vendor_api_verification -->
+      </class> <!-- lookup.Lookup -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

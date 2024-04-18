@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="ChromeTest(failed)">
+  <test thread-count="5" name="Test11(failed)">
     <parameter name="corpID" value="C1307"/>
     <classes>
-      <class name="my_profile.my_profile">
+      <class name="my_profile.my_wallets2">
         <methods>
-          <include name="afterMethod"/>
-          <include name="afterClass"/>
+          <include name="beforeMethod1"/>
           <include name="beforeClass"/>
-          <include name="profile_appreciated_list_Verification" invocation-numbers="0"/>
-          <include name="before_Method_Appriciate"/>
-          <include name="profile_awarded_list_Verification" invocation-numbers="0"/>
+          <include name="entires_count" invocation-numbers="0"/>
+          <include name="afterMethod1"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- my_profile.my_profile -->
+      </class> <!-- my_profile.my_wallets2 -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
+  </test> <!-- Test11(failed) -->
 </suite> <!-- Failed suite [Suite] -->
