@@ -25,6 +25,7 @@ public class my_profile extends Utility_RR {
 	
   @Parameters("corpID")
   @BeforeClass
+  
   private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 	 
 	  startBrowser(DataRunScript(2, 1));
