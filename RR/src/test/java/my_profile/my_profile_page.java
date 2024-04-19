@@ -20,7 +20,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 
-public class my_profile extends Utility_RR {
+public class my_profile_page extends Utility_RR {
   
 	
   @Parameters("corpID")

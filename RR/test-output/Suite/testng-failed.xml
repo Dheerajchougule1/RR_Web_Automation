@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test11(failed)">
+  <test thread-count="5" name="Test(failed)">
     <parameter name="corpID" value="C1307"/>
     <classes>
-      <class name="my_profile.my_wallets2">
+      <class name="my_profile.add_wallet_points">
         <methods>
-          <include name="beforeMethod1"/>
           <include name="beforeClass"/>
-          <include name="entires_count" invocation-numbers="0"/>
-          <include name="afterMethod1"/>
+          <include name="before_Method_Appriciate"/>
+          <include name="error_rajorpay_verification" invocation-numbers="0"/>
           <include name="afterClass"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- my_profile.my_wallets2 -->
+      </class> <!-- my_profile.add_wallet_points -->
     </classes>
-  </test> <!-- Test11(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
