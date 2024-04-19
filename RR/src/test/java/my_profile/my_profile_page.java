@@ -20,11 +20,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 
-public class my_profile extends Utility_RR {
+public class my_profile_page extends Utility_RR {
   
 	
   @Parameters("corpID")
   @BeforeClass
+  
   private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 	 
 	  startBrowser(DataRunScript(2, 1));
