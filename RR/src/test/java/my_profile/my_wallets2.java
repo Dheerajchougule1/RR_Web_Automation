@@ -19,10 +19,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import listener.CustomListener;
 import utility_RR.Utility_RR;
+@Listeners(CustomListener.class)	
 
 
 
@@ -69,7 +72,6 @@ public class my_wallets2 extends Utility_RR{
 	                int count1 = getCountFromResponse(jsonResponse1);
 	                System.out.println("Count 1: " + count1);
 	                
-	                Thread.sleep(30000);
 
 	                // Create an HttpPost request for API 2
 	                HttpPost request2 = new HttpPost(apiUrl2);
@@ -82,7 +84,7 @@ public class my_wallets2 extends Utility_RR{
 	                    System.out.println("Count 2: " + count2);
 
 	                    if (count1 == count2) {
-	                        System.out.println("Count verified: " + count1);
+	                    	CustomReporterRed.log("Count verified: " + count1, "green");
 	                    } else {
 	                        System.out.println("My Wallet transactions are mismatched");
 	                        CustomReporterRed.log("My Wallet transactions are mismatched","red");
@@ -110,6 +112,9 @@ public class my_wallets2 extends Utility_RR{
 	      if(count2!=walletCount) {
 	    	  CustomReporterRed.log("Wallet transactions not getting populated correctly","red");
 	    	  
+	      }
+	      else {
+	    	  CustomReporterRed.log("Wallet transactions getting populated correctly","green");
 	      }
 	  }
 	  

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>16/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Apr 19 00:59:40 IST 2024</td>
+<td>Started on:</td><td>Fri Apr 19 15:21:17 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>56 seconds (56861 ms)</td>
+<tr><td>Total time:</td><td>172 seconds (172242 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,66 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='my_profile.add_wallet_points.error_rajorpay_verification()'><b>error_rajorpay_verification</b><br>Test class: my_profile.add_wallet_points<br>Parameters: C1307<br/>
-<a href="#Output-1145023109" onClick='toggleBox("Output-1145023109", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1145023109" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1145023109">
-<font color="red">Test Case Failed: error_rajorpay_verification</font><br/>
-<font color="red">Error Message: The following asserts failed:
-	Alert message is mismatched by cancelling rajor pay payment  expected [Are you sure, you want to close the for?] but found [Are you sure, you want to close the form?]</font><br/>
-</div>
-</td>
-<td><div><pre>java.lang.AssertionError: The following asserts failed:
-	Alert message is mismatched by cancelling rajor pay payment  expected [Are you sure, you want to close the for?] but found [Are you sure, you want to close the form?]
-	at my_profile.add_wallet_points.error_rajorpay_verification(add_wallet_points.java:193)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1145023109", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1145023109'><pre>java.lang.AssertionError: The following asserts failed:
-	Alert message is mismatched by cancelling rajor pay payment  expected [Are you sure, you want to close the for?] but found [Are you sure, you want to close the form?]
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
-	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-	at my_profile.add_wallet_points.error_rajorpay_verification(add_wallet_points.java:193)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:658)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:219)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:923)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:192)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:808)
-	at org.testng.TestRunner.run(TestRunner.java:603)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.runSuites(TestNG.java:1092)
-	at org.testng.TestNG.run(TestNG.java:1060)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>4</td>
-<td>my_profile.add_wallet_points@563f38c4</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -135,16 +75,111 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='my_profile.my_wallets2.wallet_count()'><b>wallet_count</b><br>Test class: my_profile.my_wallets2<br>Parameters: C1307</td>
+<td></td>
+<td>4</td>
+<td>my_profile.my_wallets2@2d901eb0</td></tr>
+<tr>
+<td title='my_profile.add_wallet_points.error_rajorpay_verification()'><b>error_rajorpay_verification</b><br>Test class: my_profile.add_wallet_points<br>Parameters: C1307</td>
+<td></td>
+<td>4</td>
+<td>my_profile.add_wallet_points@3ba987b8</td></tr>
+<tr>
 <td title='my_profile.add_wallet_points.verify_hardcoded_amount_available()'><b>verify_hardcoded_amount_available</b><br>Test class: my_profile.add_wallet_points<br>Parameters: C1307</td>
 <td></td>
 <td>1</td>
-<td>my_profile.add_wallet_points@563f38c4</td></tr>
+<td>my_profile.add_wallet_points@3ba987b8</td></tr>
+<tr>
+<td title='my_profile.add_gift_card.error_message_verification()'><b>error_message_verification</b><br>Test class: my_profile.add_gift_card<br>Parameters: C1307</td>
+<td></td>
+<td>0</td>
+<td>my_profile.add_gift_card@4c60d6e9</td></tr>
+<tr>
+<td title='my_profile.my_profile_page.profile_info_edit_Verification()'><b>profile_info_edit_Verification</b><br>Test class: my_profile.my_profile_page<br>Parameters: C1307<br/>
+<a href="#Output-1709321711" onClick='toggleBox("Output-1709321711", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1709321711" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1709321711">
+Information edit tested<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>my_profile.my_profile_page@35dab4eb</td></tr>
+<tr>
+<td title='my_profile.my_profile_page.profile_appreciated_list_Verification()'><b>profile_appreciated_list_Verification</b><br>Test class: my_profile.my_profile_page<br>Parameters: C1307<br/>
+<a href="#Output-2124562732" onClick='toggleBox("Output-2124562732", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2124562732" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2124562732">
+Appreciation received in my profile is tested<br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>my_profile.my_profile_page@35dab4eb</td></tr>
+<tr>
+<td title='my_profile.i_want.error_message_verification()'><b>error_message_verification</b><br>Test class: my_profile.i_want<br>Parameters: C1307</td>
+<td></td>
+<td>0</td>
+<td>my_profile.i_want@3f191845</td></tr>
+<tr>
+<td title='my_profile.add_gift_card.verify_all_label_name()'><b>verify_all_label_name</b><br>Test class: my_profile.add_gift_card<br>Parameters: C1307</td>
+<td></td>
+<td>1</td>
+<td>my_profile.add_gift_card@4c60d6e9</td></tr>
+<tr>
+<td title='my_profile.i_want.verify_label_all_label_name()'><b>verify_label_all_label_name</b><br>Test class: my_profile.i_want<br>Parameters: C1307</td>
+<td></td>
+<td>1</td>
+<td>my_profile.i_want@3f191845</td></tr>
+<tr>
+<td title='my_profile.my_profile_page.profile_wallet_verification()'><b>profile_wallet_verification</b><br>Test class: my_profile.my_profile_page<br>Parameters: C1307<br/>
+<a href="#Output-1733520096" onClick='toggleBox("Output-1733520096", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1733520096" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1733520096">
+Wallet Functionality is not available in this corpoarte<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>my_profile.my_profile_page@35dab4eb</td></tr>
+<tr>
+<td title='my_profile.my_profile_page.profile_awarded_list_Verification()'><b>profile_awarded_list_Verification</b><br>Test class: my_profile.my_profile_page<br>Parameters: C1307<br/>
+<a href="#Output-1796938191" onClick='toggleBox("Output-1796938191", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1796938191" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1796938191">
+Award received in my profile is tested<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>my_profile.my_profile_page@35dab4eb</td></tr>
+<tr>
+<td title='my_profile.my_profile_page.profile_pic_Verification()'><b>profile_pic_Verification</b><br>Test class: my_profile.my_profile_page<br>Parameters: C1307<br/>
+<a href="#Output-266894813" onClick='toggleBox("Output-266894813", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-266894813" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-266894813">
+Profile picture edited<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>my_profile.my_profile_page@35dab4eb</td></tr>
+<tr>
+<td title='my_profile.add_wallet_points.wallet_balance_verification()'><b>wallet_balance_verification</b><br>Test class: my_profile.add_wallet_points<br>Parameters: C1307</td>
+<td></td>
+<td>0</td>
+<td>my_profile.add_wallet_points@3ba987b8</td></tr>
 <tr>
 <td title='my_profile.add_wallet_points.error_amount_verification()'><b>error_amount_verification</b><br>Test class: my_profile.add_wallet_points<br>Parameters: C1307<br/>
-<a href="#Output-1250956357" onClick='toggleBox("Output-1250956357", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1438977874" onClick='toggleBox("Output-1438977874", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1250956357" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1250956357">
+<a href="#Output-1438977874" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1438977874">
 amount blank verifed<br/>
 amount 1 verifed<br/>
 amount 30000 verifed<br/>
@@ -152,12 +187,17 @@ amount 30000 verifed<br/>
 </td>
 <td></td>
 <td>7</td>
-<td>my_profile.add_wallet_points@563f38c4</td></tr>
+<td>my_profile.add_wallet_points@3ba987b8</td></tr>
 <tr>
-<td title='my_profile.add_wallet_points.wallet_balance_verification()'><b>wallet_balance_verification</b><br>Test class: my_profile.add_wallet_points<br>Parameters: C1307</td>
+<td title='my_profile.my_wallets2.entires_count()'><b>entires_count</b><br>Test class: my_profile.my_wallets2<br>Parameters: C1307</td>
 <td></td>
 <td>0</td>
-<td>my_profile.add_wallet_points@563f38c4</td></tr>
+<td>my_profile.my_wallets2@2d901eb0</td></tr>
+<tr>
+<td title='my_profile.i_want.profile_awarded_list_Verification()'><b>profile_awarded_list_Verification</b><br>Test class: my_profile.i_want<br>Parameters: C1307</td>
+<td></td>
+<td>0</td>
+<td>my_profile.i_want@3f191845</td></tr>
 </table><p>
 </body>
 </html>
