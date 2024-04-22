@@ -50,8 +50,13 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 		 @BeforeClass
 		  public void beforeClass(String corpID) throws EncryptedDocumentException, MalformedURLException, InterruptedException, IOException, AWTException {
 			 
-			  startBrowser(DataRunScript(2, 1));
-			  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
+			 if(corpID.contains("C1170")) {
+				 startBrowser(DataRunScript(2, 1));
+			 }
+			 else {
+				 startBrowser(DataRunScript(2, 1));
+			 }
+			 	 newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
 			  
 		  }	
 		 
@@ -283,7 +288,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 			            
 			           
 			            String jsonResponse1 = EntityUtils.toString(response.getEntity());
-			            JSONObject jsonObject1 = new JSONObject(jsonResponse1);
+			            JSONObject jsonObject1 = new JSONObject(jsonResponse1);																	
 			            int vendorCount = jsonObject1.getInt("vendor_count");
 			           
 			            String vendor_count = Integer.toString(vendorCount);

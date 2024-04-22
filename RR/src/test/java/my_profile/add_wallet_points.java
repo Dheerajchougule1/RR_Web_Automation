@@ -186,7 +186,7 @@ public class add_wallet_points extends Utility_RR {
 	   alert = driver.switchTo().alert();
 	   String alertMessage4 = alert.getText();
 	   
-	   sa.assertEquals(alertMessage4, "Are you sure, you want to close the for?", "Alert message is mismatched by cancelling rajor pay payment ");
+	   sa.assertEquals(alertMessage4, "Are you sure, you want to close the form?", "Alert message is mismatched by cancelling rajor pay payment ");
 	   
 	   alert.accept();
 	 
