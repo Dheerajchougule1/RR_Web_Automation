@@ -53,7 +53,7 @@ public class add_gift_card extends Utility_RR {
   public void verify_all_label_name(String corpID) throws EncryptedDocumentException, IOException, InterruptedException {
 	
 	 
-	  Thread.sleep(1000);
+	  waitForPageLoad();
 	  
 	  List<WebElement> listOfLabel = driver.findElements(By.xpath("//label[@class='p1 font-semibold']"));
 	  ArrayList<String> actaulLabelName = new ArrayList<String>();

@@ -2,26 +2,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="corpID" value="C1307"/>
+    <parameter name="corpID" value="C1291"/>
     <classes>
-      <class name="my_profile.add_gift_card">
+      <class name="nominationFlow.Nomination_flow">
         <methods>
-          <include name="afterClass"/>
-          <include name="afterMethod"/>
-          <include name="beforeClass"/>
-          <include name="error_message_verification" invocation-numbers="0"/>
-          <include name="before_Method_Appriciate"/>
+          <include name="nominateSessionCreation" invocation-numbers="0"/>
         </methods>
-      </class> <!-- my_profile.add_gift_card -->
-      <class name="my_profile.add_wallet_points">
-        <methods>
-          <include name="beforeClass"/>
-          <include name="before_Method_Appriciate"/>
-          <include name="error_rajorpay_verification" invocation-numbers="0"/>
-          <include name="afterClass"/>
-          <include name="afterMethod"/>
-        </methods>
-      </class> <!-- my_profile.add_wallet_points -->
+      </class> <!-- nominationFlow.Nomination_flow -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

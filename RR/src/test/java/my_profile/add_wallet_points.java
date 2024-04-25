@@ -55,7 +55,7 @@ public class add_wallet_points extends Utility_RR {
   public void verify_hardcoded_amount_available(String corpID) throws EncryptedDocumentException, IOException, InterruptedException {
 	
 	 
-	  Thread.sleep(1000);
+	  waitForPageLoad();
 	  
 	  List<WebElement> listOfamount = driver.findElements(By.xpath("//p[@class='p1 wallet-points cursor-pointer']"));
 	  ArrayList<String> actaulListOfAmount = new ArrayList<String>();
@@ -135,12 +135,12 @@ public class add_wallet_points extends Utility_RR {
 	   Reporter.log("amount blank verifed");
 	   
 	   //amount 1
-	   Thread.sleep(2000);
+	   waitForPageLoad();
 	   driver.findElement(By.xpath("//input[@name='points']")).sendKeys("1");
 	   
 	   driver.findElement(By.xpath("//button[@onclick='proceedToAddPoints()']")).click();
 	   
-	   Thread.sleep(1500);
+	   Thread.sleep(2000);
 	   alert = driver.switchTo().alert();
 	   String alertMessage2 = alert.getText();
 	   
@@ -150,11 +150,11 @@ public class add_wallet_points extends Utility_RR {
 	   
 	   //amount 30000
 	   
-	   Thread.sleep(2000);
+	   waitForPageLoad();
 	   driver.findElement(By.xpath("//input[@name='points']")).sendKeys("30000");
 	   driver.findElement(By.xpath("//button[@onclick='proceedToAddPoints()']")).click();
 	   
-	   Thread.sleep(1500);
+	   Thread.sleep(2000);
 	   alert = driver.switchTo().alert();
 	   String alertMessage3 = alert.getText();
 	   
@@ -176,13 +176,14 @@ public class add_wallet_points extends Utility_RR {
 	   driver.findElement(By.xpath("//button[@onclick='proceedToAddPoints()']")).click();
 	   
 	   Thread.sleep(3000);
+	   waitForPageLoad();
 	   
 	   driver.navigate().back();
 	   
 	   
 	   sa= new SoftAssert();
 	   
-	   Thread.sleep(1000);
+	   Thread.sleep(2000);
 	   alert = driver.switchTo().alert();
 	   String alertMessage4 = alert.getText();
 	   

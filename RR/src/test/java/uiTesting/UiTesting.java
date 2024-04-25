@@ -121,6 +121,7 @@ import org.openqa.selenium.By;
 	  		    url = ((org.apache.poi.ss.usermodel.Cell) cell).getStringCellValue();
 	  		    
 	  		    if(cell.toString().isEmpty()) {
+	  		    	
 		  		    break;
 		  		}
 		  	 
@@ -133,10 +134,12 @@ import org.openqa.selenium.By;
 //	  	        Thread.sleep(6000);
 	  	 		
 	  	 		waitForPageLoad();
-	  	 		Thread.sleep(3000);
-	  	 		if(url.contains("pages/notifications") || url.contains("pages/rewards_home") || url.contains("pages/sections")|| url.contains("pages/poll_analytic")|| url.contains("pages/my_profile")|| url.contains("new_reports/login_session_report")|| url.contains("pages/upcoming_birthdays_anniversaries")|| url.contains("new_reports/dashboard")|| url.contains("new_reports/stored_value_report")|| url.contains("pages/hobby_clubs")) {
+//	  	 		Thread.sleep(3000);
+	  	 		
+	  	 		
+	  	 		if(url.contains("pages/poll")){
 	  	 			
-	  	 		Thread.sleep(5000);
+	  	 			Thread.sleep(2000);
 	  	 		}
 	  	 	
 	            Screenshot screenshot = new AShot().takeScreenshot(driver);
@@ -249,12 +252,12 @@ import org.openqa.selenium.By;
 	  	 		String urlEndPoint = url.replaceAll("/", "_");
 	  	 		
 	  	 		waitForPageLoad();
-	  	 		Thread.sleep(3000);
+//	  	 		Thread.sleep(3000);
+	  	 				
+	  	 		if(url.contains("pages/poll")) {
 	  	 			
-	  	 		if(url.contains("pages/notifications") || url.contains("pages/rewards_home") || url.contains("pages/sections")|| url.contains("pages/poll_analytic")|| url.contains("pages/my_profile")|| url.contains("new_reports/login_session_report")|| url.contains("pages/upcoming_birthdays_anniversaries")|| url.contains("new_reports/dashboard")|| url.contains("new_reports/stored_value_report")|| url.contains("pages/hobby_clubs")) {
-	  	 			
-		  	 		Thread.sleep(5000);
-		  	 	}
+	  	 			Thread.sleep(2000);
+	  	 		}
 	  	 		
 	  	 	// Capture screenshot of the entire page
 	            Screenshot screenshot = new AShot().takeScreenshot(driver);

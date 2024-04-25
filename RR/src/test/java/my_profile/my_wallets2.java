@@ -79,7 +79,7 @@ public class my_wallets2 extends Utility_RR{
 	                request2.setHeader("token", getToken());
 	                // Send the request and get the response
 	                try (CloseableHttpResponse response2 = httpClient.execute(request2)) {
-	                    String jsonResponse2 = EntityUtils.toString(response2.getEntity());
+	                    String jsonResponse2 = EntityUtils.toString(response2.getEntity());	
 	                    count2 = getCountFromResponse(jsonResponse2);
 	                    System.out.println("Count 2: " + count2);
 
