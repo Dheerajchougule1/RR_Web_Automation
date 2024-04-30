@@ -61,32 +61,32 @@ public class my_favourites extends Utility_RR {
 //    		 }
 //    }
     
-  @Parameters("corpID")
-  @Test(priority=3,enabled=true)
-  public void ScrollIntoView_by_webelement() throws InterruptedException, EncryptedDocumentException, IOException, AWTException {
-	
-  	try {
-          // Navigate to the desired page
-  	   	List<WebElement> elements = driver.findElements(By.xpath("//div[@id='vendors']//div[@class='flex justify-between flex-col vendor-content']"));
-
-          WebElement lastElement = elements.get(elements.size() - 1);
-          ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastElement);
-          Thread.sleep(1000);
-          String LastFavouriteVendor = favouriteVendors.get(favouriteVendors.size()-1);
-          String lastElementText = lastElement.getText();
-          System.out.print(lastElementText);
-          System.out.print(LastFavouriteVendor);
-          
-          if (LastFavouriteVendor.equals(lastElementText)) {
-              System.out.println("Scroll functionality verified");
-          } else {
-              System.out.println("Scroll functionality not working");
-          }
-      } catch (NoSuchElementException e) {
-          System.out.println("Scroll functionality not working");   
-      }
-  	
-  }
+//  @Parameters("corpID")
+//  @Test(priority=3,enabled=true)
+//  public void ScrollIntoView_by_webelement() throws InterruptedException, EncryptedDocumentException, IOException, AWTException {
+//	
+//  	try {
+//          // Navigate to the desired page
+//  	   	List<WebElement> elements = driver.findElements(By.xpath("//div[@id='vendors']//div[@class='flex justify-between flex-col vendor-content']"));
+//
+//          WebElement lastElement = elements.get(elements.size() - 1);
+//          ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastElement);
+//          Thread.sleep(1000);
+//          String LastFavouriteVendor = favouriteVendors.get(favouriteVendors.size()-1);
+//          String lastElementText = lastElement.getText();
+//          System.out.print(lastElementText);
+//          System.out.print(LastFavouriteVendor);
+//          
+//          if (LastFavouriteVendor.equals(lastElementText)) {
+//              System.out.println("Scroll functionality verified");
+//          } else {
+//              System.out.println("Scroll functionality not working");
+//          }
+//      } catch (NoSuchElementException e) {
+//          System.out.println("Scroll functionality not working");   
+//      }
+//  	
+//  }
 
     
     @Parameters("corpID")
@@ -147,7 +147,7 @@ public class my_favourites extends Utility_RR {
     
     
     @Parameters("corpID")
-    @Test(priority=4,enabled=true)
+    @Test(priority=3,enabled=true)
     public void remove_favourites(String corpID) throws EncryptedDocumentException, IOException, InterruptedException, AWTException {
        // driver.get(DataRunScript(1, 1) + "in/pages/your_favourites");
 
@@ -169,28 +169,9 @@ public class my_favourites extends Utility_RR {
         
     }
 
-//    private void zoomInPage() throws AWTException {
-//        Robot robot = new Robot();
-//        for (int i = 0; i < 5; i++) {
-//            robot.keyPress(KeyEvent.VK_CONTROL);
-//            robot.keyPress(KeyEvent.VK_ADD);
-//            robot.keyRelease(KeyEvent.VK_ADD);
-//            robot.keyRelease(KeyEvent.VK_CONTROL);
-//        }
-//    }
-//
-//    private void zoomOutPage() throws AWTException {
-//        Robot robot = new Robot();
-//        for (int i = 0; i < 5; i++) {
-//            robot.keyPress(KeyEvent.VK_CONTROL);
-//            robot.keyPress(KeyEvent.VK_SUBTRACT);
-//            robot.keyRelease(KeyEvent.VK_SUBTRACT);
-//            robot.keyRelease(KeyEvent.VK_CONTROL);
-//        }
-//    }
 
     private boolean areFavoritesPresent() {
-        WebElement emptyMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='vendors']")));
+        WebElement emptyMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='vendors']")));
         String str1 = "No Favorites yet!\n" + "Tap on the 🤍 follow your favorites.";
         String message = emptyMessage.getText();
         return !message.equals(str1);
@@ -242,131 +223,7 @@ public class my_favourites extends Utility_RR {
 
     @AfterClass
     public void afterClass() {
-        //driver.quit();
+        driver.quit();
     }
 }
 
-//package my_profile;
-//
-//import org.testng.annotations.Test;
-//
-//import com.beust.jcommander.Parameters;
-//
-//import utility_RR.Utility_RR;
-//
-//import org.testng.annotations.BeforeMethod;
-//import org.testng.annotations.AfterMethod;
-//import org.testng.annotations.BeforeClass;
-//
-//import java.awt.AWTException;
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.NoSuchElementException;
-//
-//import org.apache.poi.EncryptedDocumentException;
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.WebElement;
-//import org.testng.annotations.AfterClass;
-//
-//public class my_favourites extends Utility_RR {
-//	
-//	@Parameters("corpID")
-//	@BeforeClass
-//	private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
-//		 
-//		  startBrowser(DataRunScript(2, 1));
-//		  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
-//	}
-//
-//	@BeforeMethod
-//	public void beforeMethod() throws EncryptedDocumentException, IOException, InterruptedException {
-//		driver.get(DataRunScript(1, 1)+"in/pages/your_favourites");
-//	  	importWait();
-//	  	Thread.sleep(2000);
-//	}
-//	
-//	private List<String> favouriteVendors = new ArrayList<>();
-//
-//	@Parameters("corpID")
-//	@Test(priority=1,enabled=true)
-//
-//  public void check_favourites(String corpID) throws EncryptedDocumentException, IOException {
-//		@SuppressWarnings("unused")
-//		WebElement empty_message = null;
-//        try {
-//            empty_message= driver.findElement(By.xpath("//*[@id='vendors']/div/h3"));
-//            add_favourites(corpID); 
-//        } catch (org.openqa.selenium.NoSuchElementException e) {
-//            remove_favourites(corpID);
-//            add_favourites(corpID);
-//            
-//        }
-//		
-//  }
-//	
-//	public void add_favourites(String corpID) throws EncryptedDocumentException, IOException {
-//		
-//		
-//		driver.get(DataRunScript(1, 1)+"in/pages/sections?section_id=3");
-//		WebElement vendorContainer = driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/div[5]"));
-//		int vendorCount = 0;
-//		for(WebElement vendor : vendorContainer.findElements(By.tagName("div"))) {
-//			if(vendorCount>=10) {
-//				break;
-//			}
-//			WebElement vendorNameElement = vendor.findElement(By.className("vendor-name-rating-container")).findElement(By.tagName("div"));
-//			WebElement favourite_icon = driver.findElement(By.xpath(".//div[@class='rounded-full px-4 py-4 bg-white']"));
-//			favourite_icon.click();
-//			String vendorName = vendorNameElement.getText();
-//			favouriteVendors.add(vendorName);
-//			
-//			vendorCount++;
-//		}
-//		
-//		
-//	}
-//	@SuppressWarnings("finally")
-//	public void remove_favourites(String corpID) throws EncryptedDocumentException, IOException {
-//		//List<String> favouriteVendors = new ArrayList<>();
-//		
-//		//driver.get(DataRunScript(1, 1)+"in/pages/sections?section_id=3");
-//		WebElement vendorContainer = driver.findElement(By.xpath("//*[@id=\"vendors\"]"));
-//		 int vendorCount = vendorContainer.findElements(By.tagName("div")).size();
-//		for(WebElement vendor : vendorContainer.findElements(By.tagName("div"))) {
-//			if(vendorCount==0) {
-//				break;
-//			}
-//			//add try catch and work on getting vendor count from frontend 
-//			try {
-//				//WebElement vendorNameElement = vendor.findElement(By.className("vendor-name-rating-container")).findElement(By.tagName("div"));
-//				WebElement favourite_icon = driver.findElement(By.xpath(".//div[@class='rounded-full px-4 py-4 bg-white']"));
-//				favourite_icon.click();
-//	        } catch (NoSuchElementException e) {
-//	           // Handle NoSuchElementException if the elements are not found
-//	            System.out.println("No more favourites . Exiting...");
-//	        } finally {
-//	            // Close the WebDriver
-//	            break;
-//	        }
-//	    }
-//			
-//			vendorCount--;
-//		}
-//		
-//		
-//
-//  
-//  @AfterMethod
-//  public void afterMethod() {
-//  }
-//
-//  
-//
-//  @AfterClass
-//  public void afterClass() {
-//	  driver.quit();
-//  }
-//
-//
-//}
