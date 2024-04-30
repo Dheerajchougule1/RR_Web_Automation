@@ -27,8 +27,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Listeners;
 @Listeners(CustomListener.class)
 
-public class i_want extends Utility_RR {
-	private List<String> windowRightSide ;
+public class i_want extends Utility_RR {	
+	
 	  SoftAssert sa;
 	  Alert alert;
 	
@@ -120,13 +120,7 @@ public class i_want extends Utility_RR {
 	   	  
   }
    
-   @Parameters("corpID")
-   @Test (priority=305,enabled = true)
-   public void profile_awarded_list_Verification(String corpID) throws EncryptedDocumentException, IOException, InterruptedException {
- 	  
-	   
- 	      	  
-  }
+   
    
    
   @AfterMethod
@@ -136,10 +130,10 @@ public class i_want extends Utility_RR {
 
  
 
-  @AfterClass
-  public void afterClass() {
-	  	 driver.close();
-  }
+//  @AfterClass
+//  public void afterClass() {
+//	  	 driver.close();
+//  }
 
 }
 

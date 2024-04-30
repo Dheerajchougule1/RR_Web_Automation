@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\AC\git\RR_Web_Automation\RR\add_wallet_point.xml</span>
+                    <span>C:\Users\AC\git\RR_Web_Automation\RR\NominateManually.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,21 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="my_profile.add_wallet_points" class="method navigator-link" hash-for-method="error_rajorpay_verification(C1307)">error_rajorpay_verification(C1307)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -118,17 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="my_profile.add_wallet_points" class="method navigator-link" hash-for-method="error_amount_verification(C1307)">error_amount_verification(C1307)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="my_profile.add_wallet_points" class="method navigator-link" hash-for-method="verify_hardcoded_amount_available(C1307)">verify_hardcoded_amount_available(C1307)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="my_profile.add_wallet_points" class="method navigator-link" hash-for-method="wallet_balance_verification(C1307)">wallet_balance_verification(C1307)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="nominationFlow.Nomination_flow" class="method navigator-link" hash-for-method="nominateSessionCreation(C1291)">nominateSessionCreation(C1291)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -143,56 +119,18 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">my_profile.add_wallet_points</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="error_rajorpay_verification(C1307)">
-                  </a> <!-- error_rajorpay_verification(C1307) -->
-                  <span class="method-name">error_rajorpay_verification</span>
-                  <span class="parameters">(C1307)</span>
-                  <div class="stack-trace">java.lang.AssertionError: The following asserts failed:
-	Alert message is mismatched by cancelling rajor pay payment  expected [Are you sure, you want to close the for?] but found [Are you sure, you want to close the form?]
-	at my_profile.add_wallet_points.error_rajorpay_verification(add_wallet_points.java:193)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 29 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">my_profile.add_wallet_points</span>
+              <span class="class-name">nominationFlow.Nomination_flow</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="error_amount_verification(C1307)">
-                  </a> <!-- error_amount_verification(C1307) -->
-                  <span class="method-name">error_amount_verification</span>
-                  <span class="parameters">(C1307)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verify_hardcoded_amount_available(C1307)">
-                  </a> <!-- verify_hardcoded_amount_available(C1307) -->
-                  <span class="method-name">verify_hardcoded_amount_available</span>
-                  <span class="parameters">(C1307)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="wallet_balance_verification(C1307)">
-                  </a> <!-- wallet_balance_verification(C1307) -->
-                  <span class="method-name">wallet_balance_verification</span>
-                  <span class="parameters">(C1307)</span>
+                  <a name="nominateSessionCreation(C1291)">
+                  </a> <!-- nominateSessionCreation(C1291) -->
+                  <span class="method-name">nominateSessionCreation</span>
+                  <span class="parameters">(C1291)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -200,7 +138,7 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\AC\git\RR_Web_Automation\RR\add_wallet_point.xml</span>
+            <span class="header-content">C:\Users\AC\git\RR_Web_Automation\RR\NominateManually.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -208,9 +146,9 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
-    &lt;parameter name=&quot;corpID&quot; value=&quot;C1307&quot;/&gt;
+    &lt;parameter name=&quot;corpID&quot; value=&quot;C1291&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;my_profile.add_wallet_points&quot;/&gt;
+      &lt;class name=&quot;nominationFlow.Nomination_flow&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -250,28 +188,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'error_amount_verification')
-data.setCell(0, 2, 'my_profile.add_wallet_points')
-data.setCell(0, 3, 7317);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'error_rajorpay_verification')
-data.setCell(1, 2, 'my_profile.add_wallet_points')
-data.setCell(1, 3, 4146);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verify_hardcoded_amount_available')
-data.setCell(2, 2, 'my_profile.add_wallet_points')
-data.setCell(2, 3, 1095);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'wallet_balance_verification')
-data.setCell(3, 2, 'my_profile.add_wallet_points')
-data.setCell(3, 3, 33);
+data.setCell(0, 1, 'nominateSessionCreation')
+data.setCell(0, 2, 'nominationFlow.Nomination_flow')
+data.setCell(0, 3, 93446);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -282,22 +208,6 @@ return data;
             <span class="header-content">Reporter output for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">error_amount_verification(C1307)</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">amount blank verifed</span>
-                <span class="reporter-method-output">amount 1 verifed</span>
-                <span class="reporter-method-output">amount 30000 verifed</span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">error_rajorpay_verification(C1307)</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><font color="red">Test Case Failed: error_rajorpay_verification</font></span>
-                <span class="reporter-method-output"><font color="red">Error Message: The following asserts failed:
-	Alert message is mismatched by cancelling rajor pay payment  expected [Are you sure, you want to close the for?] but found [Are you sure, you want to close the form?]</font></span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
@@ -313,65 +223,11 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">my_profile.add_wallet_points</div> <!-- chronological-class-name -->
-              <div class="configuration-class before">
-                <span class="method-name">beforeClass(C1307)</span>
+              <div class="chronological-class-name">nominationFlow.Nomination_flow</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">nominateSessionCreation(C1291)</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- configuration-class before -->
-              <div class="configuration-method before">
-                <span class="method-name">before_Method_Appriciate</span>
-                <span class="method-start">21685 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">verify_hardcoded_amount_available(C1307)</span>
-                <span class="method-start">26705 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod</span>
-                <span class="method-start">27807 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">before_Method_Appriciate</span>
-                <span class="method-start">27813 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">wallet_balance_verification(C1307)</span>
-                <span class="method-start">31207 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod</span>
-                <span class="method-start">31240 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">before_Method_Appriciate</span>
-                <span class="method-start">31248 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">error_amount_verification(C1307)</span>
-                <span class="method-start">34775 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod</span>
-                <span class="method-start">42095 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">before_Method_Appriciate</span>
-                <span class="method-start">42119 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">error_rajorpay_verification(C1307)</span>
-                <span class="method-start">46101 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterMethod</span>
-                <span class="method-start">50267 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-class after">
-                <span class="method-name">afterClass</span>
-                <span class="method-start">50280 ms</span>
-              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

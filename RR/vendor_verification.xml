@@ -6,7 +6,7 @@
     <classes>
       <class name="vendor_verify.vendor_api_verification"/>
     </classes>
-  </test> <!-- Test -->
+  </test> <!-- Test -->	
 </suite> <!-- Suite -->
    
    

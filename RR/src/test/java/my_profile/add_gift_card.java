@@ -28,7 +28,7 @@ import org.testng.annotations.Listeners;
 @Listeners(CustomListener.class)
 
 public class add_gift_card extends Utility_RR {
-	private List<String> windowRightSide ;
+
 	  SoftAssert sa;
 	  Alert alert;
 	
@@ -53,7 +53,7 @@ public class add_gift_card extends Utility_RR {
   public void verify_all_label_name(String corpID) throws EncryptedDocumentException, IOException, InterruptedException {
 	
 	 
-	  Thread.sleep(1000);
+	  waitForPageLoad();
 	  
 	  List<WebElement> listOfLabel = driver.findElements(By.xpath("//label[@class='p1 font-semibold']"));
 	  ArrayList<String> actaulLabelName = new ArrayList<String>();
@@ -112,7 +112,7 @@ public class add_gift_card extends Utility_RR {
 	   
 	   String alertMessage2 = alert.getText();
 	   
-	   sa.assertEquals(alertMessage2,"Please enter the Pin numbr", "Alert message is mismatched by submitting form with gift code ");
+	   sa.assertEquals(alertMessage2,"Please enter the Pin number", "Alert message is mismatched by submitting form with gift code ");
 	   alert.dismiss();
 	     
 	   sa.assertAll();

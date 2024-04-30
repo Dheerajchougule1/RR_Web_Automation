@@ -10,9 +10,11 @@ import java.net.Authenticator;
 import java.net.MalformedURLException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
+import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +38,12 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -46,15 +54,22 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -83,16 +98,18 @@ public class Utility_RR {
     protected DesiredCapabilities capabilities;
 	
 
+				
 	
-	
-	public void startBrowser(String instanceName) throws InterruptedException, MalformedURLException {
+	public void startBrowser(String instanceName) throws InterruptedException, EncryptedDocumentException, IOException {
 		
 		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
 		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
-		WebDriverManager.edgedriver().setup();
 		
+		if(DataRunScript(5, 1).contains("local")) {
+		WebDriverManager.edgedriver().setup();
 		EdgeOptions options = new EdgeOptions();
 		options.addArguments("inprivate");
+//		options.addArguments("force-device-scale-factor=0.8");
 		driver = new EdgeDriver(options);
 		//driver = new EdgeDriver();
 		//WebDriverManager.chromedriver().setup();
@@ -100,37 +117,57 @@ public class Utility_RR {
 		driver.get(instanceName);
 		driver.manage().window().maximize();
 		waitForPageLoad();
-		Thread.sleep(2000);
-        
-//			capabilities = new DesiredCapabilities();
-//		  	capabilities.setCapability("browserName", "chrome");
-//	        capabilities.setCapability("version", "123.0");
-//	        capabilities.setCapability("platform", "win10"); // If this cap isn't specified, it will just get the any available one
-//	        capabilities.setCapability("build", "LambdaTestSampleApp");
-//	        capabilities.setCapability("name", "LambdaTestJavaSample");
-////	        capabilities.setCapability("network", "true");
-//	        capabilities.setCapability("console", "true");
-//	        capabilities.setCapability("terminal", "true");
-//	        capabilities.setCapability("console", "true");
-//
-//
-//	      try {
-//	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
-//	      } catch (MalformedURLException e) {
-//	          System.out.println("Invalid grid URL");
-//	      } catch (Exception e) {	
-//	          System.out.println(e.getMessage());
-//	      }
-//	      
-//	      // Set implicit wait time
-//	      	Thread.sleep(8000);
-////	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-//	      
-//	      	driver.get(instanceName);
-////	      	driver.get("https://development1.advantageclub.co/in");
-//			driver.manage().window().maximize();
+//		Thread.sleep(2000);
+//		((JavascriptExecutor) driver).executeScript("document.body.style.zoom = '50%'");
+		
+		}
+		else if(DataRunScript(5, 1).contains("lambda")) {
+			capabilities = new DesiredCapabilities();
+		  	capabilities.setCapability("browserName", "chrome");
+	        capabilities.setCapability("version", "123.0");
+	        capabilities.setCapability("platform", "win11"); // If this cap isn't specified, it will just get the any available one
+	        capabilities.setCapability("build", "LambdaTestSampleApp");
+	        capabilities.setCapability("name", "LambdaTestJavaSample");
+//	        capabilities.setCapability("network", "true");
+	        capabilities.setCapability("console", "true");
+	        capabilities.setCapability("terminal", "true");
+	        capabilities.setCapability("console", "true");
+	        
+//	        ChromeOptions browserOptions = new ChromeOptions();
+//	        browserOptions.setPlatformName("Windows 11");
+//	        browserOptions.setBrowserVersion("123.0");
+//	        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+//	        ltOptions.put("username", "dheerajc");	
+//	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
+//	        ltOptions.put("project", "Untitled");
+//	        ltOptions.put("w3c", true);
+//	       
+//	        browserOptions.setCapability("LT:Options", ltOptions);
+	        
+	        
+
+
+	      try {
+	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
+	      } catch (MalformedURLException e) {
+	          System.out.println("Invalid grid URL");
+	      } catch (Exception e) {	
+	          System.out.println(e.getMessage());
+	      }
+	      
+	      // Set implicit wait time
+	      	Thread.sleep(8000);	
+//	        driver.manag	e().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	      
+	      	driver.get(instanceName);
+//	      	driver.get("https://development1.advantageclub.co/in");
+			driver.manage().window().maximize();
+			Thread.sleep(2000);
+//			((JavascriptExecutor) driver).executeScript("document.documentElement.style.transform = 'scale(0.7)'");
+//			((RemoteWebDriver) driver).executeScript("document.body.style.zoom=0.5;");
 //			Thread.sleep(2000);
 			
+		}	
 			
 		
 //		DesiredCapabilities cap = new DesiredCapabilities();
@@ -253,16 +290,20 @@ public class Utility_RR {
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
-		 Thread.sleep(3000);
+//		 Thread.sleep(3000);
+		waitForPageLoad();
+		
 		 Robot robot = new Robot();
-		  for (int i = 0; i < 5; i++) {
+		  for (int i = 0; i < 4; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
 				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_SUBTRACT);
 				robot.keyRelease(KeyEvent.VK_CONTROL);
-			}
-		
-		  Thread.sleep(2000);	
+			
+		  }
+		  
+//		  Thread.sleep(2000);
+		  waitForPageLoad();
 		
 		
 		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
@@ -456,10 +497,11 @@ public class Utility_RR {
 	//awardSelection
 	
 	public void newui_awardSelect(Double award) throws InterruptedException {
-		String AwardNum = award.toString();
-		driver.findElement(By.xpath("//div[@class='slick-slide slick-active']["+AwardNum+"]")).click();
+		String AwardNum1 = award.toString();
+		char AwardNum = AwardNum1.charAt(0);
+		driver.findElement(By.xpath("//div[@data-slick-index='"+AwardNum+"']")).click();
 		Thread.sleep(3000);
-		App_award_name = driver.findElement(By.xpath("(//div[@class='slick-slide slick-active'])["+AwardNum+"]")).getText();
+		App_award_name = driver.findElement(By.xpath("//div[@data-slick-index='"+AwardNum+"']")).getText();
 		Thread.sleep(1000);
 	}
 	
@@ -479,6 +521,7 @@ public class Utility_RR {
 	
 	public void CardSelect(Double award) throws InterruptedException {
 		String AwardNum = award.toString();
+		
 		WebElement budgetSelect = driver.findElement(By.xpath("//ul[@class='slides']//li["+AwardNum+"]"));
 		budgetSelect.click();
 		give_award_budget_point = budgetSelect.findElement(By.xpath("(//span[@class='notranslate'])["+AwardNum+"]")).getText();
@@ -500,6 +543,13 @@ public class Utility_RR {
 	
 	public void ScrollIntoView(String NewsFeedID1) throws InterruptedException {
 		WebElement element1 = driver.findElement(By.id(NewsFeedID1));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
+		Thread.sleep(1000);
+		
+	}
+	
+	public void ScrollIntoView1(String NewsFeedID1) throws InterruptedException {
+		WebElement element1 = driver.findElement(By.xpath("//div[@data_id='"+NewsFeedID1+"']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
 		Thread.sleep(1000);
 		
@@ -538,7 +588,7 @@ public class Utility_RR {
 		      	jsExecutor.executeScript("arguments[0].value='" + date + "';", element);
 	    }
 	 
-	 public String getToken() throws InterruptedException {
+	 public static String getToken() throws InterruptedException {
 	      
 		 // After login, get cookies
 			Thread.sleep(2000);
@@ -596,10 +646,32 @@ public class Utility_RR {
 	 
 	 public void waitForPageLoad() {
 			
-		 	wait = new WebDriverWait(driver, Duration.ofMillis(10000));
-	 		wait.until((ExpectedCondition<Boolean>) webDriver -> ((JavascriptExecutor) webDriver)
-              .executeScript("return document.readyState").equals("complete"));
-		
+		 	wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+//	 		wait.until((ExpectedCondition<Boolean>) webDriver -> ((JavascriptExecutor) webDriver)
+//              .executeScript("return document.readyState").equals("complete"));
+	 		
+	 	// Wait for the document.readyState to be 'complete'
+//	        wait.until(ExpectedConditions.jsReturnsValue("return document.readyState == 'complete';"));
+//
+////	        // Wait for all API calls to finish
+//	        
+//	        wait.until(ExpectedConditions.jsReturnsValue("return (window.performance.getEntriesByType('resource').filter(function(e) { return e.initiatorType === 'xmlhttprequest' && e.responseEnd === 0; }).length === 0);"));
+//	        });
+//			
+	        // Execute JavaScript to monitor pending AJAX requests
+	        ExpectedCondition<Boolean> pendingRequestsCompleted = new ExpectedCondition<Boolean>() {
+	            public Boolean apply(WebDriver driver) {
+	                JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	                return (Boolean) jsExecutor.executeScript(
+	                    "return jQuery.active == 0");
+	            }
+	        };
+
+	        // Wait until there are no pending AJAX requests
+	        wait.until(pendingRequestsCompleted);
+	        
+	        // Continue with your test after all AJAX requests are completed
+	        System.out.println("No pending AJAX requests. Proceeding with the test...");
 		
 	}
 	 
@@ -612,6 +684,49 @@ public class Utility_RR {
 
 	 
      }
+	 
+	 
+	 public static Map<String, String> getBackendDataFromApi(String apiUrl, String objectName, int objectNumber) throws Exception {
+	       
+		 	
+//		 	CloseableHttpClient httpClient = HttpClients.createDefault();
+//		 	HttpPost request = new HttpPost(apiUrl);
+            // Add custom header with token if needed
+//            request.setHeader("token", getToken());
+//
+//	        CloseableHttpResponse response = httpClient.execute(request);
+//	        
+//	        String apiResponse = EntityUtils.toString((response.getEntity());
+	        
+		 	CloseableHttpClient httpClient = HttpClients.createDefault();
+	            // Create an HttpPost request for API 1
+	            HttpPost request = new HttpPost(apiUrl);
+	            // Add custom header with token if needed
+	            request.setHeader("token", getToken());
+	            // Send the request and get the response
+	            CloseableHttpResponse response1 = httpClient.execute(request) ;
+	                // Extract JSON response body for API 1
+	                String jsonResponse1 = EntityUtils.toString(response1.getEntity());
+
+	        // Parse API response JSON
+	        JsonObject jsonObject = new Gson().fromJson(jsonResponse1, JsonObject.class);
+	        JsonArray jsonArray = jsonObject.getAsJsonArray(objectName);
+
+	        // Get the object at the specified index
+	        JsonObject object = jsonArray.get(objectNumber).getAsJsonObject();
+
+	        // Create a map to store object data
+	        Map<String, String> objectData = new HashMap<>();
+
+	        // Iterate through object properties and store key-value pairs in the map
+	        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+	            String key = entry.getKey();
+	            String value = entry.getValue().getAsString(); // Assuming all values are strings
+	            objectData.put(key, value);
+	        }
+
+	        return objectData;
+	    }
 	 
 	 
 }

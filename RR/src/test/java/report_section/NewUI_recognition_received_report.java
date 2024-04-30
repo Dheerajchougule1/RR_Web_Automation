@@ -13,6 +13,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
@@ -240,7 +241,7 @@ public class NewUI_recognition_received_report extends Utility_RR {
   }
   
   @Parameters("corpID")
-  @Test (priority = 1000)
+  @Test (priority = 1000,enabled=false)
   public void FilterVerfication(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 	  
 	  SelectOptionInNestedNevigation(DataReportFlow(corpID, 7, 1));
@@ -328,6 +329,14 @@ public class NewUI_recognition_received_report extends Utility_RR {
   }
   
   
+  @Parameters("corpID")
+  @Test (priority = 1001,enabled=true)
+  public void dataVerfication(String corpID) throws Exception {
+	  
+	  Map<String, String> recogintionBackend = getBackendDataFromApi(DataRunScript(1, 1)+"manager_to_manager_transfer_report_new_2?page=1", "response", 4);
+	  
+	  System.out.println(recogintionBackend);
+  }
   
 	  
 

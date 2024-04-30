@@ -3,9 +3,11 @@ package my_profile;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import listener.CustomListener;
 import utility_RR.Utility_RR;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -19,6 +21,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+@Listeners(CustomListener.class)
 
 public class my_profile_page extends Utility_RR {
   
@@ -119,10 +122,10 @@ public class my_profile_page extends Utility_RR {
  	   driver.findElement(By.xpath("//img[@class='myprofile_edit_profile_pen']")).click();
  	   
  	   driver.findElement(By.xpath("//button[@class='MyProfile_discard__BOo3z']")).click();
- 	   Thread.sleep(2000);
+ 	  waitForPageLoad();
  	   
  	   driver.findElement(By.xpath("//img[@class='myprofile_edit_profile_pen']")).click();
- 	   Thread.sleep(2000);
+ 	   waitForPageLoad();
 	   
 	   driver.findElement(By.xpath("//button[@onclick='updateViewProfileWithEditedData()']")).click();
 	   
@@ -170,7 +173,7 @@ public class my_profile_page extends Utility_RR {
  	   	
  	   if(DataAppriciateFlow(corpID, 82, 1).contains("YES")) {
  	   driver.findElement(By.xpath("(//a[@href='/in/pages/my_awards'])[2]")).click();
- 	   Thread.sleep(2000);
+ 	   waitForPageLoad();
  	   driver.navigate().back();
 	   
 	   Reporter.log("Award received in my profile is tested",true);
@@ -192,7 +195,9 @@ public class my_profile_page extends Utility_RR {
 
   @AfterClass
   public void afterClass() {
-	  	 driver.close();
+	  
+	  driver.close();
+	  	 
   }
 
 }
