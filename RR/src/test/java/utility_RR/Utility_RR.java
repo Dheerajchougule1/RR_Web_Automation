@@ -14,6 +14,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -41,12 +42,14 @@ import org.apache.commons.mail.MultiPartEmail;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -54,6 +57,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -95,60 +99,70 @@ public class Utility_RR {
   //  protected static WebDriver driver;
      String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
-    protected DesiredCapabilities capabilities;
+//    protected DesiredCapabilities capabilities;
 	
 
 				
 	
 	public void startBrowser(String instanceName) throws InterruptedException, EncryptedDocumentException, IOException {
 		
-		//System.setProperty("webdriver.chrome.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\chromedriver_win32_(114)\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver","C:\\Dheeraj Chougule old\\Dheeraj old\\chromedriver_win32\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver","C:\\Users\\AC\\chromdriver\\chrome-win64\\chrome-win64\\chrome.exe");
+		
 		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
 		
 		if(DataRunScript(5, 1).contains("local")) {
+			
+		try {
 		WebDriverManager.edgedriver().setup();
 		EdgeOptions options = new EdgeOptions();
+//		ChromeOptions options = new ChromeOptions();
 		options.addArguments("inprivate");
-//		options.addArguments("force-device-scale-factor=0.8");
+////		options.addArguments("force-device-scale-factor=0.8");
+//		driver = new ChromeDriver(options);
 		driver = new EdgeDriver(options);
-		//driver = new EdgeDriver();
-		//WebDriverManager.chromedriver().setup();
-		//driver = new ChromeDriver();
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver();
 		driver.get(instanceName);
 		driver.manage().window().maximize();
 		waitForPageLoad();
 //		Thread.sleep(2000);
 //		((JavascriptExecutor) driver).executeScript("document.body.style.zoom = '50%'");
-		
 		}
-		else if(DataRunScript(5, 1).contains("lambda")) {
-			capabilities = new DesiredCapabilities();
-		  	capabilities.setCapability("browserName", "chrome");
-	        capabilities.setCapability("version", "123.0");
-	        capabilities.setCapability("platform", "win11"); // If this cap isn't specified, it will just get the any available one
-	        capabilities.setCapability("build", "LambdaTestSampleApp");
-	        capabilities.setCapability("name", "LambdaTestJavaSample");
-//	        capabilities.setCapability("network", "true");
-	        capabilities.setCapability("console", "true");
-	        capabilities.setCapability("terminal", "true");
-	        capabilities.setCapability("console", "true");
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		}
+		
+		else if(DataRunScript(5, 1).contains("lambda")) {	
+//			capabilities = new DesiredCapabilities();
+//		  	capabilities.setCapability("browserName", "chrome");
+//	        capabilities.setCapability("version", "123.0");
+//	        capabilities.setCapability("platform", "win11"); // If this cap isn't specified, it will just get the any available one
+//	        capabilities.setCapability("build", "JenkinScript");
+//	        capabilities.setCapability("name", "JenkinScript");
+////	        capabilities.setCapability("network", "true");
+//	        capabilities.setCapability("console", "true");
+//	        capabilities.setCapability("terminal", "true");
+//	        capabilities.setCapability("console", "true");
 	        
-//	        ChromeOptions browserOptions = new ChromeOptions();
-//	        browserOptions.setPlatformName("Windows 11");
-//	        browserOptions.setBrowserVersion("123.0");
-//	        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-//	        ltOptions.put("username", "dheerajc");	
-//	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
-//	        ltOptions.put("project", "Untitled");
-//	        ltOptions.put("w3c", true);
-//	       
-//	        browserOptions.setCapability("LT:Options", ltOptions);
+	        ChromeOptions browserOptions = new ChromeOptions();
+	        browserOptions.setPlatformName("Windows 11");
+	        browserOptions.setBrowserVersion("123.0");
+	        browserOptions.addArguments("--disable-css-hover-effects");
+	        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+	        ltOptions.put("username", "dheerajc");	
+	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
+	        ltOptions.put("project", "Untitled");
+	        ltOptions.put("w3c", true);
+	       
+	        browserOptions.setCapability("LT:Options", ltOptions);
 	        
 	        
 
 
 	      try {
-	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
+	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), browserOptions);
 	      } catch (MalformedURLException e) {
 	          System.out.println("Invalid grid URL");
 	      } catch (Exception e) {	
@@ -163,6 +177,9 @@ public class Utility_RR {
 //	      	driver.get("https://development1.advantageclub.co/in");
 			driver.manage().window().maximize();
 			Thread.sleep(2000);
+			
+			Actions action=new Actions(driver);
+			action.moveByOffset(0, 0).perform();
 //			((JavascriptExecutor) driver).executeScript("document.documentElement.style.transform = 'scale(0.7)'");
 //			((RemoteWebDriver) driver).executeScript("document.body.style.zoom=0.5;");
 //			Thread.sleep(2000);
@@ -286,12 +303,12 @@ public class Utility_RR {
 	
 	public void newui_login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
 		driver.findElement(By.xpath("//div[@class='login-section']")).click();
-		waitForPageLoad();
+		 Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
-//		 Thread.sleep(3000);
-		waitForPageLoad();
+		Thread.sleep(3000);
+//		waitForPageLoad();
 		
 		 Robot robot = new Robot();
 		  for (int i = 0; i < 4; i++) {
@@ -302,8 +319,8 @@ public class Utility_RR {
 			
 		  }
 		  
-//		  Thread.sleep(2000);
-		  waitForPageLoad();
+		  Thread.sleep(2000);
+//		  waitForPageLoad();
 		
 		
 		if(DataAppriciateFlow(corpID, 2, 4).isEmpty()) {
@@ -681,33 +698,26 @@ public class Utility_RR {
 		        String styledMessage = "<font color=\"" + colour + "\">" + message + "</font>";
 		        Reporter.log(styledMessage);
 		    }
-
+		    
 	 
      }
 	 
 	 
-	 public static Map<String, String> getBackendDataFromApi(String apiUrl, String objectName, int objectNumber) throws Exception {
-	       
-		 	
-//		 	CloseableHttpClient httpClient = HttpClients.createDefault();
-//		 	HttpPost request = new HttpPost(apiUrl);
-            // Add custom header with token if needed
-//            request.setHeader("token", getToken());
-//
-//	        CloseableHttpResponse response = httpClient.execute(request);
-//	        
-//	        String apiResponse = EntityUtils.toString((response.getEntity());
-	        
+	 public static Map<String, String> getBackendDataFromApi(String apiUrl, String objectName, int objectNumber, String Payload) throws Exception {
+		 JSONObject payload = new JSONObject(Payload);
 		 	CloseableHttpClient httpClient = HttpClients.createDefault();
 	            // Create an HttpPost request for API 1
 	            HttpPost request = new HttpPost(apiUrl);
 	            // Add custom header with token if needed
 	            request.setHeader("token", getToken());
+	            
+	            request.setEntity(new StringEntity(payload.toString()));
 	            // Send the request and get the response
 	            CloseableHttpResponse response1 = httpClient.execute(request) ;
 	                // Extract JSON response body for API 1
 	                String jsonResponse1 = EntityUtils.toString(response1.getEntity());
-
+	                
+	                System.out.println(jsonResponse1);
 	        // Parse API response JSON
 	        JsonObject jsonObject = new Gson().fromJson(jsonResponse1, JsonObject.class);
 	        JsonArray jsonArray = jsonObject.getAsJsonArray(objectName);
@@ -721,12 +731,95 @@ public class Utility_RR {
 	        // Iterate through object properties and store key-value pairs in the map
 	        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
 	            String key = entry.getKey();
-	            String value = entry.getValue().getAsString(); // Assuming all values are strings
+	            JsonElement valueElement = entry.getValue();
+	            String value = valueElement.isJsonNull() ? null : valueElement.getAsString();
+//	            String value = entry.getValue().getAsString(); // Assuming all values are strings
 	            objectData.put(key, value);
 	        }
 
 	        return objectData;
 	    }
+	 
+	 public static Map<String, String> getObjectData(String tableXpath, int rowNumber) {
+	         
+	        WebElement table = driver.findElement(By.xpath(tableXpath));
+
+	        // Find all header cells of the table
+	        List<WebElement> headerCells = table.findElements(By.xpath(".//th"));
+
+	        // Find the specified row of the table
+	        WebElement specifiedRow = table.findElement(By.xpath(".//tr[" + rowNumber + "]"));
+
+	        // Extract data from the cells of the specified row
+	        Map<String, String> dataMap = new HashMap<>();
+	        List<WebElement> dataCells = specifiedRow.findElements(By.xpath(".//td"));
+	        for (int i = 0; i < headerCells.size(); i++) {
+	            // Get header text
+	            String header = headerCells.get(i).getText();
+	            // Get corresponding value from data cells
+	            String value = dataCells.get(i).getText();
+	            // Add to dataMap
+	            dataMap.put(header, value);
+	        }
+
+
+	        return dataMap;
+	    }
+	 
+	 
+	 public static boolean compareMaps(Map<String, String> map1, Map<String, String> map2) {
+	        // Create HashMaps to store counts of keys and values
+	        Map<String, Integer> keyCounts1 = new HashMap<>();
+	        Map<String, Integer> keyCounts2 = new HashMap<>();
+	        Map<String, Integer> valueCounts1 = new HashMap<>();
+	        Map<String, Integer> valueCounts2 = new HashMap<>();
+
+	        // Calculate counts for keys and values in map1
+	        for (Map.Entry<String, String> entry : map1.entrySet()) {
+	            String key = entry.getKey();
+	            String value = entry.getValue();
+	            keyCounts1.put(key, keyCounts1.getOrDefault(key, 0) + 1);
+	            valueCounts1.put(value, valueCounts1.getOrDefault(value, 0) + 1);
+	        }
+
+	        // Calculate counts for keys and values in map2
+	        for (Map.Entry<String, String> entry : map2.entrySet()) {
+	            String key = entry.getKey();
+	            String value = entry.getValue();
+	            keyCounts2.put(key, keyCounts2.getOrDefault(key, 0) + 1);
+	            valueCounts2.put(value, valueCounts2.getOrDefault(value, 0) + 1);
+	        }
+
+	        // Check if the counts of keys and values match
+	        if (keyCounts1.equals(keyCounts2) && valueCounts1.equals(valueCounts2)) {
+	            return true;
+	        } 
+	        
+	        else {
+	            // If counts don't match, print keys with mismatched counts
+//	            System.out.println("Keys with mismatched counts:");
+	            for (String key : keyCounts1.keySet()) {
+	                int count1 = keyCounts1.getOrDefault(key, 0);
+	                int count2 = keyCounts2.getOrDefault(key, 0);
+	                if (count1 != count2) {
+//	                    System.out.println("Key: " + key + ", Count in Map 1: " + count1 + ", Count in Map 2: " + count2);
+	                }
+	            }
+
+	            // If counts of values don't match, print values with mismatched counts
+	            CustomReporterRed.log("Values with mismatched counts:","red");
+	            for (String value : valueCounts1.keySet()) {
+	                int count1 = valueCounts1.getOrDefault(value, 0);
+	                int count2 = valueCounts2.getOrDefault(value, 0);
+	                if (count1 != count2) {
+	                	CustomReporterRed.log("Value not present in Frontend : " + value + ", Count in Map 1: " + count1 + ", Count in Map 2: " + count2,"red");
+	       
+	                }
+	            }
+	            return false;
+	        }
+	    }
+	 	
 	 
 	 
 }

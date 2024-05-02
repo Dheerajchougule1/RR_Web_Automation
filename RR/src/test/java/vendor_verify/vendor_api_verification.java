@@ -51,7 +51,7 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 		  public void beforeClass(String corpID) throws EncryptedDocumentException, MalformedURLException, InterruptedException, IOException, AWTException {
 			 
 			 if(corpID.contains("C1170")) {
-				 startBrowser(DataRunScript(2, 1));
+				 startBrowser(DataRunScript(10, 7));
 			 }
 			 else {
 				 startBrowser(DataRunScript(2, 1));
@@ -282,7 +282,9 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 			            request.setHeader("token", getToken());
 	
 			            // Send the request and get the response
-			            CloseableHttpResponse response = httpClient.execute(request);
+			            @SuppressWarnings("deprecation")
+						CloseableHttpResponse response = httpClient.execute(request);
+			            Thread.sleep(1000);	
 	
 			            // Extract JSON response body
 			            

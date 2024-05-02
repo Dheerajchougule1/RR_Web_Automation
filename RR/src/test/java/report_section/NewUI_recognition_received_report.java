@@ -330,12 +330,48 @@ public class NewUI_recognition_received_report extends Utility_RR {
   
   
   @Parameters("corpID")
-  @Test (priority = 1001,enabled=true)
+  @Test (priority = 1001,enabled=false)
   public void dataVerfication(String corpID) throws Exception {
 	  
-	  Map<String, String> recogintionBackend = getBackendDataFromApi(DataRunScript(1, 1)+"manager_to_manager_transfer_report_new_2?page=1", "response", 4);
+	  Map<String, String> recogintionBackend = getBackendDataFromApi(DataRunScript(1, 1)+"recognition_received_report_new_2?page=1", "response", 3,"{}");
 	  
 	  System.out.println(recogintionBackend);
+	  
+	  driver.get(DataRunScript(1, 1)+"new_reports/recoginition_received_report");
+	  waitForPageLoad();
+	  
+	  Map<String, String> recoginitionFrontend = getObjectData("//div[@class='reports_main_container']", 4);
+	  
+	  System.out.println(recoginitionFrontend);
+  }
+  
+  @Parameters("corpID")
+  @Test (priority = 1001,enabled=true)
+  public void dataVerficationWITHPAYLOAD(String corpID) throws Exception {
+	  
+	  Map<String, String> recogintionBackend = getBackendDataFromApi(DataRunScript(1, 1)+"api/v1/past_given_nonmonetary_awards", "awards", 1,"{\"limit\":20,\"page\":1,\"search\":\"\"}");
+	  
+	  System.out.println(recogintionBackend);
+	  System.out.println(recogintionBackend.size());
+	  System.out.println(recogintionBackend.get("Date"));
+	  
+	  
+	  driver.get(DataRunScript(1, 1)+"pages/appreciated_list");
+	  waitForPageLoad();
+	  
+	  Map<String, String> recoginitionFrontend = getObjectData("//div[@class='overflow-auto']", 2);
+	  
+	  System.out.println(recoginitionFrontend);
+	  System.out.println(recoginitionFrontend.size());
+	  System.out.println(recoginitionFrontend.get("Date"));
+	  
+	  if(compareMaps(recogintionBackend, recoginitionFrontend)) {
+		  
+		  CustomReporterRed.log("data is matched", "green");
+	  }
+	  else {
+		  CustomReporterRed.log("data is mis-matched kindly see the key above", "red");
+	  }
   }
   
 	  

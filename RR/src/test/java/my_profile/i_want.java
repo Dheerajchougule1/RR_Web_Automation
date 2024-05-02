@@ -130,10 +130,10 @@ public class i_want extends Utility_RR {
 
  
 
-//  @AfterClass
-//  public void afterClass() {
-//	  	 driver.close();
-//  }
+  @AfterClass
+  public void afterClass() {
+	  	 driver.close();
+  }
 
 }
 

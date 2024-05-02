@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\AC\git\RR_Web_Automation\RR\NominateManually.xml</span>
+                    <span>C:\Users\AC\git\RR_Web_Automation\RR\UiTesting.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="nominationFlow.Nomination_flow" class="method navigator-link" hash-for-method="nominateSessionCreation(C1291)">nominateSessionCreation(C1291)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="uiTesting.UiTesting" class="method navigator-link" hash-for-method="Ui_Testing_actual(C466)">Ui_Testing_actual(C466)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -122,15 +122,15 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">nominationFlow.Nomination_flow</span>
+              <span class="class-name">uiTesting.UiTesting</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="nominateSessionCreation(C1291)">
-                  </a> <!-- nominateSessionCreation(C1291) -->
-                  <span class="method-name">nominateSessionCreation</span>
-                  <span class="parameters">(C1291)</span>
+                  <a name="Ui_Testing_actual(C466)">
+                  </a> <!-- Ui_Testing_actual(C466) -->
+                  <span class="method-name">Ui_Testing_actual</span>
+                  <span class="parameters">(C466)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -138,7 +138,7 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\AC\git\RR_Web_Automation\RR\NominateManually.xml</span>
+            <span class="header-content">C:\Users\AC\git\RR_Web_Automation\RR\UiTesting.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,9 +146,9 @@
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
-    &lt;parameter name=&quot;corpID&quot; value=&quot;C1291&quot;/&gt;
+    &lt;parameter name=&quot;corpID&quot; value=&quot;C466&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;nominationFlow.Nomination_flow&quot;/&gt;
+      &lt;class name=&quot;uiTesting.UiTesting&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -190,14 +190,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'nominateSessionCreation')
-data.setCell(0, 2, 'nominationFlow.Nomination_flow')
-data.setCell(0, 3, 93446);
+data.setCell(0, 1, 'Ui_Testing_actual')
+data.setCell(0, 2, 'uiTesting.UiTesting')
+data.setCell(0, 3, 291421);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 4 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -208,13 +208,80 @@ return data;
             <span class="header-content">Reporter output for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">Ui_Testing_actual(C466)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_rewards_home.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_profile.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_nominate_for_award.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_nomination-status.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_pending_approvals.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_give_award.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_bulk_csv_upload.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_manager_to_manager_transfer.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_awards_given.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_my_awards.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_gift_to_colleague.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_award_reverts_new.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_appreciate.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_appreciated_list.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_nonmonetary_awards.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_users_budget.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_hall_of_fame.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_notifications.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_sections.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_vouchers.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\rewards_announcement_list.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_lookup.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_upcoming_birthdays_anniversaries.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_poll.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_create_poll.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_poll_analytic.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\nonmonetary_award_users_custom_wish.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_dashboard.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_recoginition_received_report.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_appreciation_received_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_reedemption_report.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_pending_nomination_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_rejected_nomination_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_user_reports.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_login_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_stored_value_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_hobby_clubs.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_ac_coins_home.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\monetary_awards.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_contact_us_new.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_wallet.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_gift_card.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_member.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_wallet_points.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_your_favourites.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_i_want.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_upload_award_file.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_inter_manager_budget_transfer.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_manager_budget_transfer_new.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_peer_to_peer_transfer_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_uploaded_transfer_files.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_manager2manager_transfer_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_credit_transfer_report.png</font></span>
+                <span class="reporter-method-output"><font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_login_session_report.png</font></span>
+                <span class="reporter-method-output"><font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_budget_utilization_report.png</font></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">uiTesting.UiTesting</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">Ui_Testing_Expected</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -223,9 +290,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">nominationFlow.Nomination_flow</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">uiTesting.UiTesting</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">nominateSessionCreation(C1291)</span>
+                <span class="method-name">Ui_Testing_actual(C466)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

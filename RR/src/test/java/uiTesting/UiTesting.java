@@ -134,7 +134,7 @@ import org.openqa.selenium.By;
 //	  	        Thread.sleep(6000);
 	  	 		
 	  	 		waitForPageLoad();
-//	  	 		Thread.sleep(3000);
+	  	 		Thread.sleep(1500);
 	  	 		
 	  	 		
 	  	 		if(url.contains("pages/poll")){
@@ -252,7 +252,7 @@ import org.openqa.selenium.By;
 	  	 		String urlEndPoint = url.replaceAll("/", "_");
 	  	 		
 	  	 		waitForPageLoad();
-//	  	 		Thread.sleep(3000);
+	  	 		Thread.sleep(1500);
 	  	 				
 	  	 		if(url.contains("pages/poll")) {
 	  	 			
