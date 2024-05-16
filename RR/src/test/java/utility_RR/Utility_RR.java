@@ -153,7 +153,8 @@ public class Utility_RR {
 	        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
 	        ltOptions.put("username", "dheerajc");	
 	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
-	        ltOptions.put("project", "Untitled");
+	        ltOptions.put("project", "Jenkins Script");
+	        ltOptions.put("build", "JenkinScript");
 	        ltOptions.put("w3c", true);
 	       
 	        browserOptions.setCapability("LT:Options", ltOptions);
@@ -278,7 +279,7 @@ public class Utility_RR {
 	}
 	
 	public void login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
-		driver.findElement(By.xpath("//div[@class='login-section']")).click();
+		driver.findElement(By.xpath("(//a[@href='/login'])[1]")).click();
 		waitForPageLoad();
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
@@ -302,7 +303,7 @@ public class Utility_RR {
 	}
 	
 	public void newui_login(String corpID ,String username, String password) throws InterruptedException, AWTException, EncryptedDocumentException, IOException {
-		driver.findElement(By.xpath("//div[@class='login-section']")).click();
+		driver.findElement(By.xpath("(//a[@href='/login'])[1]")).click();
 		 Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);

@@ -1,354 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_rewards_home.png</font>]]>
+      <![CDATA[4923837 : NewsFeed Deleted]]>
     </line>
     <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_profile.png</font>]]>
+      <![CDATA[4929617 : NewsFeed Deleted]]>
     </line>
     <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_nominate_for_award.png</font>]]>
+      <![CDATA[5039055 : NewsFeed Deleted]]>
     </line>
     <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_nomination-status.png</font>]]>
+      <![CDATA[5039091 : NewsFeed Deleted]]>
     </line>
     <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_pending_approvals.png</font>]]>
+      <![CDATA[5039165 : NewsFeed Deleted]]>
     </line>
     <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_give_award.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_bulk_csv_upload.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_manager_to_manager_transfer.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_awards_given.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_my_awards.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_gift_to_colleague.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_award_reverts_new.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_appreciate.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_appreciated_list.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_nonmonetary_awards.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_users_budget.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_hall_of_fame.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_notifications.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_sections.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_vouchers.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\rewards_announcement_list.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_lookup.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_upcoming_birthdays_anniversaries.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_poll.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_create_poll.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_poll_analytic.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\nonmonetary_award_users_custom_wish.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_dashboard.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_recoginition_received_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_appreciation_received_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_reedemption_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_pending_nomination_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_rejected_nomination_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_user_reports.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_login_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_stored_value_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_hobby_clubs.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_ac_coins_home.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\monetary_awards.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_contact_us_new.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_wallet.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_gift_card.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_member.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_wallet_points.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_your_favourites.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_i_want.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_upload_award_file.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_inter_manager_budget_transfer.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_manager_budget_transfer_new.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_peer_to_peer_transfer_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_uploaded_transfer_files.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_manager2manager_transfer_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_credit_transfer_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_login_session_report.png</font>]]>
-    </line>
-    <line>
-      <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_budget_utilization_report.png</font>]]>
+      <![CDATA[5039208 : NewsFeed Deleted]]>
     </line>
   </reporter-output>
-  <suite started-at="2024-05-01T16:03:03 IST" name="Suite" finished-at="2024-05-01T16:07:54 IST" duration-ms="291466">
+  <suite started-at="2024-05-16T16:19:38 IST" name="Suite" finished-at="2024-05-16T16:20:26 IST" duration-ms="48013">
     <groups>
     </groups>
-    <test started-at="2024-05-01T16:03:03 IST" name="Test" finished-at="2024-05-01T16:07:54 IST" duration-ms="291466">
-      <class name="uiTesting.UiTesting">
-        <test-method signature="Ui_Testing_actual(java.lang.String)[pri:2, instance:uiTesting.UiTesting@55a147cc]" started-at="2024-05-01T16:03:03 IST" name="Ui_Testing_actual" finished-at="2024-05-01T16:07:54 IST" duration-ms="291421" status="PASS">
+    <test started-at="2024-05-16T16:19:38 IST" name="FeedDelete" finished-at="2024-05-16T16:20:26 IST" duration-ms="48013">
+      <class name="genericFlow.SocialFeedDelete">
+        <test-method is-config="true" signature="FeedDelete_before_class(java.lang.String)[pri:0, instance:genericFlow.SocialFeedDelete@74d1dc36]" started-at="2024-05-16T16:19:38 IST" name="FeedDelete_before_class" finished-at="2024-05-16T16:19:57 IST" duration-ms="19505" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[C466]]>
+                <![CDATA[C900]]>
               </value>
             </param>
           </params>
           <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FeedDelete_before_class -->
+        <test-method signature="feedDelete()[pri:0, instance:genericFlow.SocialFeedDelete@74d1dc36]" started-at="2024-05-16T16:19:57 IST" name="feedDelete" finished-at="2024-05-16T16:20:26 IST" duration-ms="28314" status="PASS">
+          <reporter-output>
             <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_rewards_home.png</font>]]>
+              <![CDATA[4923837 : NewsFeed Deleted]]>
             </line>
             <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_profile.png</font>]]>
+              <![CDATA[4929617 : NewsFeed Deleted]]>
             </line>
             <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_nominate_for_award.png</font>]]>
+              <![CDATA[5039055 : NewsFeed Deleted]]>
             </line>
             <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_nomination-status.png</font>]]>
+              <![CDATA[5039091 : NewsFeed Deleted]]>
             </line>
             <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_pending_approvals.png</font>]]>
+              <![CDATA[5039165 : NewsFeed Deleted]]>
             </line>
             <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_give_award.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_bulk_csv_upload.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_manager_to_manager_transfer.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_awards_given.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_my_awards.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_gift_to_colleague.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_award_reverts_new.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_appreciate.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_appreciated_list.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_nonmonetary_awards.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_users_budget.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_hall_of_fame.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_notifications.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_sections.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_vouchers.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\rewards_announcement_list.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_lookup.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_upcoming_birthdays_anniversaries.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_poll.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_create_poll.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_poll_analytic.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\nonmonetary_award_users_custom_wish.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_dashboard.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_recoginition_received_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_appreciation_received_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_reedemption_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_pending_nomination_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_rejected_nomination_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_user_reports.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_login_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_stored_value_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_hobby_clubs.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_ac_coins_home.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\monetary_awards.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_contact_us_new.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_wallet.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_gift_card.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_member.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_add_wallet_points.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_your_favourites.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_i_want.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_upload_award_file.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_inter_manager_budget_transfer.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\pages_manager_budget_transfer_new.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_peer_to_peer_transfer_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\pages_my_uploaded_transfer_files.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_manager2manager_transfer_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_credit_transfer_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="red">Difference in Screenshot, Please check the mentioned image : excel\UiTesting\actualImage\new_reports_login_session_report.png</font>]]>
-            </line>
-            <line>
-              <![CDATA[<font color="green">Images are identical : excel\UiTesting\baseImage\new_reports_budget_utilization_report.png</font>]]>
+              <![CDATA[5039208 : NewsFeed Deleted]]>
             </line>
           </reporter-output>
-        </test-method> <!-- Ui_Testing_actual -->
-      </class> <!-- uiTesting.UiTesting -->
-    </test> <!-- Test -->
+        </test-method> <!-- feedDelete -->
+        <test-method is-config="true" signature="FeedDelete_after_class()[pri:0, instance:genericFlow.SocialFeedDelete@74d1dc36]" started-at="2024-05-16T16:20:26 IST" name="FeedDelete_after_class" finished-at="2024-05-16T16:20:26 IST" duration-ms="165" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FeedDelete_after_class -->
+      </class> <!-- genericFlow.SocialFeedDelete -->
+    </test> <!-- FeedDelete -->
   </suite> <!-- Suite -->
 </testng-results>

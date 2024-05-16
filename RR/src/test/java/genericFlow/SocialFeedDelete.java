@@ -41,7 +41,7 @@ public class SocialFeedDelete extends Utility_RR {
 	  driver.get("https://secure.workadvantage.in/delete_newsfeeds");
 	  driver.manage().window().maximize();
 	  //Thread.sleep(2000);
-	  importWait();
+	  importWait();;
 	  
 	  //login
 	  login(corpID,DataRunScript(10, 1), DataRunScript(11, 1));

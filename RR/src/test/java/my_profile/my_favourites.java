@@ -5,6 +5,7 @@ import org.testng.annotations.Parameters; // Correct import statement for Parame
 
 import utility_RR.Utility_RR;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +14,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -21,6 +23,7 @@ import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 
 public class my_favourites extends Utility_RR {
@@ -171,6 +174,7 @@ public class my_favourites extends Utility_RR {
 
 
     private boolean areFavoritesPresent() {
+    	wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement emptyMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='vendors']")));
         String str1 = "No Favorites yet!\n" + "Tap on the 🤍 follow your favorites.";
         String message = emptyMessage.getText();

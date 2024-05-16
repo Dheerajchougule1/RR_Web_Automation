@@ -68,13 +68,13 @@ public class my_wallets2 extends Utility_RR{
 	            // Extract JSON response body for API 1
 	            String jsonResponse1 = EntityUtils.toString(response1.getEntity());
 	            // Print JSON response for debugging
-	            System.out.println("JSON Response for API 1: " + jsonResponse1);
+//	            System.out.println("JSON Response for API 1: " + jsonResponse1);
 
 	            // Get count from response for API 1
 	            int count1 = getCountFromResponse(jsonResponse1);
-	            System.out.println("Count 1: " + count1);
+//	            System.out.println("Count 1: " + count1);
 
-	            Thread.sleep(30000);
+	            Thread.sleep(3000);
 
 	            // Create an HttpPost request for API 2
 	            HttpPost request2 = new HttpPost(apiUrl2);
@@ -102,6 +102,8 @@ public class my_wallets2 extends Utility_RR{
 	        e.printStackTrace();
 	    } catch (ParseException e) {
 	        e.printStackTrace();
+
+	    }
 	    }
 	}
 

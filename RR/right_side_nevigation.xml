@@ -9,6 +9,7 @@
       <class name="my_profile.my_wallets2"/>
       <class name="my_profile.add_wallet_points"/>
        <class name="my_profile.i_want"/>
+    
     </classes>
   </test>
 </suite> <!-- Suite -->

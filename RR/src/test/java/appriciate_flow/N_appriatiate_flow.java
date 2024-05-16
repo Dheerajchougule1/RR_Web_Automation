@@ -288,8 +288,8 @@ public class N_appriatiate_flow extends Utility_RR {
 	  		if(DataAppriciateFlow(corpID, 37, 1).contains("YES")) {
 	  		ScrollIntoView1(newsFeedId);
 	  		//driver.findElement(By.xpath(corpID))
-	  		driver.findElement(By.xpath("//div[@data_id='"+newsFeedId+"']//div[@class='like_container likesharecomment']")).click();
-	  		likeCount = driver.findElement(By.xpath("//div[@data_id='"+newsFeedId+"']//span[@class='like_count']")).getText();
+	  		driver.findElement(By.xpath("//div[@data_id='"+newsFeedId+"']//div[@class='w-9 relative react_emoji']")).click();
+	  		likeCount = driver.findElement(By.xpath("//div[@data_id='"+newsFeedId+"']//div[@class='react_count cursor-pointer p3']")).getText();
 	  		sa= new SoftAssert();
 	  		
 	  		sa.assertEquals(likeCount,"1", "Like Count is not equal to 1 like");
