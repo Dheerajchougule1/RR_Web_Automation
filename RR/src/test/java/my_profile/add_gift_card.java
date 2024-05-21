@@ -25,6 +25,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
 @Listeners(CustomListener.class)
 
 public class add_gift_card extends Utility_RR {
@@ -32,13 +33,14 @@ public class add_gift_card extends Utility_RR {
 	  SoftAssert sa;
 	  Alert alert;
 	
-  @Parameters("corpID")
+  @Parameters({"browserName", "corpID", "platformName"})
   @BeforeClass
-  private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
+  private void beforeClass(  String browserName,  String corpID, String platformName) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 	 
-	  startBrowser(DataRunScript(2, 1));
+//	  startBrowser(DataRunScript(2, 1));	
+	  startCrossBrowser(DataRunScript(2, 1), browserName, platformName);
 	  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
-	
+	  
   }
   
   @BeforeMethod
@@ -129,7 +131,7 @@ public class add_gift_card extends Utility_RR {
 
   @AfterClass
   public void afterClass() {
-	  	 driver.close();
+	  	 driver.quit();
   }
 
 }

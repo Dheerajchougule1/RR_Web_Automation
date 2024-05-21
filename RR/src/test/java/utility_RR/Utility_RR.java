@@ -51,6 +51,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -68,6 +69,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.google.gson.Gson;
@@ -99,7 +101,7 @@ public class Utility_RR {
   //  protected static WebDriver driver;
      String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
-//    protected DesiredCapabilities capabilities;
+    protected DesiredCapabilities capabilities;
 	
 
 				
@@ -200,6 +202,124 @@ public class Utility_RR {
 //		
 //		driver.get(instanceName);
 //		Thread.sleep(2000);
+	}
+	
+	
+	public void startCrossBrowser(String instanceName , String browserName, String platformName) throws InterruptedException, EncryptedDocumentException, IOException {
+		
+//		System.setProperty("webdriver.chrome.driver","C:\\Dheeraj Chougule old\\Dheeraj old\\chromedriver_win32\\chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver","C:\\Users\\AC\\chromdriver\\chrome-win64\\chrome-win64\\chrome.exe");
+		
+		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
+		
+		if(DataRunScript(5, 1).contains("local")) {
+			
+		try {
+		WebDriverManager.edgedriver().setup();
+		EdgeOptions options = new EdgeOptions();
+//		ChromeOptions options = new ChromeOptions();
+		options.addArguments("inprivate");
+////		options.addArguments("force-device-scale-factor=0.8");
+//		driver = new ChromeDriver(options);
+		driver = new EdgeDriver(options);
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver();
+		driver.get(instanceName);
+		driver.manage().window().maximize();
+		waitForPageLoad();
+//		Thread.sleep(2000);
+//		((JavascriptExecutor) driver).executeScript("document.body.style.zoom = '50%'");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		}
+		
+		else if(DataRunScript(5, 1).contains("lambda")) {	
+//			capabilities = new DesiredCapabilities();
+//		  	capabilities.setCapability("browserName", browserName);
+//	        capabilities.setCapability("version", "latest");
+//	        capabilities.setCapability("platform", "win11"); // If this cap isn't specified, it will just get the any available one
+//	        capabilities.setCapability("build", "CrossBroswering");
+//	        capabilities.setCapability("username", "dheerajc");
+//	        capabilities.setCapability("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
+//	        capabilities.setCapability("name", "CrossBroswering");
+////	        capabilities.setCapability("network", "true");
+//	        capabilities.setCapability("console", "true");
+//	        capabilities.setCapability("terminal", "true");
+//	        capabilities.setCapability("console", "true");
+	        
+	        DesiredCapabilities capabilities = new DesiredCapabilities();
+	        capabilities.setCapability("browserName", browserName);
+	        capabilities.setCapability("browserVersion", "latest");
+	        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+	        ltOptions.put("username", "dheerajc");
+	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
+	        ltOptions.put("platformName", platformName);
+	        ltOptions.put("project", "Cross Browser Testing");
+	        ltOptions.put("build", "Cross Browser Testing");
+	        capabilities.setCapability("LT:Options", ltOptions);
+	        
+//	        ChromeOptions browserOptions = new ChromeOptions();
+//	        browserOptions.setPlatformName("Windows 11");
+//	        browserOptions.setBrowserVersion("123.0");
+//	        browserOptions.addArguments("--disable-css-hover-effects");
+//	        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+//	        ltOptions.put("username", "dheerajc");	
+//	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
+//	        ltOptions.put("project", "Jenkins Script");
+//	        ltOptions.put("build", "JenkinScript");
+//	        ltOptions.put("w3c", true);
+//	       
+//	        browserOptions.setCapability("LT:Options", ltOptions);
+	        
+	        
+
+
+	      try {
+	          driver = new RemoteWebDriver(new URL("https://" + username + ":" + accesskey + gridURL), capabilities);
+	      } catch (MalformedURLException e) {
+	          System.out.println("Invalid grid URL");
+	      } catch (Exception e) {	
+	          System.out.println(e.getMessage());
+	      }
+	      
+	      
+	      
+	      
+	      // Set implicit wait time
+	      	Thread.sleep(7000);	
+//	        driver.manag	e().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	      
+	      	driver.get(instanceName);
+//	      	driver.get("https://development1.advantageclub.co/in");
+			driver.manage().window().maximize();
+			Thread.sleep(2000);
+			
+			Actions action=new Actions(driver);
+			action.moveByOffset(0, 0).perform();
+//			((JavascriptExecutor) driver).executeScript("document.documentElement.style.transform = 'scale(0.7)'");
+//			((RemoteWebDriver) driver).executeScript("document.body.style.zoom=0.5;");
+//			Thread.sleep(2000);
+			
+			
+			
+		}	
+			
+		
+//		DesiredCapabilities cap = new DesiredCapabilities();
+//		
+//		cap.setCapability(CapabilityType.BROWSER_NAME,"Chrome");
+//		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android");
+//		
+//		cap.setCapability("apppium:chromeOptions", ImmutableMap.of("w3c", false));
+//		
+//		AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.23:4723/wd/hub"), cap);
+//		Thread.sleep(2000);
+//		
+//		driver.get(instanceName);
+//		Thread.sleep(2000);
+		 Reporter.log("platform Name : " +platformName+ ","+ "Browser Name : "+browserName);
 	}
 	
 	

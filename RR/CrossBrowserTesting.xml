@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="1" name="Safari">
+	<parameter name="browserName" value="Safari"/>
+	<parameter name="platformName" value="macOS Sonoma"/>
+    <parameter name="corpID" value="C1307"/>
+    <classes>
+	    <class name="my_profile.add_gift_card"/>    
+	    </classes>
+	  </test>
+	<test thread-count="1" name="chrome">
+	<parameter name="browserName" value="chrome"/>
+	<parameter name="platformName" value="Windows 10"/>
+    <parameter name="corpID" value="C1307"/>
+    <classes>
+	    <class name="my_profile.add_gift_card"/>    
+	    </classes>
+	  </test>
+	  
+    <test thread-count="1" name="Firefox">
+	<parameter name="browserName" value="Firefox"/>
+	<parameter name="platformName" value="Windows 10"/>
+    <parameter name="corpID" value="C1307"/>
+    <classes>
+	    <class name="my_profile.add_gift_card"/>    
+	    </classes>
+	  </test>
+	  
+	<test thread-count="1" name="MicrosoftEdge">
+	<parameter name="browserName" value="MicrosoftEdge"/>
+	<parameter name="platformName" value="Windows 10"/>
+    <parameter name="corpID" value="C1307"/>
+    <classes>
+	    <class name="my_profile.add_gift_card"/>    
+	    </classes>
+	  </test>  
+	  
+	<test thread-count="1" name="Opera">
+	<parameter name="browserName" value="Opera"/>	
+	<parameter name="platformName" value="Windows 10"/>
+    <parameter name="corpID" value="C1307"/>
+    <classes>
+	    <class name="my_profile.add_gift_card"/>    
+	    </classes>
+	  </test>
+	  
+	  <test thread-count="1" name="Internet Explorer">
+	<parameter name="browserName" value="Internet Explorer"/>
+	<parameter name="platformName" value="Windows 10"/>
+    <parameter name="corpID" value="C1307"/>
+    <classes>
+	    <class name="my_profile.add_gift_card"/>    
+	    </classes>
+	  </test>
+	  
+	  
+	</suite>
