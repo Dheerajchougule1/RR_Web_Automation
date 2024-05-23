@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -81,7 +82,7 @@ public class Utility_RR {
      String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
     protected DesiredCapabilities capabilities;
-	
+ 
 
 	
 	
@@ -206,6 +207,22 @@ public class Utility_RR {
 		
 	}
 	
+	public String DataNominateFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream giveAwardFlow = new FileInputStream("excel/NominationFlow/Nomination.xlsx");	
+		Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);	
+		String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();	
+		return value;
+		
+	}
+	
+	public Double DataNominateFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+		FileInputStream run_script = new FileInputStream("excel/NominationFlow/Nomination.xlsx");	
+		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
+		Double value = Mysheet.getRow(rowIndex).getCell(columnIndex).getNumericCellValue();
+		return value;
+		
+	}
+	
 	public Double DataNominationFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/NominationFlow/NominationFlow.xlsx");	
 		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
@@ -277,6 +294,7 @@ public class Utility_RR {
 		
 		 Thread.sleep(2000);
 	}
+	
 	
 	public void appriciateEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(empName);
@@ -612,6 +630,19 @@ public class Utility_RR {
 
 	 
      }
+	 public static String generateRandomString(int length) {
+	        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	        Random random = new Random();
+	        StringBuilder sb = new StringBuilder(length);
+
+	        for (int i = 0; i < length; i++) {
+	            int index = random.nextInt(characters.length());
+	            sb.append(characters.charAt(index));
+	        }
+
+	        return sb.toString();
+	    }
+		public static String generatedString = generateRandomString(7);
 	 
 	 
 }
