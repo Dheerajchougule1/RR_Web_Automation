@@ -88,6 +88,8 @@ public class manToManTransfer extends Utility_RR{
 		// Locate the search box
 		WebElement searchBox = driver.findElement(By.id("ManagerTokenField_tokenfield"));
 		searchBox.sendKeys(managerName);
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ManagerTokenField_tokenfield_dropdown")));
 		WebElement managerEntry = dropdown.findElement(By.xpath("//div[contains(text(), '" + managerName + "')]"));
 		managerEntry.click();

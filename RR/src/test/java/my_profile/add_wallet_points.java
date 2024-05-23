@@ -150,7 +150,7 @@ public class add_wallet_points extends Utility_RR {
 	   
 	   //amount 30000
 	   
-	   waitForPageLoad();
+	   Thread.sleep(2000);
 	   driver.findElement(By.xpath("//input[@name='points']")).sendKeys("30000");
 	   driver.findElement(By.xpath("//button[@onclick='proceedToAddPoints()']")).click();
 	   
@@ -176,14 +176,14 @@ public class add_wallet_points extends Utility_RR {
 	   driver.findElement(By.xpath("//button[@onclick='proceedToAddPoints()']")).click();
 	   
 	   Thread.sleep(3000);
-	   waitForPageLoad();
+
 	   
 	   driver.navigate().back();
 	   
 	   
 	   sa= new SoftAssert();
 	   
-	   Thread.sleep(2000);
+	   Thread.sleep(2500);
 	   alert = driver.switchTo().alert();
 	   String alertMessage4 = alert.getText();
 	   

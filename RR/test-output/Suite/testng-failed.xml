@@ -1,38 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Internet Explorer(failed)">
-    <parameter name="corpID" value="C1307"/>
-    <parameter name="browserName" value="Internet Explorer"/>
-    <parameter name="platformName" value="Windows 10"/>
+  <test thread-count="5" name="FeedDelete(failed)">
+    <parameter name="corpID" value="C900"/>
     <classes>
-      <class name="my_profile.add_gift_card">
+      <class name="genericFlow.SocialFeedDelete">
         <methods>
-          <include name="afterClass"/>
-          <include name="afterMethod"/>
-          <include name="beforeClass"/>
-          <include name="error_message_verification"/>
-          <include name="verify_all_label_name"/>
-          <include name="before_Method_Appriciate"/>
+          <include name="FeedDelete_before_class"/>
+          <include name="feedDelete"/>
+          <include name="FeedDelete_after_class"/>
         </methods>
-      </class> <!-- my_profile.add_gift_card -->
+      </class> <!-- genericFlow.SocialFeedDelete -->
     </classes>
-  </test> <!-- Internet Explorer(failed) -->
-  <test thread-count="5" name="Opera(failed)">
-    <parameter name="corpID" value="C1307"/>
-    <parameter name="browserName" value="Opera"/>
-    <parameter name="platformName" value="Windows 10"/>
-    <classes>
-      <class name="my_profile.add_gift_card">
-        <methods>
-          <include name="afterClass"/>
-          <include name="afterMethod"/>
-          <include name="beforeClass"/>
-          <include name="error_message_verification"/>
-          <include name="before_Method_Appriciate"/>
-          <include name="verify_all_label_name"/>
-        </methods>
-      </class> <!-- my_profile.add_gift_card -->
-    </classes>
-  </test> <!-- Opera(failed) -->
+  </test> <!-- FeedDelete(failed) -->
 </suite> <!-- Failed suite [Suite] -->

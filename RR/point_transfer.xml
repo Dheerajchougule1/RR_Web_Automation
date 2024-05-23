@@ -5,6 +5,8 @@
 	<parameter name="corpID" value="C1307"/>
     <classes>
       <class name="points_transfer.manToManTransfer"/>
+      <class name="points_transfer.interBudgetTransfer"/>
+      <class name="points_transfer.adminTransfer"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

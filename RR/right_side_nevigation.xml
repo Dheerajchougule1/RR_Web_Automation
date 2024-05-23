@@ -2,6 +2,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
+	<parameter name="browserName" value="chrome"/>
+	<parameter name="platformName" value="Windows 10"/>
   <parameter name="corpID" value="C1307"/>
     <classes>
       <class name="my_profile.add_gift_card"/>

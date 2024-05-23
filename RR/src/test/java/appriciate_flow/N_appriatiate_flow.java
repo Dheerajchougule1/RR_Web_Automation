@@ -367,10 +367,9 @@ public class N_appriatiate_flow extends Utility_RR {
 		//with wrong mail and submit
 		
 		driver.findElement(By.xpath("//input[@id='recipient_tokenfield']")).sendKeys(DataAppriciateFlow(corpID, 51, 2));
-		waitForPageLoad();
-		
+		Thread.sleep(1500);		
 		//driver.findElement(By.xpath("//input[@value='Submit']")).click();
-		String empMailError1 = driver.findElement(By.xpath("//div[@class='p1']")).getText();
+		String empMailError1 = driver.findElement(By.xpath("(//div[@class='p1'])[1]")).getText();
 		sa.assertEquals(empMailError1, DataAppriciateFlow(corpID, 51, 1),"Validation failed for wrong mail and submit");
 		System.out.println("Wrong mail verified");
 		
@@ -379,18 +378,19 @@ public class N_appriatiate_flow extends Utility_RR {
 		
 		//With 2 same mail search
 		newui_appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
-//		Thread.sleep(2000);
-		waitForPageLoad();
+		Thread.sleep(2000);
+		
 		
 		newui_appriciateEmpSearch(DataAppriciateFlow(corpID, 10, 2));
 		
-		Thread.sleep(1500);
+		Thread.sleep(2000);
 		String empMailError2 = alert.getText();
 		sa.assertEquals(empMailError2, DataAppriciateFlow(corpID, 53, 1),"Validation failed for 2 same mail");
 		System.out.println("2 same verified");
-		sa.assertAll();
 		
 		alert.accept();
+		sa.assertAll();
+		
 	  }
 	  else {
 		Reporter.log("No need to test negative case");

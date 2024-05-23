@@ -82,7 +82,8 @@ public class interBudgetTransfer extends Utility_RR{
 		 String points = points_element.getText();
 		 
 		 budget.click();
-		 Thread.sleep(2000);
+		 Thread.sleep(1500);
+		 
 	    if (points.contains("0.0 Points") ) {
 	        
 	      alertVerify("You cant transfer amount from budget with balance 0");
@@ -106,11 +107,13 @@ public class interBudgetTransfer extends Utility_RR{
 			 double pointsInt = Double.parseDouble(parts[0]);
 			 Thread.sleep(1000);
 			 budget.click();
-			 Thread.sleep(2000);			 
+			 Thread.sleep(1500);
+	
 		    if(pointsInt>=1) {
 			 WebElement submitButton = driver.findElement(By.xpath("//button[@class='mt-16 p1 submitButtonGiftToColleague']"));
 			  submitButton.click();
-			  Thread.sleep(2000);
+			  Thread.sleep(1500);
+			 
 			  if(alertVerify("Please Select Receiver Budget")) {
 				  break;
 			  }
@@ -131,16 +134,15 @@ public class interBudgetTransfer extends Utility_RR{
 			Thread.sleep(1000);
 			 String points = points_element.getText();
 			 String[] parts = points.split(" ");
-			 double pointsInt = Double.parseDouble(parts[0]);
+			 double pointsInt = Double.parseDouble(parts[0]);	 
 			 
-			 
-			 Thread.sleep(2000);			 
+			 Thread.sleep(1500);
+		
 		    if(pointsInt>=1) {
 				 budget.click();
-
-			
 			  //submitButton.click();
-			  Thread.sleep(2000);
+			  Thread.sleep(1500);
+			  
 			  WebElement reciever_budget = driver.findElement(By.xpath("//div[@id='receiver_budget']//div[@class='slick-slide slick-current slick-active']"));
 			  reciever_budget.click();
 			  WebElement input_box = driver.findElement(By.xpath("//div[@class='p1 flex gap-16 mt-16 items-center amountBox']//input[@id='greeting_amount']"));
@@ -171,10 +173,12 @@ public class interBudgetTransfer extends Utility_RR{
 			 double pointsInt = Double.parseDouble(parts[0]);
 			 double Inputpoint = pointsInt+1;
 			 String input = Integer.toString((int) Inputpoint);
-			 Thread.sleep(2000);			 
+			 Thread.sleep(1500);	
+			
 		    if(pointsInt>=1) {
 				 budget.click();
-			  Thread.sleep(2000);
+			  Thread.sleep(1500);
+			 
 			  WebElement reciever_budget = driver.findElement(By.xpath("//div[@id='receiver_budget']//div[@class='slick-slide slick-current slick-active']"));
 			  reciever_budget.click();
 			  WebElement input_box = driver.findElement(By.xpath("//div[@class='p1 flex gap-16 mt-16 items-center amountBox']//input[@id='greeting_amount']"));

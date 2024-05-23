@@ -44,7 +44,7 @@ public class SocialFeedDelete extends Utility_RR {
 	  importWait();;
 	  
 	  //login
-	  login(corpID,DataRunScript(10, 1), DataRunScript(11, 1));
+	  newui_login(corpID,DataRunScript(10, 1), DataRunScript(11, 1));
 	  importWait();
 	  
   }
@@ -77,8 +77,10 @@ public class SocialFeedDelete extends Utility_RR {
                   act = new Actions(driver);
             	  
             	  driver.findElement(By.xpath("//input[@name='newsfeed_id']")).sendKeys(value);
-            	  act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
-            	  //Thread.sleep(3000);
+            	  driver.findElement(By.xpath("//div[@class='search-newsfeed']")).click();
+            	  
+            	  Thread.sleep(1000);
+            	  driver.findElement(By.xpath("//input[@class='delete-newsfeed-btn']")).click();
             	  importWait();
             	  
             	  driver.get("https://secure.workadvantage.in/delete_newsfeeds");

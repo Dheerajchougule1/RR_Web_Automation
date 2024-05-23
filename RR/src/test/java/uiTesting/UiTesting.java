@@ -134,12 +134,12 @@ import org.openqa.selenium.By;
 //	  	        Thread.sleep(6000);
 	  	 		
 	  	 		waitForPageLoad();
-	  	 		Thread.sleep(1500);
+	  	 		Thread.sleep(3000);
 	  	 		
 	  	 		
 	  	 		if(url.contains("pages/poll")){
 	  	 			
-	  	 			Thread.sleep(2000);
+	  	 			Thread.sleep(4000);
 	  	 		}
 	  	 	
 	            Screenshot screenshot = new AShot().takeScreenshot(driver);
@@ -252,11 +252,11 @@ import org.openqa.selenium.By;
 	  	 		String urlEndPoint = url.replaceAll("/", "_");
 	  	 		
 	  	 		waitForPageLoad();
-	  	 		Thread.sleep(1500);
+	  	 		Thread.sleep(3000);
 	  	 				
 	  	 		if(url.contains("pages/poll")) {
 	  	 			
-	  	 			Thread.sleep(2000);
+	  	 			Thread.sleep(4000);
 	  	 		}
 	  	 		
 	  	 	// Capture screenshot of the entire page

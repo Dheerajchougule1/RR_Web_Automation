@@ -33,15 +33,14 @@ public class add_gift_card extends Utility_RR {
 	  SoftAssert sa;
 	  Alert alert;
 	
-  @Parameters({"browserName", "corpID", "platformName"})
-  @BeforeClass
-  private void beforeClass(  String browserName,  String corpID, String platformName) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
-	 
-//	  startBrowser(DataRunScript(2, 1));	
-	  startCrossBrowser(DataRunScript(2, 1), browserName, platformName);
-	  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
-	  
-  }
+	  @Parameters("corpID")
+	  @BeforeClass
+	  private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
+		 
+		  startBrowser(DataRunScript(2, 1));
+		  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
+		
+	  }
   
   @BeforeMethod
   private void before_Method_Appriciate() throws EncryptedDocumentException, IOException {
