@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="FeedDelete(failed)">
-    <parameter name="corpID" value="C900"/>
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="corpID" value="C1146"/>
     <classes>
-      <class name="genericFlow.SocialFeedDelete">
+      <class name="Afni_testing.pendingApproval">
         <methods>
-          <include name="FeedDelete_before_class"/>
-          <include name="feedDelete"/>
-          <include name="FeedDelete_after_class"/>
+          <include name="afterClass"/>
+          <include name="nominationApproval"/>
+          <include name="afterMethod"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- genericFlow.SocialFeedDelete -->
+      </class> <!-- Afni_testing.pendingApproval -->
     </classes>
-  </test> <!-- FeedDelete(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

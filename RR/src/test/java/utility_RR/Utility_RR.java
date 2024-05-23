@@ -103,7 +103,7 @@ public class Utility_RR {
      String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
     protected DesiredCapabilities capabilities;
- 
+	
 
 				
 	
@@ -183,7 +183,7 @@ public class Utility_RR {
 			Thread.sleep(2000);
 			
 			Actions action=new Actions(driver);
-			action.moveByOffset(0, 0).perform();
+			action.moveByOffset(150, 102).click().perform();
 //			((JavascriptExecutor) driver).executeScript("document.documentElement.style.transform = 'scale(0.7)'");
 //			((RemoteWebDriver) driver).executeScript("document.body.style.zoom=0.5;");
 //			Thread.sleep(2000);
@@ -323,6 +323,20 @@ public class Utility_RR {
 		 Reporter.log("platform Name : " +platformName+ ","+ "Browser Name : "+browserName);
 	}
 	
+	public static String generateRandomString(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(length);
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            sb.append(characters.charAt(index));
+        }
+
+        return sb.toString();
+    }
+    public static String generatedString = generateRandomString(7);
+	
 	
 	public String DataRunScript(int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/Run_Script.xlsx");	
@@ -331,6 +345,22 @@ public class Utility_RR {
 		return value;
 		
 	}
+	
+	public String DataNominateFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+        FileInputStream giveAwardFlow = new FileInputStream("excel/NominationFlow/Nomination.xlsx");    
+        Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);    
+        String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();    
+        return value;
+        
+    }
+    
+    public Double DataNominateFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+        FileInputStream run_script = new FileInputStream("excel/NominationFlow/Nomination.xlsx");    
+        Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);    
+        Double value = Mysheet.getRow(rowIndex).getCell(columnIndex).getNumericCellValue();
+        return value;
+        
+    }
 	
 	public String DataAppriciateFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
 		FileInputStream run_script = new FileInputStream("excel/Appriciate_Flow.xlsx");	
@@ -378,22 +408,6 @@ public class Utility_RR {
 		FileInputStream giveAwardFlow = new FileInputStream("excel/NominationFlow/NominationFlow.xlsx");	
 		Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);	
 		String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();	
-		return value;
-		
-	}
-	
-	public String DataNominateFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
-		FileInputStream giveAwardFlow = new FileInputStream("excel/NominationFlow/Nomination.xlsx");	
-		Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);	
-		String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();	
-		return value;
-		
-	}
-	
-	public Double DataNominateFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
-		FileInputStream run_script = new FileInputStream("excel/NominationFlow/Nomination.xlsx");	
-		Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);	
-		Double value = Mysheet.getRow(rowIndex).getCell(columnIndex).getNumericCellValue();
 		return value;
 		
 	}
@@ -446,7 +460,7 @@ public class Utility_RR {
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
 		Thread.sleep(3000);
-//		waitForPageLoad();
+//		waitForPageLoad();	
 		
 		 Robot robot = new Robot();
 		  for (int i = 0; i < 4; i++) {
@@ -457,7 +471,7 @@ public class Utility_RR {
 			
 		  }
 		  
-		  Thread.sleep(2000);
+		  Thread.sleep(3000);
 //		  waitForPageLoad();
 		
 		
@@ -473,7 +487,6 @@ public class Utility_RR {
 		
 		 Thread.sleep(2000);
 	}
-	
 	
 	public void appriciateEmpSearch(String empName) throws InterruptedException {
 		driver.findElement(By.xpath("(//input[@class='token-input ui-autocomplete-input'])[1]")).sendKeys(empName);
@@ -747,7 +760,7 @@ public class Utility_RR {
 	 public static String getToken() throws InterruptedException {
 	      
 		 // After login, get cookies
-			Thread.sleep(2000);
+			 Thread.sleep(2000);
 			 String javascriptCode = "return userDetails.authentication_token;";
 		     String token = (String) ((JavascriptExecutor) driver).executeScript(javascriptCode);
 		     System.out.println(token);
@@ -840,19 +853,6 @@ public class Utility_RR {
 		    
 	 
      }
-	 public static String generateRandomString(int length) {
-	        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	        Random random = new Random();
-	        StringBuilder sb = new StringBuilder(length);
-
-	        for (int i = 0; i < length; i++) {
-	            int index = random.nextInt(characters.length());
-	            sb.append(characters.charAt(index));
-	        }
-
-	        return sb.toString();
-	    }
-		public static String generatedString = generateRandomString(7);
 	 
 	 
 	 public static Map<String, String> getBackendDataFromApi(String apiUrl, String objectName, int objectNumber, String Payload) throws Exception {
