@@ -95,6 +95,7 @@ public class Utility_RR {
 	protected WebDriverWait wait ;
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_RED = "\u001B[31m";
+
 	
 	 protected String username= "dheerajc"; 
 	 protected String accesskey= "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt";
@@ -115,7 +116,6 @@ public class Utility_RR {
 		//System.setProperty("webdriver.edge.driver","C:\\Dheeraj C_Old\\Dheeraj C\\Setup\\edgedriver_win64\\msedgedriver.exe");
 		
 		if(DataRunScript(5, 1).contains("local")) {
-			
 		try {
 		WebDriverManager.edgedriver().setup();
 		EdgeOptions options = new EdgeOptions();
@@ -136,7 +136,7 @@ public class Utility_RR {
 			e.printStackTrace();
 		}
 		}
-		
+	
 		else if(DataRunScript(5, 1).contains("lambda")) {	
 //			capabilities = new DesiredCapabilities();
 //		  	capabilities.setCapability("browserName", "chrome");
@@ -172,6 +172,8 @@ public class Utility_RR {
 	      } catch (Exception e) {	
 	          System.out.println(e.getMessage());
 	      }
+	      
+	     
 	      
 	      // Set implicit wait time
 	      	Thread.sleep(8000);	

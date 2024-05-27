@@ -9,23 +9,13 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">1</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">177,812</td><td></td><td></td></tr>
+<tr><td><a href="#t0">ResponseTimeTest</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">38,328</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">Afni_testing.pendingApproval</td><td><a href="#m0">beforeClass</a></td><td rowspan="1">1716471881914</td><td rowspan="1">78314</td></tr><tr><th colspan="4">Test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="3">Afni_testing.pendingApproval</td><td><a href="#m1">afterClass</a></td><td rowspan="1">1716471960258</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m2">afterMethod</a></td><td rowspan="1">1716471960251</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m3">beforeMethod</a></td><td rowspan="1">1716471960234</td><td rowspan="1">0</td></tr><tr><th colspan="4">Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">Afni_testing.pendingApproval</td><td><a href="#m4">nominationApproval</a></td><td rowspan="1">1716471960236</td><td rowspan="1">4</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Afni_testing.nomination</td><td><a href="#m5">singleNominationFlow</a></td><td rowspan="1">1716471863669</td><td rowspan="1">18239</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">ResponseTimeTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">genericFlow.ResponseTime</td><td><a href="#m0">response_time_test</a></td><td rowspan="1">1716533461914</td><td rowspan="1">38278</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">Afni_testing.pendingApproval#beforeClass</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.apache.poi.ss.usermodel.Cell.getStringCellValue()&quot; because the return value of &quot;org.apache.poi.ss.usermodel.Row.getCell(int)&quot; is null
-	at utility_RR.Utility_RR.DataAppriciateFlow(Utility_RR.java:368)
-	at Afni_testing.pendingApproval.beforeClass(pendingApproval.java:37)
+<h2>ResponseTimeTest</h2><h3 id="m0">genericFlow.ResponseTime#response_time_test</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C466</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages"><font color="red">Status Code: 200</font><br/><font color="red">Response Time: 700 ms</font></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at genericFlow.ResponseTime.response_time_test(ResponseTime.java:138)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Afni_testing.pendingApproval#afterClass</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Afni_testing.pendingApproval#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Afni_testing.pendingApproval#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">Afni_testing.pendingApproval#nominationApproval</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.apache.poi.ss.usermodel.Cell.getStringCellValue()&quot; because the return value of &quot;org.apache.poi.ss.usermodel.Row.getCell(int)&quot; is null
-	at utility_RR.Utility_RR.DataAppriciateFlow(Utility_RR.java:368)
-	at Afni_testing.pendingApproval.beforeClass(pendingApproval.java:37)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">Afni_testing.nomination#singleNominationFlow</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

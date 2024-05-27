@@ -4,12 +4,15 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import utility_RR.Utility_RR;
+import utility_RR.Utility_RR.CustomReporterRed;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+
+import static org.testng.Assert.fail;
 
 import java.awt.AWTException;
 import java.io.IOException;
@@ -69,10 +72,12 @@ public class pendingApproval extends Utility_RR {
 		    sa.assertAll();
 		    if(messageText.contains(customMessage)) {
 		    	System.out.println("Nomination found in pending approval");
+		    	CustomReporterRed.log("Nomination found in pending approval", "green");
 		    	
 		    }
 		    else {
-		    	System.out.println("Nomination not found in pending approval");
+		    	CustomReporterRed.log("Nomination not found in pending approval", "red");
+		    	fail("Nomination not found in pending approval");
 		    }
 		    
 	  	 
@@ -91,6 +96,8 @@ public class pendingApproval extends Utility_RR {
 
   @AfterClass
   public void afterClass() {
+	  driver.quit();  
+
   }
 
 }

@@ -91,7 +91,8 @@ import org.apache.hc.client5.http.classic.methods.HttpGet;
 	
 		            // Send the request and get the response
 		            CloseableHttpResponse response = httpClient.execute(request);
-	
+		            
+		         
 		            // Extract JSON response body
 		            String jsonResponse = EntityUtils.toString(response.getEntity());	
 	

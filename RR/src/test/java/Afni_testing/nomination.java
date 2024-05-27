@@ -3,12 +3,15 @@ package Afni_testing;
 import org.testng.annotations.Test;
 
 import utility_RR.Utility_RR;
+import utility_RR.Utility_RR.CustomReporterRed;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+
+import static org.testng.Assert.fail;
 
 import java.awt.AWTException;
 import java.io.IOException;
@@ -108,9 +111,11 @@ public class nomination extends Utility_RR {
 	        List<WebElement> value_statement_hidden = driver.findElements(By.xpath("//div[@id='valueStatements'][@class='w-full hidden flex items-center']"));
 	        if(!value_statement_hidden.isEmpty()) {
 	        	System.out.println("Value statement not present");
+	        	CustomReporterRed.log("Value statement not present", "green");
 	        }
 	        else {
 	        	CustomReporterRed.log("Value statement found", "red");
+	        	fail("Value statement found");
 	        }
 	       }	
 	       WebElement submit_button = driver.findElement(By.xpath("//button[@class=\"rounded-lg p-4 w-56 btn submitBtn p1 font-semibold\"]"));
@@ -138,6 +143,7 @@ public class nomination extends Utility_RR {
 
   @AfterClass
   public void afterClass() {
-  }
+	  
+	  driver.quit();  }
 
 }
