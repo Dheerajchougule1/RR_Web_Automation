@@ -4,7 +4,7 @@
   <test thread-count="5" name="Test">
 	<parameter name="corpID" value="C1146"/>
     <classes>
-      <class name="Afni_testing.budgetRequestFlow"/>
+   <class name="Afni_testing.budgetRequestFlow"/> 
       <class name="Afni_testing.budgetApproverFlow"/>
     </classes>
   </test> <!-- Test -->

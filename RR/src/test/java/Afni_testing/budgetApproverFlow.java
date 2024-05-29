@@ -12,13 +12,17 @@ import org.testng.annotations.Parameters;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 
 public class budgetApproverFlow extends Utility_RR{
+	protected String imageTabHandle;
 	@Parameters("corpID")
 	@BeforeClass
 	public void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
@@ -31,8 +35,8 @@ public class budgetApproverFlow extends Utility_RR{
 	  @BeforeMethod
 	  public void beforeMethod() throws EncryptedDocumentException, IOException {
 		  
-		 // driver.get(DataRunScript(2, 1));
-		  driver.get(DataRunScript(1, 1) + "ph/pages/budget_allocation_approval");
+		 driver.get(DataRunScript(2, 1));
+		 // driver.get(DataRunScript(1, 1) + "ph/pages/budget_allocation_approval");
 		  importWait();
 		  
 	  }
@@ -40,8 +44,7 @@ public class budgetApproverFlow extends Utility_RR{
 	  @Parameters("corpID")
 	  @Test(priority=1,enabled=true)
   public void budgetApprover(String corpID) throws EncryptedDocumentException, IOException {
-	 // driver.get(DataRunScript(1, 1) + "ph/pages/budget_allocation_approval");
-	  budgetRequestFlow newreq = new budgetRequestFlow();
+	 driver.get(DataRunScript(1, 1) + "ph/pages/budget_allocation_approval");
 	  int amountRequested = Utility_RR.amount_requested;
 	 // System.out.print(amountRequested);
 	  WebElement pendingRequests = driver.findElement(By.xpath("//div[@class='selected_request_header']//input[@value='Pending Requests']"));
@@ -60,6 +63,41 @@ public class budgetApproverFlow extends Utility_RR{
 	  }
 	  
   }
+//	  @Parameters("corpID")
+//	  @Test(priority=2,enabled=true)
+//	  public void uploadedFileCheck(String corpID) throws InterruptedException, EncryptedDocumentException, IOException {
+//		  driver.get(DataRunScript(1, 1) + "ph/pages/budget_allocation_approval");
+//
+//		  WebElement pendingRequests = driver.findElement(By.xpath("//div[@class='selected_request_header']//input[@value='Pending Requests']"));
+//		  pendingRequests.click();
+//		  
+//		  WebElement view_file_element = driver.findElement(By.xpath("(//a[text()='View File'])[1]"));
+//	        view_file_element.click();
+//	        Thread.sleep(2000);
+//	        String expectedFileUrl = "https://cdn0.workadvantage.in/images/budget_point_load_request/attachment_url/738/0b8a86e0fd.pdf";
+//	       // String originalWindow = driver.getWindowHandle();
+//	        Set<String> windowHandles = driver.getWindowHandles();
+//	        //switch to new tab 
+//	        newTabHandle = windowHandles.toArray()[windowHandles.size() - 1].toString();
+//			driver.switchTo().window(newTabHandle);
+//	        //URL of the new tab
+//	        String actualFileUrl = driver.getCurrentUrl();
+//	        System.out.print(actualFileUrl);
+//	        
+//	        // Compare the actual URL with the expected URL
+//	        if (actualFileUrl.equals(expectedFileUrl)) {
+//	            System.out.println("Uploaded File URL matches expected URL.");
+//	        } else {
+//	            CustomReporterRed.log("Uploaded File URL does not match expected URL.","red");
+//	        }
+//	        String originalTab = windowHandles.toArray()[windowHandles.size()- 2].toString();
+//
+//	        driver.switchTo().window(originalTab);
+//		
+//			
+//		  
+//	  }
+//	  
   @AfterMethod
   public void afterMethod() {
 	  
@@ -67,7 +105,7 @@ public class budgetApproverFlow extends Utility_RR{
 
   @AfterClass
   public void afterClass() {
-	  driver.quit();
+	 driver.quit();
   }
 
 }
