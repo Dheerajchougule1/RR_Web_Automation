@@ -1,6 +1,7 @@
-package Afni_testing;
+	package Afni_testing;
 
 import java.awt.AWTException;
+import java.io.File;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
@@ -23,7 +24,7 @@ public class budgetRequestFlow extends Utility_RR {
 	public void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 		  
 		  startBrowser(DataRunScript(2, 1));
-		  newui_login(corpID,DataAppriciateFlow(corpID, 12, 1), DataAppriciateFlow(corpID, 4, 2));		  
+		  newui_login(corpID,DataNominateFlow(corpID, 70, 1), DataNominateFlow(corpID, 70, 2));		  
 	  }
 		
 	  
@@ -54,8 +55,18 @@ public class budgetRequestFlow extends Utility_RR {
 		  // amount_input.sendKeys("1");
 		  Thread.sleep(1000);
 		  WebElement upload_button = driver.findElement(By.xpath("//div[@class='attach_document_box']//input[@id='inputType']"));
-		  upload_button.sendKeys("C:\\Users\\AC\\git\\RR_Web_Automation\\RR\\excel\\Screenshots\\test_file_budget_request.pdf");
-		  
+//		  upload_button.sendKeys("RR\\excel\\Afni\\Screenshots\\test_file_budget_request.pdf");
+		  if(DataRunScript(5, 1).contains("local")) {
+		  String relativeFilePath = "excel/Afni/Screenshots/test_file_budget_request.pdf";
+
+           // Convert relative path to absolute path
+           File file = new File(relativeFilePath);
+           String absoluteFilePath = file.getAbsolutePath();
+           upload_button.sendKeys(absoluteFilePath);
+		  }
+		  else {
+			  upload_button.sendKeys("C:\\Users\\ltuser\\Downloads\\test_file_budget_request.pdf");
+		  }
 		  //upload_button.sendKeys("C:\\Users\\AC\\git\\RR_Web_Automation\\RR\\excel\\Screenshots\\test_file_budget_request.docx");
 		  Thread.sleep(1000);
 		  WebElement submit_button = driver.findElement(By.xpath("//button[@class=\"submit_button\"]"));

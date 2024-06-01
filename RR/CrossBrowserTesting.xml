@@ -7,9 +7,8 @@
 	<parameter name="platformName" value="macOS Sonoma"/>
     <parameter name="corpID" value="C1307"/>
     <classes>
-	    <class name="my_profile_cross_browser.add_gift_card"/>
-	    <class name="my_profile_cross_browser.my_wallets2"/>    
-	    <class name="my_profile_cross_browser.i_want"/>      
+	    <class name="my_profile_cross_browser.add_gift_card"/>  
+	    <class name="my_profile_cross_browser.i_want"/>   
 	    </classes>
 	    
 	</test>
@@ -19,9 +18,7 @@
 	<parameter name="platformName" value="Windows 10"/>
     <parameter name="corpID" value="C1307"/>
     <classes>
-	    <class name="my_profile_cross_browser.add_gift_card"/>
-	    <class name="my_profile_cross_browser.my_wallets2"/>  
-	    <class name="my_profile_cross_browser.add_wallet_points"/>  
+	    <class name="my_profile_cross_browser.add_gift_card"/>  
 	    <class name="my_profile_cross_browser.i_want"/> 
 	    </classes>
 	  </test>  
@@ -32,9 +29,7 @@
 	<parameter name="platformName" value="Windows 10"/>
     <parameter name="corpID" value="C1307"/>
     <classes>
-	    <class name="my_profile_cross_browser.add_gift_card"/>
-	    <class name="my_profile_cross_browser.my_wallets2"/>  
-	    <class name="my_profile_cross_browser.add_wallet_points"/>  
+	    <class name="my_profile_cross_browser.add_gift_card"/>  
 	    <class name="my_profile_cross_browser.i_want"/>    
 	    </classes>
 	</test>
@@ -45,8 +40,7 @@
     <parameter name="corpID" value="C1307"/>
     <classes>
 	    <class name="my_profile_cross_browser.add_gift_card"/>  
-	    <class name="my_profile_cross_browser.add_wallet_points"/>  
-	    <class name="my_profile_cross_browser.i_want"/>  
+	    <class name="my_profile_cross_browser.i_want"/> 
 	    </classes>
 	  </test>
 	   

@@ -28,7 +28,7 @@ public class budgetApproverFlow extends Utility_RR{
 	public void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 		  
 		  startBrowser(DataRunScript(2, 1));
-		  newui_login(corpID,DataAppriciateFlow(corpID, 13, 1), DataAppriciateFlow(corpID, 4, 2));		  
+		  newui_login(corpID,DataNominateFlow(corpID, 71, 1), DataNominateFlow(corpID, 71, 2));		  
 	  }
 		
 	  
@@ -43,7 +43,7 @@ public class budgetApproverFlow extends Utility_RR{
 	
 	  @Parameters("corpID")
 	  @Test(priority=1,enabled=true)
-  public void budgetApprover(String corpID) throws EncryptedDocumentException, IOException {
+  public void budgetApprover(String corpID) throws EncryptedDocumentException, IOException, InterruptedException {
 	 driver.get(DataRunScript(1, 1) + "ph/pages/budget_allocation_approval");
 	  int amountRequested = Utility_RR.amount_requested;
 	 // System.out.print(amountRequested);
@@ -51,15 +51,16 @@ public class budgetApproverFlow extends Utility_RR{
 	  pendingRequests.click();
 //	  List <WebElement> pending_requests = driver.findElements(By.xpath("//tbody[@class='data_wrapper']//tr[@class='item']"));
 //	  WebElement firstEntry = pending_requests.get(3);
+	  Thread.sleep(2000);
 	  WebElement amountEntry = driver.findElement(By.xpath("//tbody[@class='data_wrapper']//tr[1]//td[4]"));
 	  String amount = amountEntry.getText();
 	  int amount1 = Integer.parseInt(amount);
 	 // System.out.print(amount1);
 	  if(amount1==amountRequested) {
-		  System.out.print("Amount request created");
+		  System.out.println("Amount request created");
 	  }
 	  else {
-		  System.out.print("Request not found");
+		  System.out.println("Request not found");
 	  }
 	  
   }
@@ -70,8 +71,9 @@ public class budgetApproverFlow extends Utility_RR{
 
 		  WebElement pendingRequests = driver.findElement(By.xpath("//div[@class='selected_request_header']//input[@value='Pending Requests']"));
 		  pendingRequests.click();
-		  
-		  WebElement view_file_element = driver.findElement(By.xpath("(//a[text()='View File'])[1]"));
+		  Thread.sleep(2000);
+		  WebElement view_file_element = driver.findElement(By.xpath("(//td[7]//a[@target='_blank'])[1]"));
+		  Thread.sleep(2000);
 	        view_file_element.click();
 	        Thread.sleep(2000);
 	       // String expectedFileUrl = "https://cdn0.workadvantage.in/images/budget_point_load_request/attachment_url/738/0b8a86e0fd.pdf";

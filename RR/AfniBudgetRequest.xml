@@ -7,5 +7,6 @@
     <class name="Afni_testing.budgetRequestFlow"/>  
       <class name="Afni_testing.budgetApproverFlow"/>
     </classes>
-  </test> <!-- Test -->
+  </test> <!-- Test -->	
 </suite> <!-- Suite -->
+	

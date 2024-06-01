@@ -63,7 +63,7 @@ public class manToManTransfer extends Utility_RR{
 		driver.get(DataRunScript(1, 1)+"in/pages/manager_to_manager_transfer");
 	  	importWait();
 	}
-	public boolean alertVerify(String message) {
+	public boolean alertVerify(String message) throws InterruptedException {
 	    sa = new SoftAssert();
 	    boolean isMessageMatched = false;
 	    
@@ -76,6 +76,7 @@ public class manToManTransfer extends Utility_RR{
 	        
 	        isMessageMatched = true;
 	        alert.dismiss();
+	        Thread.sleep(2000);
 	    } catch (NoAlertPresentException e) {
 	        // Handle case where no alert is present
 	        System.out.println("No alert present");
@@ -117,6 +118,7 @@ public class manToManTransfer extends Utility_RR{
 	    if(pointsInt>0) {
 			 budget.click();
 			 Thread.sleep(1000);
+			 waitForPageLoad();
 			 WebElement submitButton = driver.findElement(By.xpath("//button[@class='mt-16 p1 submitButtonGiftToColleague']"));
 			 submitButton.click();
 			 if(alertVerify("Amount can not be blank")) {

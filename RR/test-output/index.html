@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\AC\git\RR_Web_Automation\RR\responseTime.xml</span>
+                    <span>C:\Users\AC\git\RR_Web_Automation\RR\AfniBudgetRequest.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,21 +93,41 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
-                    <div class="method-list-content failed suite-Suite">
+                    <div class="method-list-content passed suite-Suite">
                       <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="genericFlow.ResponseTime" class="method navigator-link" hash-for-method="response_time_test(C466)">response_time_test(C466)</a> <!-- method navigator-link -->
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Afni_testing.budgetApproverFlow" class="method navigator-link" hash-for-method="budgetApprover(C1146)">budgetApprover(C1146)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Afni_testing.budgetRequestFlow" class="method navigator-link" hash-for-method="requestAmount(C1146)">requestAmount(C1146)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Afni_testing.budgetRequestFlow" class="method navigator-link" hash-for-method="submitWithoutAmount(C1146)">submitWithoutAmount(C1146)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Afni_testing.budgetRequestFlow" class="method navigator-link" hash-for-method="submitWithoutDocument(C1146)">submitWithoutDocument(C1146)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="Afni_testing.budgetApproverFlow" class="method navigator-link" hash-for-method="uploadedFileCheck(C1146)">uploadedFileCheck(C1146)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -119,43 +139,79 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
+          <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">genericFlow.ResponseTime</span>
+              <img src="passed.png"/>
+              <span class="class-name">Afni_testing.budgetRequestFlow</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="response_time_test(C466)">
-                  </a> <!-- response_time_test(C466) -->
-                  <span class="method-name">response_time_test</span>
-                  <span class="parameters">(C466)</span>
-                  <div class="stack-trace">java.lang.AssertionError: null
-	at genericFlow.ResponseTime.response_time_test(ResponseTime.java:138)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 29 stack frames
-</div> <!-- stack-trace -->
+                  <a name="requestAmount(C1146)">
+                  </a> <!-- requestAmount(C1146) -->
+                  <span class="method-name">requestAmount</span>
+                  <span class="parameters">(C1146)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="submitWithoutAmount(C1146)">
+                  </a> <!-- submitWithoutAmount(C1146) -->
+                  <span class="method-name">submitWithoutAmount</span>
+                  <span class="parameters">(C1146)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="submitWithoutDocument(C1146)">
+                  </a> <!-- submitWithoutDocument(C1146) -->
+                  <span class="method-name">submitWithoutDocument</span>
+                  <span class="parameters">(C1146)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Afni_testing.budgetApproverFlow</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="budgetApprover(C1146)">
+                  </a> <!-- budgetApprover(C1146) -->
+                  <span class="method-name">budgetApprover</span>
+                  <span class="parameters">(C1146)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="uploadedFileCheck(C1146)">
+                  </a> <!-- uploadedFileCheck(C1146) -->
+                  <span class="method-name">uploadedFileCheck</span>
+                  <span class="parameters">(C1146)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\AC\git\RR_Web_Automation\RR\responseTime.xml</span>
+            <span class="header-content">C:\Users\AC\git\RR_Web_Automation\RR\AfniBudgetRequest.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;ResponseTimeTest&quot;&gt;
-    &lt;parameter name=&quot;corpID&quot; value=&quot;C466&quot;/&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
+    &lt;parameter name=&quot;corpID&quot; value=&quot;C1146&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;genericFlow.ResponseTime&quot;/&gt;
+      &lt;class name=&quot;Afni_testing.budgetRequestFlow&quot;/&gt;
+      &lt;class name=&quot;Afni_testing.budgetApproverFlow&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- ResponseTimeTest --&gt;
+  &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -167,7 +223,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">ResponseTimeTest (1 class)</span>
+                <span class="test-name">Test (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -193,16 +249,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'response_time_test')
-data.setCell(0, 2, 'genericFlow.ResponseTime')
-data.setCell(0, 3, 38278);
+data.setCell(0, 1, 'requestAmount')
+data.setCell(0, 2, 'Afni_testing.budgetRequestFlow')
+data.setCell(0, 3, 8540);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'uploadedFileCheck')
+data.setCell(1, 2, 'Afni_testing.budgetApproverFlow')
+data.setCell(1, 3, 6747);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'submitWithoutDocument')
+data.setCell(2, 2, 'Afni_testing.budgetRequestFlow')
+data.setCell(2, 3, 5567);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'submitWithoutAmount')
+data.setCell(3, 2, 'Afni_testing.budgetRequestFlow')
+data.setCell(3, 3, 3426);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'budgetApprover')
+data.setCell(4, 2, 'Afni_testing.budgetApproverFlow')
+data.setCell(4, 3, 1685);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 38 seconds</span>
+              <span class="suite-total-time">Total running time: 25 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -214,10 +286,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">response_time_test(C466)</span>
+              <span class="reporter-method-name">uploadedFileCheck(C1146)</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><font color="red">Status Code: 200</font></span>
-                <span class="reporter-method-output"><font color="red">Response Time: 700 ms</font></span>
+                <span class="reporter-method-output"><font color="red">Uploaded File URL does not match expected URL.</font></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -235,13 +306,86 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">genericFlow.ResponseTime</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">response_time_test(C466)</span>
+              <div class="chronological-class-name">Afni_testing.budgetRequestFlow</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass(C1146)</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">34751 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">requestAmount(C1146)</span>
+                <span class="method-start">41680 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">50222 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">50239 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">submitWithoutAmount(C1146)</span>
+                <span class="method-start">52206 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">55633 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">55633 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">submitWithoutDocument(C1146)</span>
+                <span class="method-start">62234 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">67802 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">67802 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Afni_testing.budgetApproverFlow</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass(C1146)</span>
+                <span class="method-start">69287 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">91487 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">budgetApprover(C1146)</span>
+                <span class="method-start">95050 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">96738 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">96751 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">uploadedFileCheck(C1146)</span>
+                <span class="method-start">100536 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">107284 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">107284 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

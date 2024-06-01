@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="ResponseTimeTest(failed)">
-    <parameter name="corpID" value="C466"/>
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="corpID" value="C1146"/>
     <classes>
-      <class name="genericFlow.ResponseTime">
+      <class name="Afni_testing.budgetApproverFlow">
         <methods>
-          <include name="response_time_test" invocation-numbers="0"/>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="uploadedFileCheck" invocation-numbers="0"/>
         </methods>
-      </class> <!-- genericFlow.ResponseTime -->
+      </class> <!-- Afni_testing.budgetApproverFlow -->
     </classes>
-  </test> <!-- ResponseTimeTest(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

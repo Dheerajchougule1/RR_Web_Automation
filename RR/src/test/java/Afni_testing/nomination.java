@@ -115,7 +115,7 @@ public class nomination extends Utility_RR {
 	        }
 	        else {
 	        	CustomReporterRed.log("Value statement found", "red");
-	        	fail("Value statement found");
+	        		fail("Value statement found");
 	        }
 	       }	
 	       WebElement submit_button = driver.findElement(By.xpath("//button[@class=\"rounded-lg p-4 w-56 btn submitBtn p1 font-semibold\"]"));

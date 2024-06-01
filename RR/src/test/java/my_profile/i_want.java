@@ -43,7 +43,8 @@ public class i_want extends Utility_RR {
   
   @BeforeMethod
   private void before_Method_Appriciate() throws EncryptedDocumentException, IOException {
-	
+	  
+	  waitForPageLoad();
 	  driver.get(DataRunScript(1, 1)+"in/pages/i_want");
 	  importWait();
   }

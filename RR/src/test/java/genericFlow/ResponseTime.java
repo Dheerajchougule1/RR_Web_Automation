@@ -37,11 +37,11 @@ public class ResponseTime extends Utility_RR{
 	@Test
   public void response_time_test(String corpID) throws EncryptedDocumentException, InterruptedException, AWTException, IOException {
 	  
-	  startBrowser(DataRunScript(2, 1));
+		startBrowser(DataRunScript(2, 1));
 //	  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
 	  
 	  
-	  
+		waitForPageLoad();
 	  	driver.findElement(By.xpath("(//a[@href='/login'])[1]")).click();
 		 Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(DataAppriciateFlow(corpID, 3, 1));

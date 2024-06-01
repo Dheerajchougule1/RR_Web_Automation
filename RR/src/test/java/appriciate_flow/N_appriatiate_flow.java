@@ -62,6 +62,7 @@ public class N_appriatiate_flow extends Utility_RR {
   private void beforeClass(String corpID) throws EncryptedDocumentException, InterruptedException, IOException, AWTException {
 	 
 		  	   startBrowser(DataRunScript(2, 1));
+		  	   waitForPageLoad();
 		  	   newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
   }
   
@@ -286,8 +287,10 @@ public class N_appriatiate_flow extends Utility_RR {
   @Test (priority=3,dependsOnMethods = "AppriateFlowSingle",enabled = true)
   private void LikePositive(String corpID) throws InterruptedException, IOException {
 	  		if(DataAppriciateFlow(corpID, 37, 1).contains("YES")) {
+	  		Thread.sleep(1500);
 	  		ScrollIntoView1(newsFeedId);
-	  		//driver.findElement(By.xpath(corpID))
+	  		Thread.sleep(1500);
+	  		
 	  		driver.findElement(By.xpath("//div[@data_id='"+newsFeedId+"']//div[@class='w-9 relative react_emoji']")).click();
 	  		likeCount = driver.findElement(By.xpath("//div[@data_id='"+newsFeedId+"']//div[@class='react_count cursor-pointer p3']")).getText();
 	  		sa= new SoftAssert();
@@ -415,15 +418,17 @@ public class N_appriatiate_flow extends Utility_RR {
 		  Thread.sleep(1000);
 		  
 		  driver.findElement(By.xpath("//button[@onclick='submitAppreciationHandler()']")).click();
-		  Thread.sleep(1500);
+		  Thread.sleep(2500);
+		
 		 
 		 
 		 
 			 String empAwardError = alert.getText();
 			 sa.assertEquals(empAwardError, DataAppriciateFlow(corpID,60, 1), "validation failed for award not selection");
 			 
-		 sa.assertAll();
+			 sa.assertAll();
 		 	alert.accept();
+		 	waitForPageLoad();
 		  }
 		  else {
 			Reporter.log("No need to test negative case");

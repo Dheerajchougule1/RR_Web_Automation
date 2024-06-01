@@ -38,6 +38,7 @@ public class i_want extends Utility_RR {
 		 
 //		  startBrowser(DataRunScript(2, 1));	
 		  startCrossBrowser(DataRunScript(2, 1), browserName, platformName);
+		  waitForPageLoad();
 		  newui_login(corpID,DataAppriciateFlow(corpID, 3, 1), DataAppriciateFlow(corpID, 3, 2));
 		  
 	  }

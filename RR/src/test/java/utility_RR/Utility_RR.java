@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Authenticator;
 import java.net.MalformedURLException;
@@ -14,6 +15,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -48,7 +50,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
@@ -150,6 +155,8 @@ public class Utility_RR {
 //	        capabilities.setCapability("console", "true");
 	        
 	        ChromeOptions browserOptions = new ChromeOptions();
+	        HashSet<String> ltFiles = new HashSet<>();
+	        ltFiles.add("test_file_budget_request.pdf");
 	        browserOptions.setPlatformName("Windows 11");
 	        browserOptions.setBrowserVersion("123.0");
 	        browserOptions.addArguments("--disable-css-hover-effects");
@@ -157,8 +164,14 @@ public class Utility_RR {
 	        ltOptions.put("username", "dheerajc");	
 	        ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
 	        ltOptions.put("project", "Jenkins Script");
-	        ltOptions.put("build", "JenkinScript");
+	        String buildName1 = System.getProperty("suiteFile");
+	        String buildName = buildName1.replace(".xml", "");
+	       
+	        System.out.println(buildName);
+	        ltOptions.put("build", buildName);
 	        ltOptions.put("w3c", true);
+	        ltOptions.put("lambda:userFiles", ltFiles);
+	        
 	       
 	        browserOptions.setCapability("LT:Options", ltOptions);
 	        
@@ -437,7 +450,7 @@ public class Utility_RR {
 		driver.findElement(By.xpath("//input[@id='user_email']")).sendKeys(username);
 		driver.findElement(By.xpath("//input[@id='user_password']")).sendKeys(password);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		 Robot robot = new Robot();
 		  for (int i = 0; i < 6; i++) {
 				robot.keyPress(KeyEvent.VK_CONTROL);
@@ -856,7 +869,6 @@ public class Utility_RR {
 	 
      }
 	 
-	 
 	 public static Map<String, String> getBackendDataFromApi(String apiUrl, String objectName, int objectNumber, String Payload) throws Exception {
 		 JSONObject payload = new JSONObject(Payload);
 		 	CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -973,6 +985,59 @@ public class Utility_RR {
 	            return false;
 	        }
 	    }
+	 
+	 
+	 public static int generateAmount() throws EncryptedDocumentException, IOException {
+         int col = 3; // Column index (0-based)
+         int row = 70; // Row index (0-based, so this is the 23rd row)
+
+         // Path to the Excel file
+         String filePath = "excel/NominationFlow/Nomination.xlsx";
+
+         int newAmount;
+
+         // Using try-with-resources to ensure the streams are closed properly
+         try (FileInputStream fis = new FileInputStream(filePath);
+              Workbook workbook = WorkbookFactory.create(fis)) {
+
+             Sheet sheet = workbook.getSheet("C1146");
+             if (sheet == null) {
+                 throw new RuntimeException("Sheet 'C1146' doesn't exist.");
+             }
+
+             Row amountRow = sheet.getRow(row);
+             if (amountRow == null) {
+                 throw new RuntimeException("Row " + row + " doesn't exist in the sheet.");
+             }
+
+             Cell cell = amountRow.getCell(col);
+             if (cell == null) {
+                 throw new RuntimeException("Cell " + col + " in row " + row + " doesn't exist.");
+             }
+
+             // Get the current numeric value, increment it, and set the new value
+             int amount = (int) cell.getNumericCellValue();
+             newAmount = amount + 1;
+             cell.setCellValue(newAmount);
+
+             // Writing the updated value back to the Excel file
+             try (FileOutputStream outputStream = new FileOutputStream(filePath)) {
+                 workbook.write(outputStream);
+             }
+         }
+
+         return newAmount;
+     }
+     public static int amount_requested;
+
+     static {
+         try {
+             amount_requested = generateAmount();
+         } catch (EncryptedDocumentException | IOException e) {
+             e.printStackTrace();
+             throw new RuntimeException("Failed to initialize amount_requested", e);
+         }
+     }
 	 	
 	 
 	 
