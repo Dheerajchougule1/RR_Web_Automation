@@ -80,7 +80,7 @@ public class GenericNominationTest1 extends Utility_RR {
 //	 	    	
 	} 
 	    WebDriver driver = Utility_RR.driver;
-		  
+  
 			
 	    public void setDriver(WebDriver driver) {
 	        threadLocalDriver.set(driver);
