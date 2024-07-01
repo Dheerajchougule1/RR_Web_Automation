@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" >
+  <test thread-count="5" name="Reports">
+  <parameter name="corpID" value="C1307"/> 		
+    <classes>
+      <class name="report_section.NewUI_recognition_received_report"/>
+      <class name="report_section.NewUI_appreciation_received_report"/>
+      <class name="report_section.NewUI_budget_utilization_report"/>
+      <class name="report_section.NewUI_credit_transfer_report"/>
+      <class name="report_section.NewUI_login_report"/>
+      <class name="report_section.NewUI_login_session_report"/>
+      <class name="report_section.NewUI_man_to_man_transfer_report"/>
+      <class name="report_section.NewUI_manager_load_report"/>
+      <class name="report_section.NewUI_pending_nomination_report"/>
+      <class name="report_section.NewUI_redemption_report"/>
+      <class name="report_section.NewUI_rejected_nomination_report"/>
+      <class name="report_section.NewUI_stored_value_report"/>
+      <class name="report_section.NewUI_user_report"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+	

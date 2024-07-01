@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="lookup.Lookup">
+      <class name="my_profile.add_gift_card">
         <methods>
           <include name="afterClass"/>
           <include name="afterMethod"/>
-          <include name="lookup_Negative"/>
-          <include name="lookup_Positive"/>
           <include name="beforeClass"/>
-          <include name="beforeMethod"/>
+          <include name="error_message_verification"/>
+          <include name="before_Method_Appriciate"/>
         </methods>
-      </class> <!-- lookup.Lookup -->
+      </class> <!-- my_profile.add_gift_card -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

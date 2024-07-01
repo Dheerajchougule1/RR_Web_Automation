@@ -87,7 +87,8 @@ public class manToManTransfer extends Utility_RR{
 	public void managerTransferInput(String managerName) throws InterruptedException {
 		// Find the search box
 		// Locate the search box
-		WebElement searchBox = driver.findElement(By.id("ManagerTokenField_tokenfield"));
+		
+		WebElement searchBox = driver.findElement(By.xpath("//input[@id='ManagerTokenField_tokenfield']"));
 		searchBox.sendKeys(managerName);
 		Thread.sleep(2000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -107,8 +108,8 @@ public class manToManTransfer extends Utility_RR{
 	  
 	for(WebElement budget : budgets) {
 		WebElement points_element = budget.findElement(By.xpath(".//span[@class='p3 font-medium'][2]"));
-		//budget.click();
-		//Thread.sleep(1000);
+//		budget.click();
+		Thread.sleep(1000);
 		 String points = points_element.getText();
 		 String[] parts = points.split(" ");
 		 double pointsInt = Double.parseDouble(parts[0]);
@@ -116,9 +117,10 @@ public class manToManTransfer extends Utility_RR{
 		 
 		// Thread.sleep(2000);			 
 	    if(pointsInt>0) {
+	    	Thread.sleep(2000);
 			 budget.click();
-			 Thread.sleep(1000);
-			 waitForPageLoad();
+			 Thread.sleep(2500);
+			 
 			 WebElement submitButton = driver.findElement(By.xpath("//button[@class='mt-16 p1 submitButtonGiftToColleague']"));
 			 submitButton.click();
 			 if(alertVerify("Amount can not be blank")) {

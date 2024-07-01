@@ -5,7 +5,7 @@
 	<parameter name="browserName" value="chrome"/>
 	<parameter name="platformName" value="Windows 10"/>
   <parameter name="corpID" value="C1307"/>
-    <classes>
+    <classes>	
       <class name="my_profile.add_gift_card"/>
       <class name="my_profile.my_profile_page"/>
       <class name="my_profile.my_wallets2"/>

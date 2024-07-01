@@ -52,7 +52,7 @@ public class ResponseTime extends Utility_RR{
 	  
 	 
 	  
-	  String apiUrl = DataRunScript(8, 7)+"api/v1/newsfeeds";
+	  String apiUrl = DataRunScript(8, 7)+"api/v1/newsfeeds";		
 
       // Create an instance of CloseableHttpClient
       try (CloseableHttpClient httpClient = HttpClients.createDefault()) {

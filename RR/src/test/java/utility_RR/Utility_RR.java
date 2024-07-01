@@ -13,6 +13,7 @@ import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -101,7 +102,7 @@ public class Utility_RR {
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_RED = "\u001B[31m";
 
-	
+		
 	 protected String username= "dheerajc"; 
 	 protected String accesskey= "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt";
 	 protected static WebDriver driver=null;
@@ -109,6 +110,10 @@ public class Utility_RR {
      String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
     protected DesiredCapabilities capabilities;
+    protected ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
+    protected List<WebDriver> drivers = new ArrayList<>();
+    
+    
 	
 
 				
@@ -856,7 +861,7 @@ public class Utility_RR {
 	        
 	        // Continue with your test after all AJAX requests are completed
 	        System.out.println("No pending AJAX requests. Proceeding with the test...");
-		
+	
 	}
 	 
 	 public class CustomReporterRed {
@@ -1040,5 +1045,60 @@ public class Utility_RR {
      }
 	 	
 	 
+     public void multiSessionTest(String corpID,String instanceName1) throws EncryptedDocumentException, IOException {
+         
+         String username = "dheerajc";
+         String accessKey = "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt";
+         String hubURL = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
+
+           ChromeOptions browserOptions = new ChromeOptions();
+           browserOptions.setPlatformName("Windows 11");
+           browserOptions.setBrowserVersion("123.0");
+           browserOptions.addArguments("--disable-css-hover-effects");
+           HashMap<String, Object> ltOptions = new HashMap<>();
+            ltOptions.put("username", "dheerajc");    
+         ltOptions.put("accessKey", "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt");
+         ltOptions.put("project", "Jenkins Script");
+         ltOptions.put("build", "JenkinScript");
+            ltOptions.put("w3c", true);
+//           browserOptions.setCapability("LT:Options", ltOptions);
+//
+//           driver1 = new RemoteWebDriver(new URL(hubURL), browserOptions);
+//           driver2 = new RemoteWebDriver(new URL(hubURL), browserOptions);
+            Double driverCount = DataGenericNominationFlowNum(corpID, 1, 1);
+            
+          
+            
+
+         WebDriverManager.chromedriver().setup();
+         ChromeOptions options = new ChromeOptions();
+         
+         
+         for (int i = 0; i < driverCount; i++) {
+             driver = new ChromeDriver(options);
+             driver.get(instanceName1);
+             driver.manage().window().maximize();
+             drivers.add(driver);
+             System.out.println("Driver " + i + " initialized: " + driver);
+             System.out.println("Driver " + i + " current URL: " + driver.getCurrentUrl());
+         }
+           
+     }
+     
+     public String DataGenericNominationFlow(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+         FileInputStream giveAwardFlow = new FileInputStream("excel/NominationFlow/GenericNomination.xlsx");    
+         Sheet Mysheet2 = WorkbookFactory.create(giveAwardFlow).getSheet(corp);    
+         String value = Mysheet2.getRow(rowIndex).getCell(columnIndex).getStringCellValue();    
+         return value;
+         
+     }
+     
+     public Double DataGenericNominationFlowNum(String corp  ,int rowIndex,int columnIndex) throws EncryptedDocumentException, IOException {
+         FileInputStream run_script = new FileInputStream("excel/NominationFlow/GenericNomination.xlsx");    
+         Sheet Mysheet = WorkbookFactory.create(run_script).getSheet(corp);    
+         Double value = Mysheet.getRow(rowIndex).getCell(columnIndex).getNumericCellValue();
+         return value;
+         
+     }
 	 
 }

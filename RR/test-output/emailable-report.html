@@ -8,15 +8,69 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">108,343</td><td></td><td></td></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">55</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">Afni_testing.budgetApproverFlow</td><td><a href="#m0">budgetApprover</a></td><td rowspan="1">1717149930409</td><td rowspan="1">1685</td></tr><tr class="passedeven"><td><a href="#m1">uploadedFileCheck</a></td><td rowspan="1">1717149935895</td><td rowspan="1">6747</td></tr><tr class="passedodd"><td rowspan="3">Afni_testing.budgetRequestFlow</td><td><a href="#m2">requestAmount</a></td><td rowspan="1">1717149877039</td><td rowspan="1">8540</td></tr><tr class="passedodd"><td><a href="#m3">submitWithoutAmount</a></td><td rowspan="1">1717149887565</td><td rowspan="1">3426</td></tr><tr class="passedodd"><td><a href="#m4">submitWithoutDocument</a></td><td rowspan="1">1717149897593</td><td rowspan="1">5567</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">my_profile.add_gift_card</td><td><a href="#m0">beforeClass</a></td><td rowspan="1">1719810522450</td><td rowspan="1">-1719810522450</td></tr><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">my_profile.add_gift_card</td><td><a href="#m1">error_message_verification</a></td><td rowspan="1">1719810522468</td><td rowspan="1">0</td></tr><tr><th colspan="4">Default test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">my_profile.add_gift_card</td><td><a href="#m2">afterClass</a></td><td rowspan="1">1719810522475</td><td rowspan="1">0</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">Afni_testing.budgetApproverFlow#budgetApprover</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Afni_testing.budgetApproverFlow#uploadedFileCheck</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages"><font color="red">Uploaded File URL does not match expected URL.</font></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Afni_testing.budgetRequestFlow#requestAmount</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Afni_testing.budgetRequestFlow#submitWithoutAmount</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">Afni_testing.budgetRequestFlow#submitWithoutDocument</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>C1146</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">my_profile.add_gift_card#beforeClass</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.TestNGException: 
+Parameter &apos;corpID&apos; is required by BeforeClass on method beforeClass but has not been marked @Optional or defined
+in C:\Users\AC\AppData\Local\Temp\testng-eclipse--2023034602\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:267)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:355)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:660)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:166)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:300)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">my_profile.add_gift_card#error_message_verification</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.TestNGException: 
+Parameter &apos;corpID&apos; is required by @Test on method error_message_verification but has not been marked @Optional or defined
+in C:\Users\AC\AppData\Local\Temp\testng-eclipse--2023034602\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:267)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:355)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:660)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:856)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:704)
+	at org.testng.internal.invokers.ParameterHandler.handleParameters(ParameterHandler.java:70)
+	at org.testng.internal.invokers.ParameterHandler.createParameters(ParameterHandler.java:49)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:882)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:192)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:808)
+	at org.testng.TestRunner.run(TestRunner.java:603)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.runSuites(TestNG.java:1092)
+	at org.testng.TestNG.run(TestNG.java:1060)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">my_profile.add_gift_card#afterClass</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

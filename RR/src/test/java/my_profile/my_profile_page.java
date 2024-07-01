@@ -120,7 +120,7 @@ public class my_profile_page extends Utility_RR {
  	   importWait();
  	   
  	   driver.findElement(By.xpath("//img[@class='myprofile_edit_profile_pen']")).click();
- 	   
+ 	   Thread.sleep(1500);
  	   driver.findElement(By.xpath("//button[@class='MyProfile_discard__BOo3z']")).click();
  	  waitForPageLoad();
  	   
