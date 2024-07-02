@@ -4,7 +4,7 @@
   <test thread-count="5" name="Test">
 	<parameter name="corpID" value="C1307"/>
 	<classes>
-    <class name="Afni_testing.GenericNominationTest1"/>  
+    <class name="Afni_testing.genericNominationFlow1"/>  
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

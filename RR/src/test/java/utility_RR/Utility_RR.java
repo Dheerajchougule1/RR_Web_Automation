@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.Authenticator;
+
 import java.net.MalformedURLException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
@@ -110,8 +110,13 @@ public class Utility_RR {
      String gridURL = "@hub.lambdatest.com/wd/hub";
     boolean status = false;
     protected DesiredCapabilities capabilities;
+    
+    
     protected ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
     protected List<WebDriver> drivers = new ArrayList<>();
+    public String NominationBudget_name;
+    public String Nominationaward_name;
+
     
     
 	
@@ -1047,6 +1052,8 @@ public class Utility_RR {
 	 
      public void multiSessionTest(String corpID,String instanceName1) throws EncryptedDocumentException, IOException {
          
+    	 Double driverCount = DataGenericNominationFlowNum(corpID, 1, 1);
+    	 if(DataRunScript(5, 1).contains("lambda")) {
          String username = "dheerajc";
          String accessKey = "Ov10dY7ZKURRQlLaw3GzQnqApPhSf5SmKTjmtFXuOph6guPsXt";
          String hubURL = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
@@ -1065,23 +1072,35 @@ public class Utility_RR {
 //
 //           driver1 = new RemoteWebDriver(new URL(hubURL), browserOptions);
 //           driver2 = new RemoteWebDriver(new URL(hubURL), browserOptions);
-            Double driverCount = DataGenericNominationFlowNum(corpID, 1, 1);
+            for (int i = 0; i < driverCount; i++) {
+                driver = new RemoteWebDriver(new URL(hubURL), browserOptions);
+                driver.get(instanceName1);
+                driver.manage().window().maximize();
+                drivers.add(driver);
+                System.out.println("Driver " + i + " initialized: " + driver);
+                System.out.println("Driver " + i + " current URL: " + driver.getCurrentUrl());
+            }  
             
-          
             
+            
+    	 }
+    	 else if (DataRunScript(5, 1).contains("local"))
+    	 {            
 
          WebDriverManager.chromedriver().setup();
          ChromeOptions options = new ChromeOptions();
          
          
          for (int i = 0; i < driverCount; i++) {
-             driver = new ChromeDriver(options);
+        	 options.addArguments("--incognito");
+        	 driver = new ChromeDriver(options);
              driver.get(instanceName1);
              driver.manage().window().maximize();
              drivers.add(driver);
              System.out.println("Driver " + i + " initialized: " + driver);
              System.out.println("Driver " + i + " current URL: " + driver.getCurrentUrl());
          }
+    	 }
            
      }
      
@@ -1100,5 +1119,40 @@ public class Utility_RR {
          return value;
          
      }
+     
+     public void nominationInput(String nominee) throws InterruptedException {
+         
+         WebElement searchBox = driver.findElement(By.xpath("(//input[@class='w-full p-5 rounded-lg inputField p3'])[1]"));
+         searchBox.sendKeys(nominee);
+         Thread.sleep(2000);
+         act = new Actions(driver);
+         act.sendKeys(Keys.chord(Keys.ARROW_DOWN)).build().perform();
+         act.sendKeys(Keys.chord(Keys.ENTER)).build().perform();
+         Thread.sleep(1000);
+     }
+ 
+  public void nominateBudgetSelect(Double award) throws InterruptedException {
+         String AwardNum1 = award.toString();
+         //driver.findElement(By.xpath("(//div[@class='slick-track'])["+AwardNum1+"]")).click();
+         WebElement budget = driver.findElement(By.xpath("//div[@id='budget']//div[@data-index="+AwardNum1+"]"));
+         budget.click();    
+         WebElement Bname = driver.findElement(By.xpath("//div[@id='budget']//div[@data-index="+AwardNum1+"]//span[@class=\"p3 font-medium\"]"));
+         NominationBudget_name = Bname.getText();
+         System.out.println(NominationBudget_name);
+         //App_budget_name = driver.findElement(By.xpath("//ul[@class='selectBudgetSliderContainer']//li["+AwardNum1+"]//div[1]")).getText();
+         Thread.sleep(1000);
+     }
+   public void nominateAwardSelect(Double award) throws InterruptedException {
+         String AwardNum = award.toString();
+         
+         WebElement Award = driver.findElement(By.xpath("//div[@id='awardSlider']//div[@data-index="+AwardNum+"]"));
+         Award.click();    
+         WebElement Aname = driver.findElement(By.xpath("//div[@id='awardSlider']//div[@data-index="+AwardNum+"]//span[@class='p3 font-medium']"));
+         Nominationaward_name = Aname.getText();
+         //App_award_name = driver.findElement(By.xpath("//ul[@class='slides slides-select-award']//li["+AwardNum+"]//div[1]")).getText();
+         Thread.sleep(1000);
+     }
+   
+  
 	 
 }

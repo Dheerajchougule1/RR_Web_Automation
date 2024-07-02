@@ -2,62 +2,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="corpID" value="C1218"/>
-    <parameter name="browserName" value="chrome"/>
-    <parameter name="platformName" value="Windows 10"/>
+    <parameter name="corpID" value="C1307"/>
     <classes>
-      <class name="my_profile.i_want">
+      <class name="Afni_testing.genericNominationFlow1">
         <methods>
-          <include name="verify_label_all_label_name" invocation-numbers="0"/>
-          <include name="before_Method_Appriciate"/>
-          <include name="beforeClass"/>
-          <include name="error_message_verification" invocation-numbers="0"/>
-          <include name="afterClass"/>
+          <include name="budgetDeductorAmountVerification"/>
+          <include name="nomineeAmountVerification"/>
           <include name="afterMethod"/>
-        </methods>
-      </class> <!-- my_profile.i_want -->
-      <class name="my_profile.add_gift_card">
-        <methods>
-          <include name="afterClass"/>
-          <include name="afterMethod"/>
+          <include name="checkEntriesAfterApproval"/>
           <include name="beforeClass"/>
-          <include name="error_message_verification" invocation-numbers="0"/>
-          <include name="before_Method_Appriciate"/>
-        </methods>
-      </class> <!-- my_profile.add_gift_card -->
-      <class name="my_profile.add_wallet_points">
-        <methods>
-          <include name="beforeClass"/>
-          <include name="before_Method_Appriciate"/>
-          <include name="wallet_balance_verification" invocation-numbers="0"/>
-          <include name="error_rajorpay_verification" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
           <include name="afterClass"/>
-          <include name="error_amount_verification" invocation-numbers="0"/>
-          <include name="afterMethod"/>
+          <include name="approverTasks"/>
+          <include name="checkPendingNominationEntries"/>
         </methods>
-      </class> <!-- my_profile.add_wallet_points -->
-      <class name="my_profile.my_profile_page">
-        <methods>
-          <include name="beforeClass"/>
-          <include name="profile_appreciated_list_Verification" invocation-numbers="0"/>
-          <include name="profile_pic_Verification" invocation-numbers="0"/>
-          <include name="profile_awarded_list_Verification" invocation-numbers="0"/>
-          <include name="profile_info_edit_Verification" invocation-numbers="0"/>
-          <include name="profile_wallet_verification" invocation-numbers="0"/>
-          <include name="before_Method_Appriciate"/>
-          <include name="afterClass"/>
-          <include name="afterMethod"/>
-        </methods>
-      </class> <!-- my_profile.my_profile_page -->
-      <class name="my_profile.my_wallets2">
-        <methods>
-          <include name="beforeMethod1"/>
-          <include name="beforeClass"/>
-          <include name="wallet_count" invocation-numbers="0"/>
-          <include name="afterMethod1"/>
-          <include name="afterClass"/>
-        </methods>
-      </class> <!-- my_profile.my_wallets2 -->
+      </class> <!-- Afni_testing.genericNominationFlow1 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

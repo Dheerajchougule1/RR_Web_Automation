@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="2" passed="0" failed="1" skipped="0">
+<testng-results ignored="1" total="6" passed="0" failed="0" skipped="5">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-01T10:38:42 IST" name="Default suite" finished-at="2024-07-01T10:38:42 IST" duration-ms="55">
+  <suite started-at="2024-07-02T00:16:08 IST" name="Suite" finished-at="2024-07-02T00:21:21 IST" duration-ms="312187">
     <groups>
     </groups>
-    <test started-at="2024-07-01T10:38:42 IST" name="Default test" finished-at="2024-07-01T10:38:42 IST" duration-ms="55">
-      <class name="my_profile.add_gift_card">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:my_profile.add_gift_card@63648ee9]" started-at="2024-07-01T10:38:42 IST" name="beforeClass" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1719810522450" status="FAIL">
-          <exception class="org.testng.TestNGException">
+    <test started-at="2024-07-02T00:16:08 IST" name="Test" finished-at="2024-07-02T00:21:21 IST" duration-ms="312187">
+      <class name="Afni_testing.genericNominationFlow1">
+        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:16:08 IST" name="beforeClass" finished-at="2024-07-02T00:21:16 IST" duration-ms="307466" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C1307]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[
-Parameter 'corpID' is required by BeforeClass on method beforeClass but has not been marked @Optional or defined
-in C:\Users\AC\AppData\Local\Temp\testng-eclipse--2023034602\testng-customsuite.xml]]>
+              <![CDATA[java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'corpID' is required by BeforeClass on method beforeClass but has not been marked @Optional or defined
-in C:\Users\AC\AppData\Local\Temp\testng-eclipse--2023034602\testng-customsuite.xml
-at org.testng.internal.Parameters.createParams(Parameters.java:267)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:355)
-at org.testng.internal.Parameters.createParameters(Parameters.java:660)
-at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:166)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:300)
+              <![CDATA[org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+at utility_RR.Utility_RR.multiSessionTest(Utility_RR.java:1097)
+at Afni_testing.genericNominationFlow1.beforeClass(genericNominationFlow1.java:102)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
 at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
 at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
@@ -41,34 +70,68 @@ at org.testng.TestNG.run(TestNG.java:1060)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.util.concurrent.TimeoutException
+at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
+... 36 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="error_message_verification(java.lang.String)[pri:304, instance:my_profile.add_gift_card@63648ee9]" started-at="2024-07-01T10:38:42 IST" name="error_message_verification" finished-at="2024-07-01T10:38:42 IST" duration-ms="0" status="FAIL">
-          <exception class="org.testng.TestNGException">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="beforeMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="nomineeAmountVerification(java.lang.String)[pri:3, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="nomineeAmountVerification" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C1307]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[
-Parameter 'corpID' is required by @Test on method error_message_verification but has not been marked @Optional or defined
-in C:\Users\AC\AppData\Local\Temp\testng-eclipse--2023034602\testng-customsuite.xml]]>
+              <![CDATA[java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Parameter 'corpID' is required by @Test on method error_message_verification but has not been marked @Optional or defined
-in C:\Users\AC\AppData\Local\Temp\testng-eclipse--2023034602\testng-customsuite.xml
-at org.testng.internal.Parameters.createParams(Parameters.java:267)
-at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:355)
-at org.testng.internal.Parameters.createParameters(Parameters.java:660)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:856)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:704)
-at org.testng.internal.invokers.ParameterHandler.handleParameters(ParameterHandler.java:70)
-at org.testng.internal.invokers.ParameterHandler.createParameters(ParameterHandler.java:49)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:882)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:192)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+              <![CDATA[org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+at utility_RR.Utility_RR.multiSessionTest(Utility_RR.java:1097)
+at Afni_testing.genericNominationFlow1.beforeClass(genericNominationFlow1.java:102)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 at org.testng.TestRunner.privateRun(TestRunner.java:808)
 at org.testng.TestRunner.run(TestRunner.java:603)
@@ -85,17 +148,354 @@ at org.testng.TestNG.run(TestNG.java:1060)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.util.concurrent.TimeoutException
+at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
+... 36 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- error_message_verification -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:my_profile.add_gift_card@63648ee9]" started-at="2024-07-01T10:38:42 IST" name="afterClass" finished-at="2024-07-01T10:38:42 IST" duration-ms="0" status="SKIP">
+        </test-method> <!-- nomineeAmountVerification -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="afterMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="beforeMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="budgetDeductorAmountVerification(java.lang.String)[pri:4, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="budgetDeductorAmountVerification" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C1307]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+at utility_RR.Utility_RR.multiSessionTest(Utility_RR.java:1097)
+at Afni_testing.genericNominationFlow1.beforeClass(genericNominationFlow1.java:102)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:808)
+at org.testng.TestRunner.run(TestRunner.java:603)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+at org.testng.TestNG.runSuites(TestNG.java:1092)
+at org.testng.TestNG.run(TestNG.java:1060)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.util.concurrent.TimeoutException
+at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- budgetDeductorAmountVerification -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="afterMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="beforeMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="checkPendingNominationEntries(java.lang.String)[pri:5, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="checkPendingNominationEntries" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C1307]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+at utility_RR.Utility_RR.multiSessionTest(Utility_RR.java:1097)
+at Afni_testing.genericNominationFlow1.beforeClass(genericNominationFlow1.java:102)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:808)
+at org.testng.TestRunner.run(TestRunner.java:603)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+at org.testng.TestNG.runSuites(TestNG.java:1092)
+at org.testng.TestNG.run(TestNG.java:1060)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.util.concurrent.TimeoutException
+at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkPendingNominationEntries -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="afterMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="beforeMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="approverTasks(java.lang.String)[pri:6, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="approverTasks" finished-at="2024-07-02T00:21:20 IST" duration-ms="45" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C1307]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+at utility_RR.Utility_RR.multiSessionTest(Utility_RR.java:1097)
+at Afni_testing.genericNominationFlow1.beforeClass(genericNominationFlow1.java:102)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:808)
+at org.testng.TestRunner.run(TestRunner.java:603)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+at org.testng.TestNG.runSuites(TestNG.java:1092)
+at org.testng.TestNG.run(TestNG.java:1060)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.util.concurrent.TimeoutException
+at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- approverTasks -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="afterMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="beforeMethod" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="checkEntriesAfterApproval(java.lang.String)[pri:7, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:20 IST" name="checkEntriesAfterApproval" finished-at="2024-07-02T00:21:20 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[C1307]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: java.util.concurrent.TimeoutException
+Build info: version: '4.16.0', revision: '15400459dd*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40c69b93ebbc4127ff9b4cbf9bd734bf, get {url=https://www.advantageclub.ai/}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.127, chrome: {chromedriverVersion: 126.0.6478.126 (d36ace6122e..., userDataDir: C:\Users\AC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 126.0.6478.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c69b93ebbc4127ff9b4cbf9bd734bf
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:402)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute(JdkHttpClient.java:358)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:188)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
+at utility_RR.Utility_RR.multiSessionTest(Utility_RR.java:1097)
+at Afni_testing.genericNominationFlow1.beforeClass(genericNominationFlow1.java:102)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:136)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:65)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:381)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:319)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:808)
+at org.testng.TestRunner.run(TestRunner.java:603)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+at org.testng.TestNG.runSuites(TestNG.java:1092)
+at org.testng.TestNG.run(TestNG.java:1060)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.util.concurrent.TimeoutException
+at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:385)
+... 36 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkEntriesAfterApproval -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:21 IST" name="afterMethod" finished-at="2024-07-02T00:21:21 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:Afni_testing.genericNominationFlow1@21005f6c]" started-at="2024-07-02T00:21:21 IST" name="afterClass" finished-at="2024-07-02T00:21:21 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- my_profile.add_gift_card -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- Afni_testing.genericNominationFlow1 -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
